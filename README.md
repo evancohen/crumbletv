@@ -1,4 +1,10 @@
 cookstream
 ==========
+[todo]
+#Server
+##Server Things
+Yeah
 
-Web client, server. todo
+#Web Client
+##Web Things
+Oh yeah
