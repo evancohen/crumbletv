@@ -1,10 +1,8 @@
-cookstream
-==========
-[todo]
-#Server
-##Server Things
-Yeah
+#Splash Page
+Hosted on GitHub Pages
 
-#Web Client
-##Web Things
-Oh yeah
+Currently there are only 2 files:
+* index.html
+**our splash page
+* CNAME
+** this should not be modified!
