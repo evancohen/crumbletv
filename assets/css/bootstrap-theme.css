@@ -351,12 +351,16 @@ body{
 }
 .title{
   font-size: 64px;
+  margin-bottom: 24px;
 }
 
 .container-inner{
   background: #B22500;
   padding:15px;
   height: 100%
+}
+.pitch{
+  margin-bottom: 24px;
 }
 form .sign-up{
   width:300px;
