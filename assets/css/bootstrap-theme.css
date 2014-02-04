@@ -348,9 +348,10 @@
 body{
   background: #FF4919;
   color: #ffffff;
+  font-family: 'Oleo Script', cursive;
 }
 .title{
-  font-size: 64px;
+  font-size: 85px;
   margin-bottom: 24px;
 }
 
@@ -359,9 +360,12 @@ body{
   padding:15px;
   height: 100%
 }
+
 .pitch{
   margin-bottom: 24px;
+  font-size: 28px;
 }
+
 form .sign-up{
   width:300px;
   margin: auto;
