@@ -390,14 +390,16 @@ html, body {
 }
 
 .wrapper {
-  min-height: 99%; /*Had to make this and height 99 because of some other overflowing element*/
+  min-height: 100%; /*Had to make this and height 99 because of some other overflowing element*/
   height: auto !important;
-  height: 99%;
+  height: 100%;
   margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
+  position: relative;
+  top: -15px;
 }
 
 .footer, .push {
-  height: 100px; /* .push must be the same height as .footer */
+  height: 95px; /* .push must be the same height as .footer */
 }
 
 .footer{
