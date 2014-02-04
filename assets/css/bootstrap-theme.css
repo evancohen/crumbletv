@@ -356,6 +356,7 @@ body{
 .container-inner{
   background: #B22500;
   padding:15px;
+  height: 100%
 }
 form .sign-up{
   width:300px;
