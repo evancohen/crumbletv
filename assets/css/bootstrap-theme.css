@@ -371,3 +371,31 @@ form .sign-up{
   margin: auto;
   margin-bottom:10px;
 }
+
+/*sticky footer*/
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.footer, .push {
+  height: 150px; /* .push must be the same height as .footer */
+}
+
+.footer{
+  padding-top: 15px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.footer a{
+  color: #00B27A;
+  font-weight: bolder;
+}
