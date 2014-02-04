@@ -353,6 +353,7 @@ body{
 .title{
   font-size: 85px;
   margin-bottom: 24px;
+  text-shadow: -4px -4px #FF4919
 }
 
 .container-inner{
@@ -364,6 +365,14 @@ body{
 .pitch{
   margin-bottom: 24px;
   font-size: 28px;
+}
+
+.pitch>:first-child{
+  margin-bottom: 0px;
+}
+
+.form-desc{
+  font-size: 42px;
 }
 
 form .sign-up{
@@ -379,11 +388,12 @@ form .sign-up{
 html, body {
   height: 100%;
 }
+
 .wrapper {
-  min-height: 100%;
+  min-height: 99%; /*Had to make this and height 99 because of some other overflowing element*/
   height: auto !important;
-  height: 100%;
-  margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
+  height: 99%;
+  margin: 0 auto -150px; /* the bottom margin is the negative value of the footer's height */
 }
 
 .footer, .push {
@@ -398,4 +408,13 @@ html, body {
 .footer a{
   color: #00B27A;
   font-weight: bolder;
+}
+
+.btn-subscribe{
+  width: 180px;
+}
+
+/*this is an ugly fix, try to find something better*/
+#mce-email{
+  max-width: 96%;
 }
