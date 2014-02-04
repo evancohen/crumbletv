@@ -346,18 +346,18 @@
 }
 /*# sourceMappingURL=bootstrap-theme.css.map */
 body{
-  background: #FF4919;
+  background: #CEC8C7;
   color: #ffffff;
   font-family: 'Oleo Script', cursive;
 }
 .title{
   font-size: 85px;
   margin-bottom: 24px;
-  text-shadow: -4px -4px #FF4919
+  text-shadow: -4px -4px #CEC8C7
 }
 
 .container-inner{
-  background: #B22500;
+  background: #E35D08;
   padding:15px;
   height: 100%
 }
@@ -406,12 +406,58 @@ html, body {
 }
 
 .footer a{
-  color: #00B27A;
+  color: #08DCE3;
   font-weight: bolder;
 }
 
 .btn-subscribe{
   width: 180px;
+}
+
+.btn-subscribe { 
+  color: #ffffff; 
+  background-color: #059296; 
+  border-color: #059296; 
+} 
+ 
+.btn-subscribe:hover, 
+.btn-subscribe:focus, 
+.btn-subscribe:active, 
+.btn-subscribe.active, 
+.open .dropdown-toggle.btn-subscribe { 
+  color: #ffffff; 
+  background-color: #01767A; 
+  border-color: #059296; 
+} 
+ 
+.btn-subscribe:active, 
+.btn-subscribe.active, 
+.open .dropdown-toggle.btn-subscribe { 
+  background-image: none; 
+} 
+ 
+.btn-subscribe.disabled, 
+.btn-subscribe[disabled], 
+fieldset[disabled] .btn-subscribe, 
+.btn-subscribe.disabled:hover, 
+.btn-subscribe[disabled]:hover, 
+fieldset[disabled] .btn-subscribe:hover, 
+.btn-subscribe.disabled:focus, 
+.btn-subscribe[disabled]:focus, 
+fieldset[disabled] .btn-subscribe:focus, 
+.btn-subscribe.disabled:active, 
+.btn-subscribe[disabled]:active, 
+fieldset[disabled] .btn-subscribe:active, 
+.btn-subscribe.disabled.active, 
+.btn-subscribe[disabled].active, 
+fieldset[disabled] .btn-subscribe.active { 
+  background-color: #059296; 
+  border-color: #059296; 
+} 
+ 
+.btn-subscribe .badge { 
+  color: #059296; 
+  background-color: #ffffff; 
 }
 
 /*this is an ugly fix, try to find something better*/
