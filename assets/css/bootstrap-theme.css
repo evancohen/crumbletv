@@ -389,12 +389,13 @@ form .sign-up{
 }
 
 .footer{
+  color: #777;
   padding-top: 15px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .footer a{
-  color: #08DCE3;
+  color: #777;
   font-weight: bolder;
 }
 
