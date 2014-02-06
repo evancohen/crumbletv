@@ -357,17 +357,17 @@ body{
   padding-top:30px;
 }
 
-.title{
-  font-size: 85px;
-  margin-bottom: 24px;
+h1.title{
+  font-size: 115px;
+  margin-bottom: 10px;
   text-shadow: -3px -2px #CEC8C7;
 }
 
-/*@media (min-width: 375px) {
-  title {
-    font-size: 75px;
+@media (max-width: 440px) {
+  h1.title {
+    font-size: 70px;
   }
-}*/
+}
 
 .container-inner{
   background: #E35D08;
