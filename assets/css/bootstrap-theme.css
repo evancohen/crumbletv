@@ -356,11 +356,18 @@ body{
   padding: 0px;
   padding-top:30px;
 }
+
 .title{
   font-size: 85px;
   margin-bottom: 24px;
   text-shadow: -3px -2px #CEC8C7;
 }
+
+/*@media (min-width: 375px) {
+  title {
+    font-size: 75px;
+  }
+}*/
 
 .container-inner{
   background: #E35D08;
@@ -383,7 +390,7 @@ body{
 }
 
 form .sign-up{
-  width:300px;
+  max-width: 300px;
   margin: auto;
   margin-bottom:10px;
 }
@@ -397,6 +404,15 @@ form .sign-up{
 .footer a{
   color: #777;
   font-weight: bolder;
+}
+
+p.survey a{
+  color: blueviolet;
+  font-weight: bold;
+}
+p.survey{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
 }
 
 .btn-subscribe{
@@ -447,9 +463,4 @@ fieldset[disabled] .btn-subscribe.active {
 .btn-subscribe .badge { 
   color: #059296; 
   background-color: #ffffff; 
-}
-
-/*this is an ugly fix, try to find something better*/
-#mce-email{
-  max-width: 96%;
 }
