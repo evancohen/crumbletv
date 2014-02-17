@@ -1,12 +1,16 @@
+/// <reference path="../bower_components/dt-angular/angular.d.ts" />
+
 'use strict';
 
-angular.module('cookWebClientApp', [
+// TODO: proper heading.
+declare var swfobject: any;
+
+angular.module('basilApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
   'ngRoute'
-])
-  .config(function ($routeProvider) {
+]).config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -15,4 +19,4 @@ angular.module('cookWebClientApp', [
       .otherwise({
         redirectTo: '/'
       });
-  });
+  });;

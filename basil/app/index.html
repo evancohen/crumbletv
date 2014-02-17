@@ -12,7 +12,6 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
@@ -20,12 +19,10 @@
     <!-- endbuild -->
 
     <!-- Libraries -->
-    <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/swfobject/2.2/swfobject.min.js'></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css" />
     <!-- End Libraries -->
-
-
   </head>
-  <body ng-app="cookWebClientApp">
+  <body ng-app="basilApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -33,9 +30,10 @@
     <!-- Add your site or application content here -->
     <div class="container" ng-view=""></div>
 
+    <!--<div class="container" ng-include="'views/main.html'" ng-controller="MainCtrl"></div>-->
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
-      <!-- TODO: Google Analytics 
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -43,7 +41,6 @@
 
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
-      -->
     </script>
 
     <!--[if lt IE 9]>
@@ -53,30 +50,29 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/sass-bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
+
+
+    <!-- Libraries -->
+
+    <!-- TODO: Is jQuery Necessary? -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+
+    <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/swfobject/2.2/swfobject.min.js'></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-resource.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-cookies.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-sanitize.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-route.min.js"></script>
+    <!-- End Libraries -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <!-- endbuild -->
-
-    <!-- Libraries -->
-
-
-    <script type='text/javascript'>var flashvars = {src: 'rtmp%3A//162.243.130.104/flvplayback',autostart: 'true',themeColor: '0395d3',mode: 'sidebyside',scaleMode: 'fit',frameColor: '333333',fontColor: 'cccccc',link: '',embed: ''};var params = {allowFullScreen: 'true'};var attributes = {id: 'myPlayer',name: 'myPlayer'};swfobject.embedSWF('/static/openVideoPlayer/AkamaiFlashPlayer.swf', 'myPlayerGoesHere', '774', '469', '9.0.0', '/static/swfObject/expressInstall.swf', flashvars, params, attributes);
-    </script>
-    <div id='myPlayerGoesHere'><a href='http://www.adobe.com/go/getflashplayer'><img src='http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a></div>
-
-
-    <!-- End Libraries -->
 
 </body>
 </html>

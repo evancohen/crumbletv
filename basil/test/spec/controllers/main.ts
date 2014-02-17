@@ -7,10 +7,10 @@
 describe('Controller: MainCtrl', () => {
 
   // load the controller's module
-  beforeEach(module('cookWebClientApp'));
+  beforeEach(module('basilApp'));
 
-  var MainCtrl: cookWebClientApp.MainCtrl,
-    scope: cookWebClientApp.IMainScope;
+  var MainCtrl: basilApp.MainCtrl,
+    scope: basilApp.IMainScope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(($controller: ng.IControllerService, $rootScope: ng.IRootScopeService) => {

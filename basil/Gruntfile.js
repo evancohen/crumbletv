@@ -1,4 +1,4 @@
-// Generated on 2014-02-16 using generator-angular 0.7.1
+// Generated on 2014-02-17 using generator-angular 0.7.1
 'use strict';
 
 // # Globbing
@@ -27,20 +27,17 @@ module.exports = function (grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
-      js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
-        options: {
-          livereload: true
-        }
+      typescript: {
+        files: ['<%= yeoman.app %>/scripts/{,*/}*.ts'],
+        tasks: ['typescript:base']
       },
-      jsTest: {
-        files: ['test/spec/{,*/}*.js'],
-        tasks: ['newer:jshint:test', 'karma']
+      typescriptTest: {
+        files: ['test/spec/{,*/}*.ts'],
+        tasks: ['typescript:test', 'karma']
       },
-      compass: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'autoprefixer']
+      styles: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
+        tasks: ['newer:copy:styles', 'autoprefixer']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -52,6 +49,7 @@ module.exports = function (grunt) {
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
+          '.tmp/scripts/{,*/}*.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
@@ -98,15 +96,8 @@ module.exports = function (grunt) {
         reporter: require('jshint-stylish')
       },
       all: [
-        'Gruntfile.js',
-        '<%= yeoman.app %>/scripts/{,*/}*.js'
-      ],
-      test: {
-        options: {
-          jshintrc: 'test/.jshintrc'
-        },
-        src: ['test/spec/{,*/}*.js']
-      }
+        'Gruntfile.js'
+      ]
     },
 
     // Empties folders to start fresh
@@ -148,39 +139,35 @@ module.exports = function (grunt) {
     },
 
 
+    // Compiles TypeScript to JavaScript
+    typescript: {
+      base: {
+        src: ['<%= yeoman.app %>/scripts/{,*/}*.ts'],
+        dest: '.tmp/scripts',
+        options: {
+          module: 'amd', //or commonjs
+          target: 'es5', //or es3
+          'base_path': '<%= yeoman.app %>/scripts', //quoting base_path to get around jshint warning.
+          sourcemap: true,
+          declaration: true
+        }
+      },
+      test: {
+        src: ['test/spec/{,*/}*.ts', 'test/e2e/{,*/}*.ts'],
+        dest: '.tmp/spec',
+        options: {
+          module: 'amd', //or commonjs
+          target: 'es5', //or es3
+          sourcemap: true,
+          declaration: true
+        }
+      }
+    },
 
 	
 
 
 
-    // Compiles Sass to CSS and generates necessary files if requested
-    compass: {
-      options: {
-        sassDir: '<%= yeoman.app %>/styles',
-        cssDir: '.tmp/styles',
-        generatedImagesDir: '.tmp/images/generated',
-        imagesDir: '<%= yeoman.app %>/images',
-        javascriptsDir: '<%= yeoman.app %>/scripts',
-        fontsDir: '<%= yeoman.app %>/styles/fonts',
-        importPath: '<%= yeoman.app %>/bower_components',
-        httpImagesPath: '/images',
-        httpGeneratedImagesPath: '/images/generated',
-        httpFontsPath: '/styles/fonts',
-        relativeAssets: false,
-        assetCacheBuster: false,
-        raw: 'Sass::Script::Number.precision = 10\n'
-      },
-      dist: {
-        options: {
-          generatedImagesDir: '<%= yeoman.dist %>/images/generated'
-        }
-      },
-      server: {
-        options: {
-          debugInfo: true
-        }
-      }
-    },
 
     // Renames files for browser caching purposes
     rev: {
@@ -308,14 +295,16 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        // TODO: problems with tmp module in Compass. Possibly update compass?
-        //'compass:server'
+        'typescript:base',
+        'copy:styles'
       ],
       test: [
-        'compass'
+        'typescript',
+        'copy:styles'
       ],
       dist: [
-        'compass:dist',
+        'typescript',
+        'copy:styles',
         'imagemin',
         'svgmin'
       ]
