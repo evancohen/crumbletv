@@ -12,7 +12,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
@@ -20,8 +20,10 @@
     <!-- endbuild -->
 
     <!-- Libraries -->
-    <link href="//vjs.zencdn.net/4.2/video-js.css" rel="stylesheet">
+    <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/swfobject/2.2/swfobject.min.js'></script>
     <!-- End Libraries -->
+
+
   </head>
   <body ng-app="cookWebClientApp">
     <!--[if lt IE 7]>
@@ -67,7 +69,14 @@
     <!-- endbuild -->
 
     <!-- Libraries -->
-    <script src="//vjs.zencdn.net/4.2/video.js"></script>
+
+
+    <script type='text/javascript'>var flashvars = {src: 'rtmp%3A//162.243.130.104/flvplayback',autostart: 'true',themeColor: '0395d3',mode: 'sidebyside',scaleMode: 'fit',frameColor: '333333',fontColor: 'cccccc',link: '',embed: ''};var params = {allowFullScreen: 'true'};var attributes = {id: 'myPlayer',name: 'myPlayer'};swfobject.embedSWF('/static/openVideoPlayer/AkamaiFlashPlayer.swf', 'myPlayerGoesHere', '774', '469', '9.0.0', '/static/swfObject/expressInstall.swf', flashvars, params, attributes);
+    </script>
+    <div id='myPlayerGoesHere'><a href='http://www.adobe.com/go/getflashplayer'><img src='http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a></div>
+
+
     <!-- End Libraries -->
+
 </body>
 </html>
