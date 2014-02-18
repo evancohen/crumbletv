@@ -21,10 +21,10 @@ module.exports = {
    * Overrides for the settings in `config/controllers.js`
    * (specific to UserController)
    */
-  _config: {}
+  _config: {},
 
   login: function (req, res) {
-    var bcrypt = require('bcrypt');
+    var bcrypt = require('bcrypt-nodejs');
 
     User.findOneByEmail(req.body.email).done(function (err, user) {
       if (err) res.json({ error: 'DB error' }, 500);
@@ -48,5 +48,5 @@ module.exports = {
       }
     });
   }
-  
+
 };
