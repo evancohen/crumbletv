@@ -1,2 +1,0 @@
-# cookWebServer
-### a Sails application

@@ -1,17 +1,9 @@
-cookstream
+crumble chat
 ==========
-[todo]
-#Server
-##Server Things
-Yeah
 
-#Web Client
-##Web Things
-Oh yeah
+#Node, socket.io, express
+Awesome server
 
 
-Project Names
- 
-Basil - Angular.JS TypeScript Web Client
-Mint - Sails.JS/Node.js Web Server
-Sage 
+#TODO
+couchbase integration
