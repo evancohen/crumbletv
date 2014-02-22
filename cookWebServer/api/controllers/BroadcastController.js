@@ -27,10 +27,13 @@ module.exports = {
   	var key = request.param('key');
   	User.findOne({ broadcastKey: key }, function (error, user) {
   		if (error) {
-  			response.json('Invalid api key', 404);
+  			return response.json(error, 500);
   		}
-  		
-  		response.json('Happy cooking!', 200)
+  		if (!user) {
+  			return response.json('Invalid api key', 404);
+  		}
+
+  		return response.json('Happy cooking!', 200);
   	});
   }
 

@@ -64,14 +64,14 @@ module.exports = {
 };
 
 function generateBroadcastKey(callback) {
-  var broadcastKey = uuid.v4();
+  var key = uuid.v4();
   
-  User.findOne({ broadcastKey: broadcastKey }, function (error, user) {
+  User.findOne({ broadcastKey: key }, function (error, user) {
     if (error) {
       // Attempt again?
       generateBroadcastKey();
     }
-    callback(streamingKey);
+    callback(key);
   });
 }
 
