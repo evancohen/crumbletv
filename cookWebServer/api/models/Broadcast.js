@@ -34,12 +34,6 @@ module.exports = {
   		required: true
   	}
 
-
-  	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
-    
   }
 
 };
