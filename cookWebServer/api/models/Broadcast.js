@@ -10,23 +10,23 @@ module.exports = {
 
   attributes: {
 
-  	startTime {
+  	startTime: {
   		type: 'datetime',
   		unique: false,
   		required: true
   	},
 
-  	endTime {
+  	endTime: {
   		type: 'datetime',
   		unique: false,
   		required: true
   	},
 
-  	showID {
+  	showID: {
   		type: 'integer',
   		unique: false,
   		required: true
-  	},
+  	}
 
   }
 
