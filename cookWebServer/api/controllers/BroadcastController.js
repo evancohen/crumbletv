@@ -17,14 +17,21 @@
 
 module.exports = {
     
-  
-
-
   /**
    * Overrides for the settings in `config/controllers.js`
    * (specific to BroadcastController)
    */
-  _config: {}
+  _config: {},
 
-  
+  publish: function (request, response) {
+  	var key = request.param('key');
+  	User.findOne({ broadcastKey: key }, function (error, user) {
+  		if (error) {
+  			response.json('Invalid api key', 404);
+  		}
+  		
+  		response.json('Happy cooking!', 200)
+  	});
+  }
+
 };

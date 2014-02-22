@@ -1,4 +1,4 @@
-/**
+  /**
  * User
  *
  * @module      :: Model
@@ -29,7 +29,7 @@ module.exports = {
       required: true,
       minLength: 6
     },
-    streamingKey: {
+    broadcastKey: {
       type: 'string',
     }
 
@@ -53,8 +53,8 @@ module.exports = {
         });
       },
       function (callback) {
-        generateStreamingKey(function (streamingKey) {
-          attrs.streamingKey = streamingKey;
+        generateBroadcastKey(function (broadcastKey) {
+          attrs.broadcastKey = broadcastKey;
           callback();
         });
       }
@@ -63,12 +63,13 @@ module.exports = {
 
 };
 
-function generateStreamingKey(callback) {
-  var streamingKey = uuid.v4();
+function generateBroadcastKey(callback) {
+  var broadcastKey = uuid.v4();
   
-  User.findOne({ streamingKey: streamingKey }, function (error, user) {
+  User.findOne({ broadcastKey: broadcastKey }, function (error, user) {
     if (error) {
-      generateStreamingKey();
+      // Attempt again?
+      generateBroadcastKey();
     }
     callback(streamingKey);
   });
