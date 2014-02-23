@@ -26,11 +26,11 @@ module.exports = {
   _config: {},
 
   publish: function (request, response) {
-    if (!request.param.tcurl) {
+    if (!request.params.tcurl) {
       return responseService.invalidParameters(response, ['tcurl']);
     }
 
-  	var key = request.param.tcurl.split("?key=")[1];
+  	var key = request.params.tcurl.split("?key=")[1];
 
     console.log(request.params);
     console.log(key)
