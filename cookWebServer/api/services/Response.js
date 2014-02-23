@@ -1,8 +1,14 @@
-function json(response, message, status) {
-  return response.json({
+function json(response, message, status, data) {
+  var jsonResponse = {
     status: status,
     message: message
-  }, status);
+  };
+
+  if (data) {
+  	jsonResponse['data'] = data;
+  }
+
+  return response.json(jsonResponse, status);
 }
 
 module.exports = {
@@ -12,9 +18,18 @@ module.exports = {
   	  'Invalid Parameters: ' + parameters.join(", "), 
   	  401);
   },
-  success: function (response) {
-  	return json(response, 
-  	  'Success. Happy Cooking :)!', 
-  	  200);
+  success: function (response, data, message) {
+  	if (!message) {
+  	  message = 'Success. Happy Cooking :)!';
+  	}
+
+  	return json(response, message, 200, data);
+  },
+  error: function (response, error) {
+  	if (!error) {
+  	  error = "Internal Server Error."
+  	}
+
+  	return json(response, error, 500);
   }
 }

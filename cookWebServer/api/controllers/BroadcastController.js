@@ -30,7 +30,7 @@ module.exports = {
 
   	User.findOne({ broadcastKey: key }, function (error, user) {
   		if (error) {
-        return responseService.json(response, error, 500);
+        return responseService.error(response, error);
   		}
   		if (!user) {
         return responseService.invalidParameters(response, ['broadcastKey']);

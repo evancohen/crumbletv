@@ -15,6 +15,8 @@
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
+var responseService = require('../Services/Response.js');
+
 module.exports = {
     
   /**
@@ -29,30 +31,33 @@ module.exports = {
     User.findOneByEmail(request.body.email).done(function (error, user) {
       if (error) {
         // TODO: String message for "DB Error"?
-        return response.serverError([error]);
+        return responseService.error(response, error)
       }
 
       if (user) {
         bcrypt.compare(req.body.password, user.password, function (error, match) {
-          // TODO: String message for "Server Error"?
           if (error) {
-            return response.serverError([error]);
+            // TODO: String message for "Server Error"?
+            return responseService.error(response, error)
           }
-
 
           if (match) {
             // password match
             req.session.user = user.id;
             req.session.authenticated = true;
-            res.json(user);
+
+            return responseService.success(response, user);
           } else {
             // invalid password
-            if (req.session.user) req.session.user = null;
-            res.json({ error: 'Invalid password' }, 400);
+            if (req.session.user) {
+              req.session.user = null;
+            }
+
+            return responseService.invalidParameters(response, ['password'])
           }
         });
       } else {
-        res.json({ error: 'User not found' }, 404);
+        return responseService.invalidParameters(response, ['email'])
       }
     });
   }
