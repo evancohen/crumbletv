@@ -26,26 +26,26 @@ module.exports = {
   _config: {},
 
   publish: function (request, response) {
-    var key = request.param("tcurl")
-    console.log(request.params);
-    console.log(request.query);
-    console.log(request.body);
-    console.log(key)
-    if (!request.param("tcurl")) {
+    var key = request.param("tcurl");
+    var name = request.param("name");
+
+    if (!key) {
       return responseService.invalidParameters(response, ['tcurl']);
     }
+    if (!name) {
+      return responseService.invalidParameters(response, ['name']);
+    }
+
     key = key.split("?key=")[1];
 
-
-
-
-  	User.findOne({ broadcastKey: key }, function (error, user) {
+  	User.findOne({ broadcastKey: key, name: name }, function (error, user) {
   		if (error) {
         return responseService.error(response, error);
   		}
   		if (!user) {
-        return responseService.invalidParameters(response, ['broadcastKey']);
+        return responseService.invalidParameters(response, ['broadcastKey', 'name']);
   		}
+
 
       return responseService.success(response);
   	});
