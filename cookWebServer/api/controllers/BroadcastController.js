@@ -27,6 +27,7 @@ module.exports = {
 
   publish: function (request, response) {
   	var key = request.param('key');
+    console.log(key);
 
   	User.findOne({ broadcastKey: key }, function (error, user) {
   		if (error) {
