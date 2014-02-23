@@ -16,15 +16,11 @@
  */
 
 module.exports = {
-    
-  
-
 
   /**
    * Overrides for the settings in `config/controllers.js`
    * (specific to IngredientShowController)
    */
   _config: {}
-
-  
+ 
 };

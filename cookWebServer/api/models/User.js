@@ -19,16 +19,19 @@ module.exports = {
       unique: true,
       required: true
     },  	
+
     email: {
       type: 'email',
       unique: true,
       required: true
     },
+
     password: {
       type: 'string',
       required: true,
       minLength: 6
     },
+    
     broadcastKey: {
       type: 'string',
     }
@@ -36,7 +39,6 @@ module.exports = {
   },
 
   beforeCreate: function (attrs, next) {
-
     async.parallel([
       function (callback) {
         // bcrypt user password on creation

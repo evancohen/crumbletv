@@ -16,7 +16,6 @@ module.exports = {
   		required: true
   	},
 
-
   	startTime: {
   		type: 'datetime',
   		unique: false,

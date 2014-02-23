@@ -30,14 +30,12 @@ module.exports = {
 
     User.findOneByEmail(request.body.email).done(function (error, user) {
       if (error) {
-        // TODO: String message for "DB Error"?
         return responseService.error(response, error)
       }
 
       if (user) {
         bcrypt.compare(req.body.password, user.password, function (error, match) {
           if (error) {
-            // TODO: String message for "Server Error"?
             return responseService.error(response, error)
           }
 

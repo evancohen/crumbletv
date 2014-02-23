@@ -15,8 +15,7 @@ module.exports = {
   		unique: false,
   		required: false
   	}
-
-    
+ 
   }
 
 };

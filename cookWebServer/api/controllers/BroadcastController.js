@@ -36,8 +36,10 @@ module.exports = {
       return responseService.invalidParameters(response, ['name']);
     }
 
+    // Split the key from the tcurl, since key is not passed via the params.
     key = key.split("?key=")[1];
 
+    // Find user with the given broadcastKey and name
   	User.findOne({ broadcastKey: key, name: name }, function (error, user) {
   		if (error) {
         return responseService.error(response, error);
@@ -45,7 +47,6 @@ module.exports = {
   		if (!user) {
         return responseService.invalidParameters(response, ['broadcastKey', 'name']);
   		}
-
 
       return responseService.success(response);
   	});

@@ -16,9 +16,6 @@
  */
 
 module.exports = {
-    
-  
-
 
   /**
    * Overrides for the settings in `config/controllers.js`
@@ -26,5 +23,4 @@ module.exports = {
    */
   _config: {}
 
-  
 };

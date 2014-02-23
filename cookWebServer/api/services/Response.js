@@ -1,16 +1,3 @@
-function json(response, message, status, data) {
-  var jsonResponse = {
-    status: status,
-    message: message
-  };
-
-  if (data) {
-  	jsonResponse['data'] = data;
-  }
-
-  return response.json(jsonResponse, status);
-}
-
 module.exports = {
   json: json,
   invalidParameters: function (response, parameters) {
@@ -32,4 +19,17 @@ module.exports = {
 
   	return json(response, error, 500);
   }
+}
+
+function json(response, message, status, data) {
+  var jsonResponse = {
+    status: status,
+    message: message
+  };
+
+  if (data) {
+  	jsonResponse['data'] = data;
+  }
+
+  return response.json(jsonResponse, status);
 }
