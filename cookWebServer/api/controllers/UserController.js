@@ -23,15 +23,22 @@ module.exports = {
    */
   _config: {},
 
-  login: function (req, res) {
+  login: function (request, response) {
     var bcrypt = require('bcrypt-nodejs');
 
-    User.findOneByEmail(req.body.email).done(function (err, user) {
-      if (err) res.json({ error: 'DB error' }, 500);
+    User.findOneByEmail(request.body.email).done(function (error, user) {
+      if (error) {
+        // TODO: String message for "DB Error"?
+        return response.serverError([error]);
+      }
 
       if (user) {
-        bcrypt.compare(req.body.password, user.password, function (err, match) {
-          if (err) res.json({ error: 'Server error' }, 500);
+        bcrypt.compare(req.body.password, user.password, function (error, match) {
+          // TODO: String message for "Server Error"?
+          if (error) {
+            return response.serverError([error]);
+          }
+
 
           if (match) {
             // password match

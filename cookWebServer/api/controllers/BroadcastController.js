@@ -15,6 +15,8 @@
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
+var responseService = require('../Services/Response.js');
+
 module.exports = {
     
   /**
@@ -25,15 +27,16 @@ module.exports = {
 
   publish: function (request, response) {
   	var key = request.param('key');
+
   	User.findOne({ broadcastKey: key }, function (error, user) {
   		if (error) {
-  			return response.json(error, 500);
+        return responseService.json(response, error, 500);
   		}
   		if (!user) {
-  			return response.json('Invalid api key', 404);
+        return responseService.invalidParameters(response, ['broadcastKey']);
   		}
 
-  		return response.json('Happy cooking!', 200);
+      return responseService.success(response);
   	});
   }
 

@@ -11,13 +11,13 @@ module.exports = {
   attributes: {
   	
   	tagID: {
-  		type: 'integer'.
+  		type: 'integer',
   		unique: false,
   		required: true
   	},
 
   	showID: {
-  		type: 'integer'.
+  		type: 'integer',
   		unique: false,
   		required: true
   	}
