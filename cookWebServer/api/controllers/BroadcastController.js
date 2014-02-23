@@ -31,7 +31,7 @@ module.exports = {
     console.log(request.param("tcurl"));
     console.log(key)
 
-  	User.findOne({ broadcastKey: request.param("tcurl").split("?key=")[0] }, function (error, user) {
+  	User.findOne({ broadcastKey: key }, function (error, user) {
   		if (error) {
         return responseService.error(response, error);
   		}
