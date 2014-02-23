@@ -26,8 +26,8 @@ module.exports = {
   _config: {},
 
   publish: function (request, response) {
-  	var key = request.param("tcurl").split("?key=")[0];
-    
+  	var key = request.param("tcurl").split("?key=")[1];
+
     console.log(request.param("tcurl"));
     console.log(key)
 
