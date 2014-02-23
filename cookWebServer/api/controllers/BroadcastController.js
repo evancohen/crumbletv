@@ -15,7 +15,7 @@
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
-var responseService = require('../Services/Response.js');
+var responseService = require('../services/Response.js');
 
 module.exports = {
     
