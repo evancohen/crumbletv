@@ -28,6 +28,8 @@ module.exports = {
   publish: function (request, response) {
     var key = request.param("tcurl")
     console.log(request.params);
+    console.log(request.query);
+    console.log(request.body);
     console.log(key)
     if (!request.param("tcurl")) {
       return responseService.invalidParameters(response, ['tcurl']);
