@@ -16,7 +16,7 @@
  */
 
 var responseService = require('../services/Response.js');
-var stripe : require('stripe')('sk_test_qem5hyzEh4meUdglIp2yHUeW');
+var stripe = require('stripe')('sk_test_qem5hyzEh4meUdglIp2yHUeW');
 
 module.exports = {
     
@@ -43,7 +43,7 @@ module.exports = {
     var target = req.param('target');
 
     if(!target){
-      return responseService.invalidParameters(response, ['target']);
+      return responseService.invalidParameters(res, ['target']);
     }
     // Send a JSON response
     return res.json({

@@ -37,7 +37,7 @@ module.exports = {
     
     broadcastKey: {
       type: 'string',
-    }
+    },
 
   },
 

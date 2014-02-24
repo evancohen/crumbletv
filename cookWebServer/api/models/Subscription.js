@@ -10,9 +10,21 @@ module.exports = {
 
   attributes: {
   	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
+    /*The subscription/subscriber relation is a little wacky.
+        In a one-to-many association one side must have a collection attribute and 
+        the other side must contain a model attribute.
+      So: A user has many subscribers (our collection is then 'subscribers')
+      A subscriber can have meny subscriptions which we group together accordingly
+    */
+    /*subscribers : {
+      collection: "User",
+      via : 'subscriptions'
+    },
+
+    subscriptions : {
+      collection : 'User',
+      via: 'subscriber'
+    }*/
     
   }
 
