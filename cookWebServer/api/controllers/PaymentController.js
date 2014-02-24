@@ -39,14 +39,14 @@ module.exports = {
    */
    subscribe: function (req, res) {
     var stripe = require('stripe');
-    
+
     console.log(req.param());
 
     // Send a JSON response
     return res.json({
       hello: 'world',
       whatIs : "Accepts a username and then addes them to subscriptions",
-      param : req.param()
+      target : req.param('target')
     });
   },
 
