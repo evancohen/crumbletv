@@ -1,7 +1,4 @@
 /**
-=======
-  /**
->>>>>>> 7de8cc024e84d63749a813125b5cf4c8bdb6d320
  * User
  *
  * @module      :: Model
@@ -40,16 +37,25 @@ module.exports = {
       type: 'string',
     },
 
-    /*paidSubscriptions: {
-      collection: 'Subscription',
-      via: 'subscriber'
-    },
+    /*
+Cody's quick sketch of the relationship for subscriptions
 
-    collectedSubscriptions: {
-      collection: 'subscriber',
-      via: 'subscriberPayee'
-    }*/
-},
+// User.js
+{
+  paidSubscriptions: {
+    collection: 'Subscription',
+    via: 'subscriber'
+  },
+  collectedSubscriptions: {
+    collection: 'Subscription',
+    via: 'subscriberPayee'
+  }
+}
+
+
+    */
+
+  },
 
   beforeCreate: function (attrs, next) {
     async.parallel([
