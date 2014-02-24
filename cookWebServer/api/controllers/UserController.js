@@ -15,16 +15,50 @@
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
+var responseService = require('../services/Response.js');
+
 module.exports = {
     
-  
-
-
   /**
    * Overrides for the settings in `config/controllers.js`
    * (specific to UserController)
    */
-  _config: {}
 
-  
+  _config: {},
+
+  login: function (request, response) {
+    var bcrypt = require('bcrypt-nodejs');
+
+    User.findOneByEmail(request.body.email).done(function (error, user) {
+      if (error) {
+        return responseService.error(response, error)
+      }
+
+      if (user) {
+        bcrypt.compare(req.body.password, user.password, function (error, match) {
+          if (error) {
+            return responseService.error(response, error)
+          }
+
+          if (match) {
+            // password match
+            req.session.user = user.id;
+            req.session.authenticated = true;
+
+            return responseService.success(response, user);
+          } else {
+            // invalid password
+            if (req.session.user) {
+              req.session.user = null;
+            }
+
+            return responseService.invalidParameters(response, ['password'])
+          }
+        });
+      } else {
+        return responseService.invalidParameters(response, ['email'])
+      }
+    });
+  }
+
 };

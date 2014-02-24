@@ -28,7 +28,6 @@ module.exports = function(config) {
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: false,
 
-
     // Start these browsers, currently available:
     // - Chrome
     // - ChromeCanary
@@ -38,7 +37,6 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
     browsers: ['Chrome'],
-
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit

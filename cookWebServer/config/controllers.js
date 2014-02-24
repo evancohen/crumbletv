@@ -19,7 +19,6 @@
 
 module.exports.controllers = {
 
-
   /**
    * NOTE:
    * A lot of the configuration options below affect so-called "CRUD methods",
@@ -30,7 +29,6 @@ module.exports.controllers = {
    * logic in the form of a JSON API, including support for sort, pagination, and filtering.
   */
   blueprints: {
-
     /**
      * `actions`
      *
@@ -63,9 +61,7 @@ module.exports.controllers = {
      * you must take great care not to inadvertently expose unsafe controller logic to GET requests.
      */
     actions: true,
-
-
-    
+ 
     /**
      * `rest`
      *
@@ -84,7 +80,6 @@ module.exports.controllers = {
      */
     rest: true,
 
-
     /**
      * `shortcuts`
      *
@@ -95,8 +90,6 @@ module.exports.controllers = {
      * `shortcuts` are enabled by default, but SHOULD BE DISABLED IN PRODUCTION!!!!!
      */
     shortcuts: true,
-
-
 
     /**
      * `prefix`
@@ -117,10 +110,6 @@ module.exports.controllers = {
      */
     prefix: '',
 
-
-
-
-
     /**
      * `pluralize`
      *
@@ -136,8 +125,6 @@ module.exports.controllers = {
 
   },
 
-
-
   /**
    * `jsonp`
    *
@@ -149,8 +136,6 @@ module.exports.controllers = {
    * Defaults to false.
    */
   jsonp: false,
-
-
 
   /**
    * `expectIntegerId`
