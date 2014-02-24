@@ -21,22 +21,8 @@ module.exports.adapters = {
   // http://sethetter.com/user-authentication-with-sails-js/
   'default': 'memory',
 
-  // Persistent adapter for DEVELOPMENT ONLY
-  // (data is preserved when the server shuts down)
-  disk: {
-    module: 'sails-disk'
+  memory: {
+    module: 'sails-memory'
   },
-
-  // MySQL is the world's most popular relational database.
-  // Learn more: http://en.wikipedia.org/wiki/MySQL
-  myLocalMySQLDatabase: {
-
-    module: 'sails-mysql',
-    host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
-    user: 'YOUR_MYSQL_USER',
-    // Psst.. You can put your password in config/local.js instead
-    // so you don't inadvertently push it up if you're using version control
-    password: 'YOUR_MYSQL_PASSWORD', 
-    database: 'YOUR_MYSQL_DB'
-  }
+  
 };
