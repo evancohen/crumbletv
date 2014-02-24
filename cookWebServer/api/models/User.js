@@ -12,6 +12,7 @@
 var bcrypt = require('bcrypt-nodejs');
 var uuid = require('node-uuid');
 var async = require('async');
+var paymentService = require('../services/Payment.js');
 
 module.exports = {
 
@@ -39,7 +40,16 @@ module.exports = {
       type: 'string',
     },
 
-  },
+    /*paidSubscriptions: {
+      collection: 'Subscription',
+      via: 'subscriber'
+    },
+
+    collectedSubscriptions: {
+      collection: 'subscriber',
+      via: 'subscriberPayee'
+    }*/
+},
 
   beforeCreate: function (attrs, next) {
     async.parallel([
@@ -64,6 +74,29 @@ module.exports = {
         });
       }
     ], next);
+  },
+
+  afterCreate : function (updatedRecord, callback){
+    async.parallel([
+    function (callback) {
+        //create payment information
+        paymentService.stripe.customers.create({
+          email : updatedRecord.email
+        }, function(err, customer) {
+          // asynchronously called by stripe
+          //TODO: error handeling for Stripe
+          callback();
+        });
+      }
+    ], next);
+  },
+
+  // Returns a findOne object which you can access using 
+  // getUser(res).done(function(err, user){
+  //    ...  
+  //  });
+  currentUser : function (req){
+    return User.findOne(req.session.user);
   }
 
 };

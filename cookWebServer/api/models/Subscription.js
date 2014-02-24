@@ -16,15 +16,12 @@ module.exports = {
       So: A user has many subscribers (our collection is then 'subscribers')
       A subscriber can have meny subscriptions which we group together accordingly
     */
-    /*subscribers : {
-      collection: "User",
-      via : 'subscriptions'
-    },
-
-    subscriptions : {
-      collection : 'User',
-      via: 'subscriber'
-    }*/
+    /*subscriber: {
+		model: 'user'
+	},
+	subscriberPayee: {
+		model: 'user'
+	}*/
     
   }
 
