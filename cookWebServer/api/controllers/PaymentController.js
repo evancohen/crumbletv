@@ -15,8 +15,12 @@
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
+var responseService = require('../services/Response.js');
+var stripe : require('stripe')('sk_test_qem5hyzEh4meUdglIp2yHUeW');
+
 module.exports = {
     
+  //stripe credentials
   
   /**
    * Action blueprints:
@@ -24,10 +28,8 @@ module.exports = {
    *    `/stripe`
    */
    index: function (req, res) {
-    
     // Send a JSON response
     return res.json({
-      hello: 'world',
       whatIs : "A list of all of the users current subscriptions"
     });
   },
@@ -38,15 +40,15 @@ module.exports = {
    *    `/stripe/subscribe`
    */
    subscribe: function (req, res) {
-    var stripe = require('stripe');
+    var target = req.param('target');
 
-    console.log(req.param());
-
+    if(!target){
+      return responseService.invalidParameters(response, ['target']);
+    }
     // Send a JSON response
     return res.json({
-      hello: 'world',
       whatIs : "Accepts a username and then addes them to subscriptions",
-      target : req.param('target')
+      target : target
     });
   },
 
@@ -56,8 +58,6 @@ module.exports = {
    *    `/stripe/tip`
    */
    tip: function (req, res) {
-    var stripe = require('stripe');
-
     // Send a JSON response
     return res.json({
       hello: 'world',
