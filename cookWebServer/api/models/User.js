@@ -39,6 +39,24 @@ module.exports = {
       type: 'string',
     },
 
+    /*
+Cody's quick sketch of the relationship for subscriptions
+
+// User.js
+{
+  paidSubscriptions: {
+    collection: 'Subscription',
+    via: 'subscriber'
+  },
+  collectedSubscriptions: {
+    collection: 'Subscription',
+    via: 'subscriberPayee'
+  }
+}
+
+
+    */
+
   },
 
   beforeCreate: function (attrs, next) {
