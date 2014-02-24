@@ -4,9 +4,9 @@
     "version": "0.0.0",
     "description": "crumble.tv API",
     "dependencies": {
-        "sails": "0.9.8",
+        "sails": "0.10",
         "grunt": "0.4.1",
-        "sails-memory": "0.9.1",
+        "sails-memory": "0.10",
         "ejs": "0.8.4",
         "optimist": "0.3.4",
         "stripe" : "2.4.2",
