@@ -12,7 +12,7 @@ module basilApp {
 
       $scope.$on('$viewContentLoaded', function() {
         var flashvars = {
-          src: 'rtmp://162.243.130.104/flvplayback',
+          src: 'rtmp://162.243.130.104:1935/videochat',
           autostart: 'true',
           themeColor: '0395d3',
           mode: 'sidebyside',
@@ -28,8 +28,7 @@ module basilApp {
         };
 
         var attributes = {
-          id: 'myPlayer',
-          name: 'myPlayer'
+          id: 'cody',
         };
 
         swfobject.embedSWF('/static/openVideoPlayer/AkamaiFlashPlayer.swf', 
