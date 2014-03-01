@@ -7,6 +7,6 @@ module.exports = {
       cert: fs.readFileSync('ssl/server.csr')
     }
   },
-  port: process.env.PORT || 443,
+  port: 80,
   environment: process.env.NODE_ENV || 'development'
 };

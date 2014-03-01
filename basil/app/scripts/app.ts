@@ -2,8 +2,8 @@
 
 'use strict';
 
-// TODO: proper heading.
-declare var swfobject: any;
+// TODO: proper heading for flowplayer
+declare var flowplayer;
 
 angular.module('basilApp', [
   'ngCookies',
