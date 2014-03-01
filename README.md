@@ -1,17 +1,8 @@
-cookstream
-==========
-[todo]
-#Server
-##Server Things
-Yeah
+CrumbleTV
+===========================
 
-#Web Client
-##Web Things
-Oh yeah
+Projects
+* Basil - Angular.JS TypeScript Web Client
+* Mint - Sails.JS/Node.js Web Server
 
-
-Project Names
- 
-Basil - Angular.JS TypeScript Web Client
-Mint - Sails.JS/Node.js Web Server
-Sage 
+Read this for setup/help: https://github.com/codystebbins/crumbletv/wiki/Developer-Setup

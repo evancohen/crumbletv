@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe32ea46-39d7-440c-b201-21e14ac931ee" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/basil/app/static/flowplayer-3.2.18.swf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/basil/app/static/flowplayer.controls-3.2.16.swf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/basil/app/static/flowplayer.rtmp-3.2.13.swf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/basil/app/static/flowplayer-3.2.13.min.js" />
-      <change type="DELETED" beforePath="C:\repos\cookstream\basil\app\static\openVideoPlayer\AkamaiFlashPlayer.swf" afterPath="" />
-      <change type="DELETED" beforePath="C:\repos\cookstream\basil\app\static\swfObject\expressInstall.swf" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cookWebServer/api/controllers/BroadcastController.js" afterPath="$PROJECT_DIR$/cookWebServer/api/controllers/BroadcastController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/basil/app/scripts/app.ts" afterPath="$PROJECT_DIR$/basil/app/scripts/app.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/basil/app/index.html" afterPath="$PROJECT_DIR$/basil/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cookWebServer/config/local.js" afterPath="$PROJECT_DIR$/cookWebServer/config/local.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/basil/app/views/main.html" afterPath="$PROJECT_DIR$/basil/app/views/main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/basil/app/scripts/controllers/main.ts" afterPath="$PROJECT_DIR$/basil/app/scripts/controllers/main.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cookWebServer/config/routes.js" afterPath="$PROJECT_DIR$/cookWebServer/config/routes.js" />
-    </list>
+    <list default="true" id="fe32ea46-39d7-440c-b201-21e14ac931ee" name="Default" comment="" />
     <ignored path="CrumbleTV.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="fe32ea46-39d7-440c-b201-21e14ac931ee" time="1393634757759" ignored="false" />
@@ -108,7 +94,7 @@
       <file leaf-file-name="streamPlayer.ts" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/basil/app/scripts/directives/streamPlayer.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="24" selection-start="701" selection-end="701" vertical-scroll-proportion="0.42775974">
+            <state line="40" column="147" selection-start="1102" selection-end="1102" vertical-scroll-proportion="0.7798165">
               <folding />
             </state>
           </provider>
@@ -190,10 +176,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="2576" />
-    <option name="height" value="1416" />
+    <option name="x" value="-1928" />
+    <option name="y" value="352" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -607,7 +593,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <frame x="-1928" y="352" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -628,7 +614,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24980111" sideWeight="0.6701113" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33511207" sideWeight="0.6701113" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -750,7 +736,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/basil/app/scripts/directives/streamPlayer.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="24" selection-start="701" selection-end="701" vertical-scroll-proportion="0.42775974">
+        <state line="40" column="147" selection-start="1102" selection-end="1102" vertical-scroll-proportion="0.7798165">
           <folding />
         </state>
       </provider>
