@@ -1,0 +1,7 @@
+{
+  "name": "dt-angular",
+  "version": "1.2.0",
+  "dependencies": {
+    "dt-jquery": "latest"
+  }
+}
