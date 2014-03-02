@@ -7,6 +7,55 @@ module.exports = {
 		return res.sails.config.session.stripe;
 	},
 
+	//data contains a Customer ID and an email
+	createCustomer : function(data, callback){
+		stripe.customers.create(data, callback);
+	},
+
+	getCustomer : function(data, callback){
+		stripe.customers.retrieve(id, callback);
+	},
+
+	deleteCustomer: function(data, callback){
+		stripe.customers.del(data.id, callback);
+	},
+
+	tip : function(data, callback){
+		stripe.charges.create(data, callback);
+	},
+
+	subscribe : function(data, callback){
+		stripe.customers.createSubscription(data.id, 
+			{
+				plan : data.plan,
+				quantity : data.quantity
+			}, 
+			callback);
+	},
+
+	//customer ID and subscription ID (obtained from the customer object)
+	retrieveSubscription : function(data, callback){
+		stripe.customers.retrieveSubscription(data.id, data.subscriptionId, callback);
+	},
+
+	updateSubscription : function(data, callback){
+		stripe.customers.updateSubscription(data.id, {
+				plan : data.plan,
+				quantity : data.quantity
+			},
+			callback)
+	},
+
+	cancelSubscription : function(data, callback){
+		stripe.customers.cancelSubscription(data.id, data.subscriptionId, callback);
+	},
+
+	//gets a list of subscriptions (first 10 can also be found on customer object)
+	listSubscriptions : function(data, callback){
+		stripe.customers.listSubscriptions(data.id, callback);
+	},
+
+
 	// Note: Node.js API does not throw exceptions (except in
 	// the case of missing arguments)
 	//
@@ -40,5 +89,10 @@ module.exports = {
 				// We probably used an incorrect API key
 				break;
 			}
+	},
+
+	// callback accepts 2 paramaters: err, results (list of customers)
+	listCustomers : function(callback){
+		stripe.customers.list(callback);
 	}
 }

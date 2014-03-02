@@ -48,9 +48,9 @@ module.exports = {
       if(err){
         return responseService.failed(res, "Could not find user");
       }
+      var data = {id : id, email : user.email};
       //create the Stripe customer
-      paymentService.stripe.customers.create({id : id, email : user.email}, 
-        function(err, customer){
+      paymentService.createCustomer(data, function(err, customer){
           if(err){
             return responseService.failed(res, err.type);
           }
@@ -59,12 +59,12 @@ module.exports = {
     });
   },
 
-  exists: function(req, res){
+  get: function(req, res){
     if(!isAuthenticated()){
       return responseService.forbidden(res);
     }
-    var id = req.session.user;
-    paymentService.stripe.customers.retrieve(id, function(err, customer) {
+    var data = {id : req.session.user};
+    paymentService.getCustomer(data, function(err, customer) {
       // asynchronously called
       if(err){
         return responseService.notFound(res, "Customer account not found");
@@ -101,19 +101,29 @@ module.exports = {
     }else{
       details.card = card;
     }
-    paymentService.stripe.charges.create(details, function(err, charge){
+    paymentService.tip(details, function(err, charge){
       if(err){
         return responseService.failed(res, "Could not complete transaction");
       }
       return responseService.success(res, {id : charge.id}, "Transaction Complete");
       //TODO send notification to chat server saying X has tipped
     });
-
   },
 
   //TODO fix this method to funciton with subscription model
+  //check if they are currently subscribed to any other users
+  //  if they are then update subscription
+  //  otherwise update their subscription to be + 1
   subscribe: function (req, res) {
     var target = req.param('target');
+
+    //get the user object, get their subsciption id, if it doesnt exist, create a subscription
+
+    var data = {
+      plan : "subscription",
+      id : req.session.user,
+      quantity : 1 //TODO this must be computed baised on the number
+    }
 
     if(!target){
       return responseService.invalidParameters(res, ['target']);
