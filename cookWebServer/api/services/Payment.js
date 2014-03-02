@@ -55,6 +55,48 @@ module.exports = {
 		stripe.customers.listSubscriptions(data.id, callback);
 	},
 
+	//BELOW are card related wrapper functions
+
+	//if customer has no card their fist create becomes default card
+	//needs customer_id, card and returns the card object
+	createCard : function(data, callback){
+		stripe.customers.createCard(data.id, 
+		{
+			card: data.cardToken
+		},
+		callback);
+	},
+
+	//Cards can be updated with just some of their
+	//stripe.customers.retrieveCard(
+	//  {CUSTOMER_ID},
+	//  {CARD_ID},
+	//  funciton(card) {...}
+	//);
+
+	retrieveCard: function(data, callback){
+		stripe.customers.retrieveCard(data, callback);
+	},
+
+	updateCard: function(data, callback) {
+		stripe.customers.updateCard(data,
+		{
+			name: data.name
+		},
+		callback);
+	},
+
+	deleteCard: function(data, callback){
+		stripe.customers.deleteCard(data, callback);
+	},
+
+
+	// Needs the customer_id and returns array of seperate card data as 'data'
+	listCards: function(data, callback){
+		stripe.customers.listCards(data.id, callback);
+	},
+
+
 
 	// Note: Node.js API does not throw exceptions (except in
 	// the case of missing arguments)
