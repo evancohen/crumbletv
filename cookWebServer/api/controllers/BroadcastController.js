@@ -1,7 +1,6 @@
 /**
  * BroadcastController
  *
- * @module      :: Controller
  * @description	:: A set of functions called `actions`.
  *
  *                 Actions contain code telling Sails how to respond to a certain type of request.
@@ -11,8 +10,6 @@
  *                 and/or override them with custom routes (`config/routes.js`)
  *
  *                 NOTE: The code you write here supports both HTTP and Socket.io automatically.
- *
- * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
 var responseService = require('../services/Response.js');
@@ -25,6 +22,11 @@ module.exports = {
    */
   _config: {},
 
+
+  /**
+   * Overrides for the settings in `config/controllers.js`
+   * (specific to BroadcastController)
+   */
   publish: function (request, response) {
     var key = request.param("tcurl");
     var name = request.param("name");
