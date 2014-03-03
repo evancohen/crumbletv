@@ -75,7 +75,7 @@ module.exports = {
 	//);
 
 	retrieveCard: function(data, callback){
-		stripe.customers.retrieveCard(data, callback);
+		stripe.customers.retrieveCard(data.id, data.card_id, callback);
 	},
 
 	updateCard: function(data, callback) {
