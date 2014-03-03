@@ -1,6 +1,6 @@
 /// <reference path="../app.ts" />
 
-'use strict';
+"use strict";
 
 module basilApp {
 
@@ -8,6 +8,8 @@ module basilApp {
     name: string;
   }
 
+  // TODO: change from class based directive
+  // TODO: document & test
   /**
    * Renders the player
    *
@@ -15,30 +17,31 @@ module basilApp {
    */
   export class StreamPlayer implements ng.IDirective {
     // TODO: style to class
-    public restrict = 'C';
+    public restrict = "C";
     public scope = {
       name: "="
     };
+    private static flowPlayerURL = "/static/flash/flowplayer";
     private static flowPlayerConfig = {
       clip: {
-        url: 'cody',
+        url: "cody",
         live: true,
         // configure clip to use influxis as our provider, it uses our rtmp plugin
-        provider: 'influxis'
+        provider: "influxis"
       },
 
       plugins: {
         influxis: {
-          url: '/static/flowplayer.rtmp-3.2.13.swf',
+          url: (StreamPlayer.flowPlayerURL + ".rtmp-3.2.13.swf"),
 
           // netConnectionUrl defines where the streams are found
-          netConnectionUrl: 'rtmp://162.243.130.104:1935/videochat'
+          netConnectionUrl: "rtmp://162.243.130.104:1935/videochat"
         }
       }
     };
 
     public link = (scope: basilApp.StreamPlayerScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes): void => {
-      flowplayer(element[0], "/static/flowplayer-3.2.18.swf", this.createConfig(scope.name));
+      flowplayer(element[0], StreamPlayer.flowPlayerURL + "-3.2.18.swf", this.createConfig(scope.name));
     };
 
     /**
@@ -58,6 +61,6 @@ module basilApp {
     return new basilApp.StreamPlayer();
   }
 
-  angular.module('basilApp').directive('videoPlayer', streamPlayerFactory);
+  angular.module("basilApp").directive("videoPlayer", streamPlayerFactory);
 }
 

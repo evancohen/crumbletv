@@ -1,20 +1,17 @@
 /// <reference path="../app.ts" />
 
-'use strict';
+"use strict";
 
 module basilApp {
   export interface IMainScope extends ng.IScope {
-    streamName: string;
   }
 
-  export class MainCtrl {
+  export class MainController {
     constructor (private $scope: IMainScope) {
-      // TODO: set name dynamically based on url
-      $scope.streamName = "cody";
     }
   }
 
 }
 
-angular.module('basilApp')
-  .controller('MainCtrl', ["$scope", basilApp.MainCtrl]);
+angular.module("basilApp")
+  .controller("MainController", ["$scope", basilApp.MainController]);
