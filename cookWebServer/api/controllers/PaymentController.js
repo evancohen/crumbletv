@@ -97,7 +97,7 @@ module.exports = {
     var card = req.param('card');
     if(!card){
       //If we are not given a card, we will use the customers default value of payment
-      details.customer = req.session.user;
+      details.id = req.session.user;
     }else{
       details.card = card;
     }
