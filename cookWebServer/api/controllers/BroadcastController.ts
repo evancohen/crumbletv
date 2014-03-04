@@ -15,6 +15,7 @@ var lodash = require("lodash");
 var BroadcastExport = new BroadcastController(User, new ResponseService());
 
 // Some serious JS foo here.
+// TODO: move this to a service so the logic can be reused.
 var exportSingleton = {};
 lodash.forIn(BroadcastExport, function(method, key) {
     if (lodash.isFunction(method)) {
