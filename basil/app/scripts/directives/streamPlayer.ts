@@ -40,7 +40,7 @@ module basilApp {
       }
     };
 
-    public link = (scope: basilApp.StreamPlayerScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes): void => {
+    public link(scope: basilApp.StreamPlayerScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes): void => {
       flowplayer(element[0], StreamPlayer.flowPlayerURL + "-3.2.18.swf", this.createConfig(scope.name));
     };
 

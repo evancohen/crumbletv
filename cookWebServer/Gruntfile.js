@@ -133,6 +133,8 @@ module.exports = function (grunt) {
   grunt.loadTasks(depsPath + '/grunt-contrib-cssmin/tasks');
   grunt.loadTasks(depsPath + '/grunt-contrib-less/tasks');
   grunt.loadTasks(depsPath + '/grunt-contrib-coffee/tasks');
+  grunt.loadNpmTasks('grunt-typescript');
+  grunt.loadNpmTasks('grunt-shell');
 
   // Project configuration.
   grunt.initConfig({
@@ -163,7 +165,8 @@ module.exports = function (grunt) {
 
     clean: {
       dev: ['.tmp/public/**'],
-      build: ['www']
+      build: ['www'],
+      typescript: ["js"]
     },
 
     jst: {
@@ -201,29 +204,41 @@ module.exports = function (grunt) {
         ]
       }
     },
-    
-    coffee: {
-      dev: {
-        options:{
-          bare:true
-        },
-        files: [
-          {
-            expand: true,
-            cwd: 'assets/js/',
-            src: ['**/*.coffee'],
-            dest: '.tmp/public/js/',
-            ext: '.js'
-          }, {
-            expand: true,
-            cwd: 'assets/linker/js/',
-            src: ['**/*.coffee'],
-            dest: '.tmp/public/linker/js/',
-            ext: '.js'
-          }
-        ]
+
+    // Compiles TypeScript to JavaScript
+    typescript: {
+      base: {
+        src: [
+          'References.d.ts',
+          'api/{,*/}*.ts',
+          'test/{,*/}*.ts'
+        ],
+        //dest: 'test.js',
+        options: {
+          module: 'commonjs', //or commonjs
+          target: 'es5', //or es3
+          //'base_path': 'api/', //quoting base_path to get around jshint warning.
+          sourcemap: false,
+          declaration: false
+        }
       }
     },
+
+
+    shell: {
+      mocha: {
+        options: {
+          stdout: true,
+          execOptions: {
+            cwd: 'test'
+          }
+        },
+        command: 'mocha ./ --recursive'
+      }
+    },
+
+
+  //
 
     concat: {
       js: {
@@ -428,7 +443,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('linkAssets', [
-
     // Update link/script/template references in `assets` index.html
     'sails-linker:devJs',
     'sails-linker:devStyles',
@@ -464,6 +478,12 @@ module.exports = function (grunt) {
     'sails-linker:prodJsJADE',
     'sails-linker:prodStylesJADE',
     'sails-linker:devTplJADE'
+  ]);
+
+  grunt.registerTask('test', [
+    'typescript',
+    'shell:mocha'
+
   ]);
 
   // When API files are changed:

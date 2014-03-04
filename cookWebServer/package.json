@@ -5,14 +5,20 @@
     "description": "crumble.tv API",
     "dependencies": {
         "sails": "0.10",
-        "grunt": "0.4.1",
+        "grunt": "~0.4.2",
         "sails-memory": "0.10",
         "ejs": "0.8.4",
         "optimist": "0.3.4",
         "stripe" : "2.4.2",
         "bcrypt-nodejs": "0.0.3",
         "node-uuid": "1.4.0",
-        "async": "0.2.10"
+        "async": "0.2.10",
+        "supertest": "0.9.0",
+        "mocha": "1.17.1",
+        "sinon": "1.8.2",
+        "grunt-typescript": "~0.2.7",
+        "grunt-shell": "0.6.4",
+        "lodash": "2.4.1"
     },
     "scripts": {
         "start": "node app.js",
