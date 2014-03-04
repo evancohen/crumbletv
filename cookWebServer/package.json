@@ -17,8 +17,8 @@
         "mocha": "1.17.1",
         "sinon": "1.8.2",
         "grunt-typescript": "~0.2.7",
-        "grunt-shell": "0.6.4",
-        "lodash": "2.4.1"
+        "lodash": "2.4.1",
+        "grunt-mocha-test": "0.9.4"
     },
     "scripts": {
         "start": "node app.js",

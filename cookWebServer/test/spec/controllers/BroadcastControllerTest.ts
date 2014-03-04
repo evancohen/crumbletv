@@ -1,16 +1,24 @@
 /// <reference path="../../../References.d.ts"/>
 
+// Common testing requirements
 var assert: any = require('assert');
 var sinon = require('sinon');
-var BroadcastController = <any>require('../../../api/controllers/classes/BroadcastController.js');
 var lodash = <any>require('lodash');
 
-describe('BroadcastController', function(done) {
-    var broadcastController;
+// Test specific requirements
+var BroadcastController = <any>require('../../../api/controllers/classes/BroadcastController.js');
+
+describe('BroadcastController', function() {
+    // Mocks
+    var broadcastController: IBroadcastController;
     var request;
     var responseService;
     var response;
     var user;
+
+    // Stubs
+    var stubBroadcastKey = "IAmAKey";
+    var stubName = "IAmAName";
 
     before(function(done) {
         request = {
@@ -29,7 +37,7 @@ describe('BroadcastController', function(done) {
         done();
     });
 
-    describe('.publish', function (done) {
+    describe('.publish', function () {
         it("should respond with invalidParameters for a missing tcurl", function(done) {
             broadcastController.publish(request, response);
 
@@ -37,22 +45,31 @@ describe('BroadcastController', function(done) {
             done();
         });
 
+        it("should respond with invalid parameters when the broadcastKey cannot be parsed from tcurl.", function(done) {
+            request.body.name = stubName;
+            request.body.tcurl = stubBroadcastKey;
+            broadcastController.publish(request, response);
+
+            assert(responseService.invalidParameters.calledWith(response, ['tcurl']));
+            done();
+        });
+
         it("should find one user with the name and parsed broadcastKey and respond with success", function(done) {
-            var broadcastKey = "IAmAKey";
-            var name = "IAmAName";
             var passedQuery;
             user.findOne = function (query, callback) {
                 passedQuery = query;
                 callback(null, {});
             };
-            request.body.name = name;
-            request.body.tcurl = "fakeTCURL?key=" + broadcastKey;
+            request.body.name = stubName;
+            request.body.tcurl = "fakeTCURL?key=" + stubBroadcastKey;
 
             broadcastController.publish(request, response);
 
-            assert(lodash.isEqual(passedQuery, { broadcastKey: broadcastKey, name: name }));
+            assert(lodash.isEqual(passedQuery, { broadcastKey: stubBroadcastKey, name: stubName }));
             assert(responseService.success.calledWith(response));
             done();
         });
+
+
     });
 });

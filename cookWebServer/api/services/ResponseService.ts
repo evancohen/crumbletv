@@ -1,15 +1,5 @@
 /// <reference path="../../References.d.ts"/>
 
-// TODO: Type this better!!
-interface IResponseService {
-    invalidParameters(response, parameters);
-    success(response, data?, message?);
-    forbidden(response, error);
-    failed(response, error);
-    notFound(response, error);
-    error(response, error);
-}
-
 class ResponseService implements IResponseService{
     public invalidParameters(response, parameters) {
         return this.json(response,

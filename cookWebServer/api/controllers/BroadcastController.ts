@@ -1,12 +1,12 @@
 /// <reference path="../../References.d.ts"/>
 
-/*
-var BroadcastExport: IBroadcastController = new BroadcastController(User, new ResponseService());
-export = BroadcastExport;
-*/
-
+// Dependencies for BroadcastController
+var ResponseService = <any>require("../services/ResponseService.js");
 var BroadcastController = <any>require("./classes/BroadcastController.js");
+var User = require("../models/User.js");
 
-var BroadcastExport = new BroadcastController(User, null);
+// Exports BroadcastController with the necessary dependencies.
+// Since User is not defined when sails first runs, it must be passed in a simple factory.
+var BroadcastExport = new BroadcastController(User, new ResponseService());
 export = BroadcastExport;
 

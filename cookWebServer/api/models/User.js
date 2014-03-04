@@ -34,8 +34,8 @@ module.exports = {
     },
     
     broadcastKey: {
-      type: 'string',
-    },
+      type: 'string'
+    }
 
     /*
 Cody's quick sketch of the relationship for subscriptions
@@ -82,7 +82,7 @@ Cody's quick sketch of the relationship for subscriptions
     ], next);
   },
 
-  afterCreate : function (updatedRecord, callback){
+  afterCreate : function (updatedRecord, next){
     async.parallel([
     function (callback) {
         //create payment information

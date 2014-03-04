@@ -134,7 +134,7 @@ module.exports = function (grunt) {
   grunt.loadTasks(depsPath + '/grunt-contrib-less/tasks');
   grunt.loadTasks(depsPath + '/grunt-contrib-coffee/tasks');
   grunt.loadNpmTasks('grunt-typescript');
-  grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
   // Project configuration.
   grunt.initConfig({
@@ -224,21 +224,15 @@ module.exports = function (grunt) {
       }
     },
 
-
-    shell: {
-      mocha: {
+    // Configure a mochaTest task
+    mochaTest: {
+      test: {
         options: {
-          stdout: true,
-          execOptions: {
-            cwd: 'test'
-          }
+          reporter: 'spec'
         },
-        command: 'mocha ./ --recursive'
+        src: ['test/**/*.js']
       }
     },
-
-
-  //
 
     concat: {
       js: {
@@ -439,7 +433,7 @@ module.exports = function (grunt) {
     'jst:dev',
     'less:dev',
     'copy:dev',    
-    'coffee:dev'
+    //'coffee:dev'
   ]);
 
   grunt.registerTask('linkAssets', [
@@ -468,7 +462,7 @@ module.exports = function (grunt) {
     'jst:dev',
     'less:dev',
     'copy:dev',
-    'coffee:dev',
+    //'coffee:dev',
     'concat',
     'uglify',
     'cssmin',
@@ -482,7 +476,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'typescript',
-    'shell:mocha'
 
   ]);
 

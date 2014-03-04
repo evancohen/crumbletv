@@ -1,7 +1,6 @@
-
 var BroadcastController = (function () {
-    function BroadcastController(user, responseService) {
-        this.user = user;
+    function BroadcastController(userFactory, responseService) {
+        this.userFactory = userFactory;
         this.responseService = responseService;
     }
     BroadcastController.prototype.publish = function (request, response) {
@@ -22,7 +21,7 @@ var BroadcastController = (function () {
         }
         key = key[1];
 
-        this.user.findOne({ broadcastKey: key, name: name }, function (error, user) {
+        this.userFactory().findOne({ broadcastKey: key, name: name }, function (error, user) {
             if (error) {
                 return _this.responseService.error(response, error);
             }

@@ -1,4 +1,3 @@
-
 var ResponseService = (function () {
     function ResponseService() {
     }

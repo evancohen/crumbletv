@@ -16,6 +16,7 @@
  */
 
 var responseService = require('../services/ResponseService.js');
+var User = require('../models/User.js');
 
 module.exports = {
     
