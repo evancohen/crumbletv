@@ -103,6 +103,10 @@ Cody's quick sketch of the relationship for subscriptions
   //  });
   currentUser : function (req){
     return User.findOne(req.session.user);
+  },
+
+  getModel: function (){
+    return User;
   }
 
 };

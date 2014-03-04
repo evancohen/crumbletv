@@ -32,13 +32,13 @@ class BroadcastController implements IBroadcastController {
 
         // Split the key from the tcurl, since key is not passed via the params.
         key = key.split("?key=");
-        if (key.length === 0) {
+        if (key.length === 1) {
             return this.responseService.invalidParameters(response, ['tcurl']);
         }
         key = key[1];
 
         // Find user with the given broadcastKey and name
-        this.user.findOne({ broadcastKey: key, name: name }, (error, user) => {
+        this.user.getModel().findOne({ broadcastKey: key, name: name }, (error, user) => {
             if (error) {
                 return this.responseService.error(response, error);
             }

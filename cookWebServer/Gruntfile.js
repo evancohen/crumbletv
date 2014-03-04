@@ -226,11 +226,17 @@ module.exports = function (grunt) {
 
     // Configure a mochaTest task
     mochaTest: {
-      test: {
+      spec: {
         options: {
           reporter: 'spec'
         },
-        src: ['test/**/*.js']
+        src: ['test/spec/**/*.js']
+      },
+      integration: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['test/integration/**/*.js']
       }
     },
 
@@ -408,7 +414,10 @@ module.exports = function (grunt) {
       api: {
 
         // API files to watch:
-        files: ['api/**/*']
+        files: [
+          'api/**/*',
+          'test/**/*'
+        ]
       },
       assets: {
 
@@ -432,8 +441,8 @@ module.exports = function (grunt) {
     'clean:dev',
     'jst:dev',
     'less:dev',
-    'copy:dev',    
-    //'coffee:dev'
+    'typescript',
+    'copy:dev'
   ]);
 
   grunt.registerTask('linkAssets', [
@@ -462,7 +471,7 @@ module.exports = function (grunt) {
     'jst:dev',
     'less:dev',
     'copy:dev',
-    //'coffee:dev',
+    'typescript',
     'concat',
     'uglify',
     'cssmin',
@@ -476,7 +485,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'typescript',
-
+    'mochaTest'
   ]);
 
   // When API files are changed:

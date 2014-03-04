@@ -1,6 +1,6 @@
 var BroadcastController = (function () {
-    function BroadcastController(userFactory, responseService) {
-        this.userFactory = userFactory;
+    function BroadcastController(user, responseService) {
+        this.user = user;
         this.responseService = responseService;
     }
     BroadcastController.prototype.publish = function (request, response) {
@@ -16,12 +16,12 @@ var BroadcastController = (function () {
         }
 
         key = key.split("?key=");
-        if (key.length === 0) {
+        if (key.length === 1) {
             return this.responseService.invalidParameters(response, ['tcurl']);
         }
         key = key[1];
 
-        this.userFactory().findOne({ broadcastKey: key, name: name }, function (error, user) {
+        this.user.getModel().findOne({ broadcastKey: key, name: name }, function (error, user) {
             if (error) {
                 return _this.responseService.error(response, error);
             }
@@ -35,4 +35,5 @@ var BroadcastController = (function () {
     BroadcastController._config = {};
     return BroadcastController;
 })();
+
 module.exports = BroadcastController;

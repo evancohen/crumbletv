@@ -54,11 +54,15 @@ describe('BroadcastController', function() {
             done();
         });
 
-        it("should find one user with the name and parsed broadcastKey and respond with success", function(done) {
+        it("should find one user with a valid name and parsed broadcastKey and respond with success", function(done) {
             var passedQuery;
-            user.findOne = function (query, callback) {
-                passedQuery = query;
-                callback(null, {});
+            user.getModel = () => {
+                return {
+                    findOne: function (query, callback) {
+                        passedQuery = query;
+                        callback(null, {});
+                    }
+                }
             };
             request.body.name = stubName;
             request.body.tcurl = "fakeTCURL?key=" + stubBroadcastKey;

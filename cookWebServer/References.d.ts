@@ -24,6 +24,7 @@
 declare var describe: any;
 declare var before: any;
 declare var it: any;
+declare var after: any;
 
 // Sails Models
 declare var User: any;
