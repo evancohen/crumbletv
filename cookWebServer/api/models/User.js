@@ -105,6 +105,7 @@ Cody's quick sketch of the relationship for subscriptions
     return User.findOne(req.session.user);
   },
 
+  // TODO: make a base model interface that requires this method!! so offical.
   getModel: function (){
     return User;
   }

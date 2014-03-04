@@ -24,9 +24,5 @@ lodash.forIn(BroadcastExport, function(method, key) {
     }
 });
 
-
 // TODO: Figure out a better way to force sails to use the prototype
 module.exports = exportSingleton;
-
-
-
