@@ -40,4 +40,5 @@ class ResponseService implements IResponseService{
     }
 }
 
-export = ResponseService;
+var Export = new ResponseService();
+export = Export;

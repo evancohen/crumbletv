@@ -1,28 +1,58 @@
 /// <reference path="../../References.d.ts"/>
 
+/**
+ * BroadcastController
+ *
+ * @description	:: TODO
+ */
+class BroadcastController implements IBroadcastController {
+    // External dependencies
+    private user: any;
+    private responseService: IResponseService; //IResponseService;
 
-
-// Dependencies for BroadcastController
-var ResponseService = <any>require("../services/ResponseService.js");
-var BroadcastController = <any>require("./classes/BroadcastController.js");
-var User = <any>require("../models/User.js");
-var lodash = require("lodash");
-
-
-
-// Exports BroadcastController with the necessary dependencies.
-// Since User is not defined when sails first runs, it must be passed in a simple factory.
-var BroadcastExport = new BroadcastController(User, new ResponseService());
-
-// Some serious JS foo here.
-// TODO: move this to a service so the logic can be reused.
-var exportSingleton = {};
-lodash.forIn(BroadcastExport, function(method, key) {
-    if (lodash.isFunction(method)) {
-        exportSingleton[key] = lodash.bind(method, BroadcastExport);
-
+    constructor() {
+        this.user = <any>require("../models/User.js");
+        this.responseService = <IResponseService>require("../services/ResponseService.js");
     }
-});
 
-// TODO: Figure out a better way to force sails to use the prototype
-module.exports = exportSingleton;
+    /**
+     * Overrides for the settings in `config/controllers.js`
+     * (specific to BroadcastController)
+     */
+    public static _config = {};
+
+    public publish(request, response): any {
+        var key = request.body.tcurl;
+        var name = request.body.name;
+
+        if (!key) {
+            return this.responseService.invalidParameters(response, ['tcurl']);
+        }
+        if (!name) {
+            return this.responseService.invalidParameters(response, ['name']);
+        }
+
+        // Split the key from the tcurl, since key is not passed via the params.
+        key = key.split("?key=");
+        if (key.length === 1) {
+            return this.responseService.invalidParameters(response, ['tcurl']);
+        }
+        key = key[1];
+
+        // Find user with the given broadcastKey and name
+        this.user.getModel().findOne({ broadcastKey: key, name: name }, (error, user) => {
+            if (error) {
+                return this.responseService.error(response, error);
+            }
+            if (!user) {
+                return this.responseService.invalidParameters(response, ['broadcastKey', 'name']);
+            }
+
+            return this.responseService.success(response);
+        });
+    }
+}
+
+var ExportService  = <any>require("../services/ExportService.js");
+var BroadcastExport = ExportService.exportController(new BroadcastController());
+module.exports = BroadcastExport;

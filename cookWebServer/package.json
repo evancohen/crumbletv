@@ -18,7 +18,8 @@
         "sinon": "1.8.2",
         "grunt-typescript": "~0.2.7",
         "lodash": "2.4.1",
-        "grunt-mocha-test": "0.9.4"
+        "grunt-mocha-test": "0.9.4",
+        "proxyquire": "0.5.2"
     },
     "scripts": {
         "start": "node app.js",

@@ -44,4 +44,5 @@ var ResponseService = (function () {
     return ResponseService;
 })();
 
-module.exports = ResponseService;
+var Export = new ResponseService();
+module.exports = Export;

@@ -4,9 +4,7 @@
 var assert: any = require('assert');
 var sinon = require('sinon');
 var lodash = <any>require('lodash');
-
-// Test specific requirements
-var BroadcastController = <any>require('../../../api/controllers/classes/BroadcastController.js');
+var proxyquire =  require('proxyquire')
 
 describe('BroadcastController', function() {
     // Mocks
@@ -15,6 +13,7 @@ describe('BroadcastController', function() {
     var responseService;
     var response;
     var user;
+    var exportServiceMock
 
     // Stubs
     var stubBroadcastKey = "IAmAKey";
@@ -33,7 +32,17 @@ describe('BroadcastController', function() {
           success: sinon.spy()
         };
         user = {};
-        broadcastController = new BroadcastController(user, responseService);
+        exportServiceMock = {
+            export: function (object) {
+                return object
+            }
+        };
+        broadcastController = (<IBroadcastController>proxyquire(
+            '../../../api/controllers/BroadcastController.js', {
+                "../models/User.js": user,
+                "../services/ResponseService.js": responseService,
+                "../service/ExportService.js": exportServiceMock
+            }));
         done();
     });
 

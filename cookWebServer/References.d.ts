@@ -4,8 +4,7 @@
  */
 
 // Api: Add your API typescript files here!
-/// <reference path="api/controllers/classes/IBroadcastController.d.ts"/>
-/// <reference path="api/controllers/classes/BroadcastController.ts"/>
+/// <reference path="api/controllers/IBroadcastController.d.ts"/>
 /// <reference path="api/controllers/BroadcastController.ts"/>
 /// <reference path="api/services/IResponseService.d.ts"/>
 /// <reference path="api/services/ResponseService.ts"/>

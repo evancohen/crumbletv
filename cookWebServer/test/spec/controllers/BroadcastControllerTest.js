@@ -1,8 +1,7 @@
 var assert = require('assert');
 var sinon = require('sinon');
 var lodash = require('lodash');
-
-var BroadcastController = require('../../../api/controllers/classes/BroadcastController.js');
+var proxyquire = require('proxyquire');
 
 describe('BroadcastController', function () {
     var broadcastController;
@@ -10,6 +9,7 @@ describe('BroadcastController', function () {
     var responseService;
     var response;
     var user;
+    var exportServiceMock;
 
     var stubBroadcastKey = "IAmAKey";
     var stubName = "IAmAName";
@@ -27,7 +27,16 @@ describe('BroadcastController', function () {
             success: sinon.spy()
         };
         user = {};
-        broadcastController = new BroadcastController(user, responseService);
+        exportServiceMock = {
+            export: function (object) {
+                return object;
+            }
+        };
+        broadcastController = proxyquire('../../../api/controllers/BroadcastController.js', {
+            "../models/User.js": user,
+            "../services/ResponseService.js": responseService,
+            "../service/ExportService.js": exportServiceMock
+        });
         done();
     });
 
