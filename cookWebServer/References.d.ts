@@ -6,6 +6,8 @@
 // Api: Add your API typescript files here!
 /// <reference path="api/controllers/IBroadcastController.d.ts"/>
 /// <reference path="api/controllers/BroadcastController.ts"/>
+/// <reference path="api/models/IBaseModel.d.ts"/>
+/// <reference path="api/models/User.ts"/>
 /// <reference path="api/services/IExportService.d.ts"/>
 /// <reference path="api/services/ExportService.ts"/>
 /// <reference path="api/services/IResponseService.d.ts"/>

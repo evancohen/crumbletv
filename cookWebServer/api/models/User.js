@@ -1,125 +1,95 @@
-/**
- * User
- *
- * @module      :: Model
- * @description :: A short summary of how this model works and what it represents.
- * @docs		:: http://sailsjs.org/#!documentation/models
- */
-
-var bcrypt = require('bcrypt-nodejs');
-var uuid = require('node-uuid');
-var async = require('async');
-var paymentService = require('../services/Payment.js');
-
-module.exports = {
-
-  attributes: {
-
-    name: {
-      type: 'string',
-      unique: true,
-      required: true
-    },  	
-
-    email: {
-      type: 'email',
-      unique: true,
-      required: true
-    },
-
-    password: {
-      type: 'string',
-      required: true,
-      minLength: 6
-    },
-    
-    broadcastKey: {
-      type: 'string'
+var User = (function () {
+    function User(sails, bcrypt, uuid, async, paymentService) {
+        this.sails = sails;
+        this.bcrypt = bcrypt;
+        this.uuid = uuid;
+        this.async = async;
+        this.paymentService = paymentService;
+        this.attributes = {
+            name: {
+                type: 'string',
+                unique: true,
+                required: true
+            },
+            email: {
+                type: 'email',
+                unique: true,
+                required: true
+            },
+            password: {
+                type: 'string',
+                required: true,
+                minLength: 6
+            },
+            broadcastKey: {
+                type: 'string'
+            }
+        };
     }
+    User.prototype.getModel = function () {
+        return this.sails.models.user;
+    };
 
-    /*
-Cody's quick sketch of the relationship for subscriptions
+    User.prototype.currentUser = function (request) {
+        return this.getModel().findOne(request.session.user);
+    };
 
-// User.js
-{
-  paidSubscriptions: {
-    collection: 'Subscription',
-    via: 'subscriber'
-  },
-  collectedSubscriptions: {
-    collection: 'Subscription',
-    via: 'subscriberPayee'
-  }
-}
+    User.prototype.beforeCreate = function (attributes, callback) {
+        var _this = this;
+        this.async.parallel([
+            function (callback) {
+                _this.bcrypt.genSalt(10, function (err, salt) {
+                    if (err) {
+                        return callback(err);
+                    }
 
+                    return _this.bcrypt.hash(attributes.password, salt, null, function (error, hash) {
+                        if (error) {
+                            return callback(error);
+                        }
 
-    */
+                        attributes.password = hash;
+                        return callback();
+                    });
+                });
+            },
+            function (callback) {
+                _this.generateBroadcastKey(function (broadcastKey) {
+                    attributes.broadcastKey = broadcastKey;
+                    callback();
+                });
+            }
+        ], callback);
+    };
 
-  },
+    User.prototype.afterCreate = function (updatedRecord, callback) {
+        var _this = this;
+        this.async.parallel([
+            function (callback) {
+                _this.paymentService.stripe.customers.create({
+                    email: updatedRecord.email
+                }, function (err, customer) {
+                    callback();
+                });
+            }
+        ], callback);
+    };
 
-  beforeCreate: function (attrs, next) {
-    async.parallel([
-      function (callback) {
-        // bcrypt user password on creation
-        bcrypt.genSalt(10, function(err, salt) {
-          if (err) return next(err);
+    User.prototype.generateBroadcastKey = function (callback) {
+        var _this = this;
+        var key = this.uuid.v4();
 
-          bcrypt.hash(attrs.password, salt, null, function(err, hash) {
-            if (err) return next(err);
-
-            attrs.password = hash;
-            callback();
-          });
-
+        this.getModel().findOne({ broadcastKey: key }, function (error, user) {
+            if (error) {
+                _this.generateBroadcastKey(callback);
+            }
+            callback(key);
         });
-      },
-      function (callback) {
-        generateBroadcastKey(function (broadcastKey) {
-          attrs.broadcastKey = broadcastKey;
-          callback();
-        });
-      }
-    ], next);
-  },
-
-  afterCreate : function (updatedRecord, next){
-    async.parallel([
-    function (callback) {
-        //create payment information
-        paymentService.stripe.customers.create({
-          email : updatedRecord.email
-        }, function(err, customer) {
-          // asynchronously called by stripe
-          //TODO: error handeling for Stripe
-          callback();
-        });
-      }
-    ], next);
-  },
-
-  // Returns a findOne object which you can access using 
-  // getUser(res).done(function(err, user){
-  //    ...  
-  //  });
-  currentUser : function (req){
-    return User.findOne(req.session.user);
-  },
-
-  // TODO: make a base model interface that requires this method!! so offical.
-  getModel: function (){
+    };
     return User;
-  }
+})();
 
-};
-
-function generateBroadcastKey(callback) {
-  var key = uuid.v4();
-  
-  User.findOne({ broadcastKey: key }, function (error, user) {
-    if (error) {
-      // Attempt again?
-      generateBroadcastKey();
-    }
-    callback(key);
-  });
-}
+var ExportService = require("../services/ExportService.js");
+var UserExport = new User(require("sails"), require('bcrypt-nodejs'), require('node-uuid'), require('async'), require('../services/Payment.js'));
+UserExport = ExportService.exportController(UserExport);
+module.exports = exports = UserExport;

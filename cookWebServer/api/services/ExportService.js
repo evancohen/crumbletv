@@ -7,8 +7,6 @@ var ExportService = (function () {
         var exportSingleton = {};
         this.lodash.forIn(controller, function (method, key) {
             if (_this.lodash.isFunction(method) && !controller.hasOwnProperty(key)) {
-                console.log(key);
-
                 exportSingleton[key] = _this.lodash.bind(method, controller);
             }
         });

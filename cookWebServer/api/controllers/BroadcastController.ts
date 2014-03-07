@@ -53,4 +53,4 @@ var ExportService  = <IExportService>require("../services/ExportService.js");
 var ResponseService = <IResponseService>require("../services/ResponseService.js");
 var User = require("../models/User.js");
 var BroadcastExport = ExportService.exportController(new BroadcastController(User, ResponseService));
-export = BroadcastExport;
+module.exports = BroadcastExport;
