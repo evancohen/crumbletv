@@ -6,14 +6,9 @@
  * @description	:: TODO
  */
 class BroadcastController implements IBroadcastController {
-    // External dependencies
-    private user: any;
-    private responseService: IResponseService; //IResponseService;
 
-    constructor() {
-        this.user = <any>require("../models/User.js");
-        this.responseService = <IResponseService>require("../services/ResponseService.js");
-    }
+    constructor(private user: any,
+                private responseService: IResponseService) {}
 
     /**
      * Overrides for the settings in `config/controllers.js`
@@ -51,8 +46,11 @@ class BroadcastController implements IBroadcastController {
             return this.responseService.success(response);
         });
     }
+
 }
 
-var ExportService  = <any>require("../services/ExportService.js");
-var BroadcastExport = ExportService.exportController(new BroadcastController());
-module.exports = BroadcastExport;
+var ExportService  = <IExportService>require("../services/ExportService.js");
+var ResponseService = <IResponseService>require("../services/ResponseService.js");
+var User = require("../models/User.js");
+var BroadcastExport = ExportService.exportController(new BroadcastController(User, ResponseService));
+export = BroadcastExport;

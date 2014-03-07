@@ -4,7 +4,7 @@
 var assert: any = require('assert');
 var sinon = require('sinon');
 var lodash = <any>require('lodash');
-var proxyquire =  require('proxyquire')
+var proxyquire =  require('proxyquire');
 
 describe('BroadcastController', function() {
     // Mocks

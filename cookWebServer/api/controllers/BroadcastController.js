@@ -1,7 +1,7 @@
 var BroadcastController = (function () {
-    function BroadcastController() {
-        this.user = require("../models/User.js");
-        this.responseService = require("../services/ResponseService.js");
+    function BroadcastController(user, responseService) {
+        this.user = user;
+        this.responseService = responseService;
     }
     BroadcastController.prototype.publish = function (request, response) {
         var _this = this;
@@ -37,5 +37,8 @@ var BroadcastController = (function () {
 })();
 
 var ExportService = require("../services/ExportService.js");
-var BroadcastExport = ExportService.exportController(new BroadcastController());
+var ResponseService = require("../services/ResponseService.js");
+var User = require("../models/User.js");
+var BroadcastExport = ExportService.exportController(new BroadcastController(User, ResponseService));
+
 module.exports = BroadcastExport;

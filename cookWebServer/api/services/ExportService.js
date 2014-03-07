@@ -1,13 +1,15 @@
 var ExportService = (function () {
-    function ExportService() {
-        this.lodash = require("lodash");
+    function ExportService(lodash) {
+        this.lodash = lodash;
     }
-    ExportService.prototype.exportController = function (exportObject) {
+    ExportService.prototype.exportController = function (controller) {
         var _this = this;
         var exportSingleton = {};
-        this.lodash.forIn(exportObject, function (method, key) {
-            if (_this.lodash.isFunction(method)) {
-                exportSingleton[key] = _this.lodash.bind(method, exportObject);
+        this.lodash.forIn(controller, function (method, key) {
+            if (_this.lodash.isFunction(method) && !controller.hasOwnProperty(key)) {
+                console.log(key);
+
+                exportSingleton[key] = _this.lodash.bind(method, controller);
             }
         });
         return exportSingleton;
@@ -15,5 +17,5 @@ var ExportService = (function () {
     return ExportService;
 })();
 
-var Export = new ExportService();
+var Export = new ExportService(require("lodash"));
 module.exports = Export;

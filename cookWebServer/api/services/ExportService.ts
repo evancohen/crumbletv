@@ -1,21 +1,21 @@
-class ExportService {
-    private lodash: any;
+class ExportService implements IExportService {
 
-    constructor() {
-        this.lodash = require("lodash");
-    }
+    constructor(private lodash: any) {}
 
-    public exportController(exportObject: Object) {
+    public exportController(controller: Object) {
         var exportSingleton = {};
-        this.lodash.forIn(exportObject, (method, key) => {
-            if (this.lodash.isFunction(method)) {
-                exportSingleton[key] = this.lodash.bind(method, exportObject);
+        this.lodash.forIn(controller, (method, key) => {
+            if (this.lodash.isFunction(method) && !controller.hasOwnProperty(key)) {
+                console.log(key)
 
+                exportSingleton[key] = this.lodash.bind(method, controller);
             }
         });
         return exportSingleton;
     }
+
 }
 
-var Export = new ExportService();
+
+var Export = new ExportService(require("lodash"));
 export = Export;
