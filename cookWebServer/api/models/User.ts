@@ -119,10 +119,10 @@ class User implements IBaseModel {
 }
 
 var ExportService  = <IExportService>require("../services/ExportService.js");
-var UserExport = new User(require("sails"),
-                          require('bcrypt-nodejs'),
-                          require('node-uuid'),
-                          require('async'),
-                          require('../services/Payment.js'));
-UserExport = ExportService.exportController(UserExport)
-module.exports = exports = UserExport;
+module.exports = ExportService.createSingletonFromClass(
+    new User(
+        require("sails"),
+        require('bcrypt-nodejs'),
+        require('node-uuid'),
+        require('async'),
+        require('../services/Payment.js')));

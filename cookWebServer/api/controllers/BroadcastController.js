@@ -39,5 +39,5 @@ var BroadcastController = (function () {
 var ExportService = require("../services/ExportService.js");
 var ResponseService = require("../services/ResponseService.js");
 var User = require("../models/User.js");
-var BroadcastExport = ExportService.exportController(new BroadcastController(User, ResponseService));
+var BroadcastExport = ExportService.createSingletonFromClass(new BroadcastController(User, ResponseService));
 module.exports = BroadcastExport;

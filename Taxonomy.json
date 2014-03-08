@@ -1,0 +1,66 @@
+{
+  "facets": {
+    "meal":[
+      "Main Course",
+      "Dessert",
+      "Dinner",
+      "Appetizer",
+      "Side Dish",
+      "Lunch",
+      "Appetizer",
+      "Breakfast",
+      "Brunch",
+      "Snack",
+      "Beverage",
+      "Condiment"
+    ],
+    "cuisine": [
+
+      "American",
+      "Italian",
+      "European",
+      "Indian",
+      "Spanish",
+      "Mexican",
+
+Italian (707)
+European (572)
+Mexican (397)
+Asian (338)
+Southern (328)
+French (263)
+Southwestern (182)
+Spanish (102)
+Greek (85)
+
+Indian
+Middle Eastern
+Chinese
+Thai
+Caribbean
+Cajun
+Jewish Cooking
+Hawaiian
+Northeastern
+Japanese
+
+  Irish
+  Cuban
+  Portuguese
+  German
+  British
+  Vietnamese
+  Scandinavian
+  Korean
+  Jamaican
+  African
+
+    ],
+    "ingredients": {
+
+    },
+    "taste": {
+
+    }
+  }
+}

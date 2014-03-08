@@ -1,3 +1,3 @@
 interface IExportService {
-    exportController(controller: Object);
+    createSingletonFromClass(classInstance: Object): Object
 }

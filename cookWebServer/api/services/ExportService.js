@@ -2,7 +2,7 @@ var ExportService = (function () {
     function ExportService(lodash) {
         this.lodash = lodash;
     }
-    ExportService.prototype.exportController = function (controller) {
+    ExportService.prototype.createSingletonFromClass = function (controller) {
         var _this = this;
         var exportSingleton = {};
         this.lodash.forIn(controller, function (method, key) {
