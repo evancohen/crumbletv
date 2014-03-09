@@ -83,6 +83,5 @@ describe('BroadcastController', function() {
             done();
         });
 
-
     });
 });

@@ -1,66 +1,120 @@
 {
-  "facets": {
-    "meal":[
-      "Main Course",
-      "Dessert",
-      "Dinner",
-      "Appetizer",
-      "Side Dish",
-      "Lunch",
-      "Appetizer",
-      "Breakfast",
-      "Brunch",
-      "Snack",
-      "Beverage",
-      "Condiment"
-    ],
-    "cuisine": [
+    "facets": {
+        "Occasions": [
+            "Christmas",
+            "Summer",
+            "Fall",
+            "Thanksgiving",
+            "New Year",
+            "Spring",
+            "Winter",
+            "Game Day",
+            "Halloween",
+            "Hanukkah",
+            "Valentine's Day",
+            "4th of July",
+            "Thanksgivukkah"
+        ],
+        "Diets": [
+            "Pescetarian",
+            "Vegetarian",
+            "Lacto vegetarian",
+            "Ovo vegetarian",
+            "Vegan"
+        ],
+        "meal": [
+            "Main Dishes",
+            "Desserts",
+            "Side Dishes",
+            "Lunch and Snacks",
+            "Appetizers",
+            "Salads",
+            "Breads",
+            "Breakfast and Brunch",
+            "Soups",
+            "Beverages",
+            "Condiments and Sauces",
+            "Cocktails"
+        ],
+        "Techniques": {
+            "Baking",
+            "Browning",
+            "Boiling",
+            "Sauteeing",
+            "Frying", "Blending" (43,471) "Grilling" (42,549)
+Microwaving  Roasting  Broiling  "Marinating" "Glazing" "Drying" "Slow Cooking" "Steaming"  "Frosting" "Stir Frying "(3,652) "Poaching" (2,834) "Brining" (1,965) Braising (1,465) Pressure Cooking (1,117) Stuffing (263)
+}
+        "Allergies": [
+            "Sesame",
+            "Seafood",
+            "Peanut",
+            "Tree Nut",
+            "Soy",
+            "Egg",
+            "Sulfite",
+            "Dairy",
+            "Wheat",
+            "Gluten"
+        ],
+        "cuisine": {
+            "American": [
+                "Hawaiian",
+                "Southern & Soul Food",
+                "Native American",
+                "Southwestern",
+                "Cajun & Creole",
+                "Canadian",
+                "Barbecue",
 
-      "American",
-      "Italian",
-      "European",
-      "Indian",
-      "Spanish",
-      "Mexican",
+                "Mexican",
+                "Central American",
+                "South American",
+                "Caribbean",
+                "Cuban",
 
-Italian (707)
-European (572)
-Mexican (397)
-Asian (338)
-Southern (328)
-French (263)
-Southwestern (182)
-Spanish (102)
-Greek (85)
+                "Aztec",
+                "Maya",
+                "Inca"
+            ],
 
-Indian
-Middle Eastern
-Chinese
-Thai
-Caribbean
-Cajun
-Jewish Cooking
-Hawaiian
-Northeastern
-Japanese
+            "European": [
+                "English",
+                "Russia",
+                "Italian",
+                "Spanish",
+                "Greek",
+                "French",
+                "German",
+                "Irish",
+                "Mediterranean",
+                "Hungarian",
+                "Portuguese",
+                "Swedish"
+            ],
+            "Asian": [
+                "Chinese",
+                "Thai",
+                "Vietnamese",
+                "Japanese",
+                "Korean"
+            ],
+            "Middle Eastern": [
+                "Indian"
+            ],
+            "African": [
+                "Moroccan"
+            ]
 
-  Irish
-  Cuban
-  Portuguese
-  German
-  British
-  Vietnamese
-  Scandinavian
-  Korean
-  Jamaican
-  African
+            "Northeastern",
+            "Cuban",
+            "Scandinavian",
+            "Jamaican"
+        },
+        "ingredients": {
 
-    ],
-    "ingredients": {
+        },
+        "taste": {
 
-    },
-    "taste": {
-
+        }
     }
-  }
 }
