@@ -1,0 +1,3 @@
+interface IIngredientShow extends IBaseModel {
+    
+}
