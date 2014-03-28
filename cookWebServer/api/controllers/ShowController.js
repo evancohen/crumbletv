@@ -15,12 +15,55 @@
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
+var responseService = require('../services/ResponseService.js');
+var Show = require('../models/Show.js');
+
 module.exports = {
 
   /**
    * Overrides for the settings in `config/controllers.js`
    * (specific to ShowController)
    */
-  _config: {}
+  _config: {},
+  //On create be sure to also create a User->Show and Tag->Show
+	index: function (request, response){
+		var id = request.param('id');
+		if (!id) {
+			return responseService.failed(response, "Incorrect paramaters");
+		}
+		Show.findOne(id, function(error, show){
+			if(error){
+				return responseService.failed(response, "Could not find video with that ID");
+			}
+			return responseService.success(response, show, "Show found!");
+		});
+	},
+
+	//find a list of shows by a specific recepie
+	recipie: function (request, response){
+		var id = request.param('id');
+		if (!id) {
+			return responseService.failed(response, "Incorrect paramaters");
+		}
+		Show.find().where({recipeID: id}).done(function(error, shows){
+			if(error){
+				return responseService.error(response, error); 
+			}
+			return responseService.success(response, shows, "Video(s) found");
+		});
+	},
+
+	upcoming: function (request, response){
+		var count = request.param('count') || 20; //default number is 20
+		Show.find()
+			//.where({ startTime: { '>=': 100 }}) //TODO figure out Sails datetime format
+			.limit(count)
+			.done(function(error, videos){
+				if(error){
+					return responseService.error(response, error); 
+				}
+				return responseService.success(response, shows, "Video(s) found");
+			});
+	}
 
 };

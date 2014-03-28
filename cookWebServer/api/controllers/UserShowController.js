@@ -39,7 +39,7 @@ module.exports = {
 			}
 			return responseService.success(response, shows, "Videos found");
 		});
-	}
+	},
 
   	full: function (request, response) {
   		return response.json({
@@ -47,6 +47,4 @@ module.exports = {
       		whatElse : "Should have some kind of pagination"
     	});
   	}
-
-  }
 };
