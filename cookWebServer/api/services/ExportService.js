@@ -2,12 +2,12 @@ var ExportService = (function () {
     function ExportService(lodash) {
         this.lodash = lodash;
     }
-    ExportService.prototype.createSingletonFromClass = function (controller) {
+    ExportService.prototype.createSingletonFromClass = function (classInstance) {
         var _this = this;
         var exportSingleton = {};
-        this.lodash.forIn(controller, function (method, key) {
-            if (_this.lodash.isFunction(method) && !controller.hasOwnProperty(key)) {
-                exportSingleton[key] = _this.lodash.bind(method, controller);
+        this.lodash.forIn(classInstance, function (method, key) {
+            if (_this.lodash.isFunction(method) && !classInstance.hasOwnProperty(key)) {
+                exportSingleton[key] = _this.lodash.bind(method, classInstance);
             }
         });
         return exportSingleton;
