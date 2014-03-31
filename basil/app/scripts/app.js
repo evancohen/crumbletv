@@ -1,9 +1,4 @@
-/// <reference path="../bower_components/dt-angular/angular.d.ts" />
-
 "use strict";
-
-// TODO: proper heading for flowplayer
-declare var flowplayer;
 
 angular.module("basilApp", [
   "ngCookies",
@@ -18,12 +13,12 @@ angular.module("basilApp", [
     .state("home", {
       url: "/",
       templateUrl: "views/main.html",
-      controller: "MainController"
+      controller: "mainController"
     })
     .state("stream", {
       url: "/stream",
       templateUrl: "views/stream.html",
-      controller: "StreamController"
+      controller: "streamController"
     });
 
 });

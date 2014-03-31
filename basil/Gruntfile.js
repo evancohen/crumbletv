@@ -27,14 +27,16 @@ module.exports = function (grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
+      /*
       typescript: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.ts'],
+        files: ['<%= yeoman.app %>/scripts/{,* /}*.ts'],
         tasks: ['typescript:base']
       },
       typescriptTest: {
-        files: ['test/spec/{,*/}*.ts'],
+        files: ['test/spec/{,* /}*.ts'],
         tasks: ['typescript:test', 'karma']
       },
+*/
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
@@ -140,9 +142,10 @@ module.exports = function (grunt) {
 
 
     // Compiles TypeScript to JavaScript
+    /*
     typescript: {
       base: {
-        src: ['<%= yeoman.app %>/scripts/{,*/}*.ts'],
+        src: ['<%= yeoman.app %>/scripts/{, * /} *.ts'],
         dest: '.tmp/scripts',
         options: {
           module: 'amd', //or commonjs
@@ -153,7 +156,7 @@ module.exports = function (grunt) {
         }
       },
       test: {
-        src: ['test/spec/{,*/}*.ts', 'test/e2e/{,*/}*.ts'],
+        src: ['test/spec/{, * /}*.ts', 'test/e2e/{, * /}*.ts'],
         dest: '.tmp/spec',
         options: {
           module: 'amd', //or commonjs
@@ -163,6 +166,7 @@ module.exports = function (grunt) {
         }
       }
     },
+*/
 
     // Renames files for browser caching purposes
     rev: {
@@ -271,7 +275,8 @@ module.exports = function (grunt) {
             'bower_components/**/*',
             'images/{,*/}*.{webp}',
             'fonts/*',
-            'static/{,*/}*'
+            'static/{,*/}*',
+            'scripts/{,*/}*.js'
           ]
         }, {
           expand: true,
@@ -291,15 +296,15 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'typescript:base',
+        //'typescript:base',
         'copy:styles'
       ],
       test: [
-        'typescript',
+        //'typescript',
         'copy:styles'
       ],
       dist: [
-        'typescript',
+        //'typescript',
         'copy:styles',
         'imagemin',
         'svgmin'
