@@ -1,40 +1,33 @@
-var BroadcastController = (function () {
-    function BroadcastController(user, responseService) {
-        this.user = user;
-        this.responseService = responseService;
+var responseService = require("../services/ResponseService.js");
+var User = require("../models/User.js");
+
+module.exports = {
+  publish: function publish(request, response) {
+    var key = request.body.tcurl;
+    var name = request.body.name;
+
+    if (!key) {
+      return responseService.invalidParameters(response, ['tcurl']);
     }
-    BroadcastController.prototype.publish = function (request, response) {
-        var _this = this;
-        var key = request.body.tcurl;
-        var name = request.body.name;
+    if (!name) {
+      return responseService.invalidParameters(response, ['name']);
+    }
 
-        if (!key) {
-            return this.responseService.invalidParameters(response, ['tcurl']);
-        }
-        if (!name) {
-            return this.responseService.invalidParameters(response, ['name']);
-        }
+    key = key.split("?key=");
+    if (key.length === 1) {
+      return responseService.invalidParameters(response, ['tcurl']);
+    }
+    key = key[1];
 
-        key = key.split("?key=");
-        if (key.length === 1) {
-            return this.responseService.invalidParameters(response, ['tcurl']);
-        }
-        key = key[1];
+    User.getModel().findOne({ broadcastKey: key, name: name }, function (error, user) {
+      if (error) {
+        return responseService.error(response, error);
+      }
+      if (!user) {
+        return responseService.invalidParameters(response, ['broadcastKey', 'name']);
+      }
 
-        this.user.getModel().findOne({ broadcastKey: key, name: name }, function (error, user) {
-            if (error) {
-                return _this.responseService.error(response, error);
-            }
-            if (!user) {
-                return _this.responseService.invalidParameters(response, ['broadcastKey', 'name']);
-            }
-
-            return _this.responseService.success(response);
-        });
-    };
-    BroadcastController._config = {};
-    return BroadcastController;
-})();
-
-var ExportService = require("../services/ExportService.js");
-module.exports = ExportService.createSingletonFromClass(new BroadcastController(require("../models/User.js"), require("../services/ResponseService.js")));
+      return responseService.success(response);
+    });
+  }
+};

@@ -131,7 +131,6 @@ module.exports = function (grunt) {
     grunt.loadTasks(depsPath + '/grunt-contrib-cssmin/tasks');
     grunt.loadTasks(depsPath + '/grunt-contrib-less/tasks');
     grunt.loadTasks(depsPath + '/grunt-contrib-coffee/tasks');
-    grunt.loadNpmTasks('grunt-typescript');
     grunt.loadNpmTasks('grunt-mocha-test');
 
     // Project configuration.
@@ -164,7 +163,7 @@ module.exports = function (grunt) {
         clean: {
             dev: ['.tmp/public/**'],
             build: ['www'],
-            typescript: ["js"]
+            //typescript: ["js"]
         },
 
         jst: {
@@ -205,12 +204,13 @@ module.exports = function (grunt) {
         },
 
         // Compiles TypeScript to JavaScript
+      /*
         typescript: {
             base: {
-                src: [
+                src: [                     mm
                     'References.d.ts',
-                    'api/{,*/}*.ts',
-                    'test/{,*/}*.ts'
+                    'api/{,* /}*.ts',
+                    'test/{,* /}*.ts'
                 ],
                 //dest: 'test.js',
                 options: {
@@ -222,6 +222,7 @@ module.exports = function (grunt) {
                 }
             }
         },
+        */
 
         // Configure a mochaTest task
         mochaTest: {
@@ -443,7 +444,7 @@ module.exports = function (grunt) {
         'clean:dev',
         'jst:dev',
         'less:dev',
-        'typescript',
+        //'typescript',
         'copy:dev'
     ]);
 
@@ -473,7 +474,7 @@ module.exports = function (grunt) {
         'jst:dev',
         'less:dev',
         'copy:dev',
-        'typescript',
+        //'typescript',
         'concat',
         'uglify',
         'cssmin',
@@ -486,7 +487,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('test', [
-        'typescript',
+        //'typescript',
         'mochaTest'
     ]);
 

@@ -1,93 +1,102 @@
-var User = (function () {
-    function User(sails, bcrypt, uuid, async, paymentService) {
-        this.sails = sails;
-        this.bcrypt = bcrypt;
-        this.uuid = uuid;
-        this.async = async;
-        this.paymentService = paymentService;
-        this.attributes = {
-            name: {
-                type: 'string',
-                unique: true,
-                required: true
-            },
-            email: {
-                type: 'email',
-                unique: true,
-                required: true
-            },
-            password: {
-                type: 'string',
-                required: true,
-                minLength: 6
-            },
-            broadcastKey: {
-                type: 'string'
-            }
-        };
+var sails = require("sails");
+var bcrypt = require('bcrypt-nodejs');
+var uuid = require('node-uuid');
+var async = require('async');
+var paymentService = require('../services/Payment.js');
+
+module.exports = {
+  attributes: {
+    name: {
+      type: 'string',
+      unique: true,
+      required: true
+    },
+
+    email: {
+      type: 'email',
+      unique: true,
+      required: true
+    },
+
+    password: {
+      type: 'string',
+      required: true,
+      minLength: 6
+    },
+
+    broadcastKey: {
+      type: 'string'
     }
-    User.prototype.getModel = function () {
-        return this.sails.models.user;
-    };
 
-    User.prototype.currentUser = function (request) {
-        return this.getModel().findOne(request.session.user);
-    };
+    /*
+     Cody's quick sketch of the relationship for subscriptions
 
-    User.prototype.beforeCreate = function (attributes, callback) {
-        var _this = this;
-        this.async.parallel([
-            function (callback) {
-                _this.bcrypt.genSalt(10, function (err, salt) {
-                    if (err) {
-                        return callback(err);
-                    }
+     // User.js
+     {
+     paidSubscriptions: {
+     collection: 'Subscription',
+     via: 'subscriber'
+     },
+     collectedSubscriptions: {
+     collection: 'Subscription',
+     via: 'subscriberPayee'
+     }
+     }
+     */
+  },
 
-                    return _this.bcrypt.hash(attributes.password, salt, null, function (error, hash) {
-                        if (error) {
-                            return callback(error);
-                        }
+  beforeCreate: function beforeCreate(attributes, callback) {
+    async.parallel([
+      function (callback) {
+        bcrypt.genSalt(10, function (err, salt) {
+          if (err) {
+            return callback(err);
+          }
 
-                        attributes.password = hash;
-                        return callback();
-                    });
-                });
-            },
-            function (callback) {
-                _this.generateBroadcastKey(function (broadcastKey) {
-                    attributes.broadcastKey = broadcastKey;
-                    callback();
-                });
-            }
-        ], callback);
-    };
-
-    User.prototype.afterCreate = function (updatedRecord, callback) {
-        var _this = this;
-        this.async.parallel([
-            function (callback) {
-                _this.paymentService.stripe.customers.create({
-                    email: updatedRecord.email
-                }, function (err, customer) {
-                    callback();
-                });
-            }
-        ], callback);
-    };
-
-    User.prototype.generateBroadcastKey = function (callback) {
-        var _this = this;
-        var key = this.uuid.v4();
-
-        this.getModel().findOne({ broadcastKey: key }, function (error, user) {
+          return bcrypt.hash(attributes.password, salt, null, function (error, hash) {
             if (error) {
-                _this.generateBroadcastKey(callback);
+              return callback(error);
             }
-            callback(key);
-        });
-    };
-    return User;
-})();
 
-var ExportService = require("../services/ExportService.js");
-module.exports = ExportService.createSingletonFromClass(new User(require("sails"), require('bcrypt-nodejs'), require('node-uuid'), require('async'), require('../services/Payment.js')));
+            attributes.password = hash;
+            return callback();
+          });
+        });
+      },
+      function (callback) {
+        generateBroadcastKey(function (broadcastKey) {
+          attributes.broadcastKey = broadcastKey;
+          callback();
+        });
+      }
+    ], callback);
+  },
+
+  afterCreate: function afterCreate(updatedRecord, callback) {
+    async.parallel([
+      function (callback) {
+        paymentService.stripe.customers.create({
+          email: updatedRecord.email
+        }, function (err, customer) {
+          callback();
+        });
+      }
+    ], callback);
+  },
+
+  currentUser: function currentUser(request) {
+    return sails.models.User.findOne(request.session.user);
+  }
+
+};
+
+function generateBroadcastKey(callback) {
+  var key = uuid.v4();
+
+  this.getModel().findOne({ broadcastKey: key }, function (error, user) {
+    if (error) {
+      generateBroadcastKey(callback);
+    }
+    callback(key);
+  });
+}

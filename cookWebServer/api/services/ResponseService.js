@@ -1,3 +1,4 @@
+// TODO convert to sails singleton style. see other js
 var ResponseService = (function () {
     function ResponseService() {
     }
