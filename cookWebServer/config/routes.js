@@ -27,6 +27,11 @@
  */
 
 module.exports.routes = {
+
+  '/taxonomy/facet/:facetName': {
+    controller: 'taxonomy',
+    action: 'facet'
+  }
   
 };
 

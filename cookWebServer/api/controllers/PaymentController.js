@@ -15,7 +15,7 @@
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
-var responseService = require('../services/responseService.js');
+var responseService = require('../services/Response.js');
 var paymentService = require('../services/Payment.js');
 var User = require('../models/User.js');
 

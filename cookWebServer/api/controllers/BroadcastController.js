@@ -1,4 +1,4 @@
-var responseService = require("../services/ResponseService.js");
+var responseService = require("../services/Response.js");
 var User = require("../models/User.js");
 
 module.exports = {
