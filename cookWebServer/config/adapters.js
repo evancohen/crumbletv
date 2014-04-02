@@ -19,10 +19,10 @@ module.exports.adapters = {
   // 
   // In order to reinforce uniquness, we need memory over file for dev.
   // http://sethetter.com/user-authentication-with-sails-js/
-  'default': 'memory',
+  //'default': 'memory',
 
-  memory: {
-    module: 'sails-memory'
-  },
+  //memory: {
+  //  module: 'sails-memory'
+  //},
   
 };

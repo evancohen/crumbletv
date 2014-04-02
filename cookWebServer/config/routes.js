@@ -28,9 +28,9 @@
 
 module.exports.routes = {
 
-  '/taxonomy/facet/:facetName': {
-    controller: 'taxonomy',
-    action: 'facet'
+  '/facet/:facetId': {
+    controller: 'facet',
+    action: 'get'
   }
   
 };
