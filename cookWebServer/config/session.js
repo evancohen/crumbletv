@@ -12,15 +12,6 @@
 
 module.exports.session = {
 
-  // Session secret is automatically generated when your new app is created
-  // Replace at your own risk in production-- you will invalidate the cookies of your users,
-  // forcing them to log in again. 
-  secret: '6b9af9d28e9833e11aa22b71008bff79',
-
-  // Our stripe TESTING key. The production key overides this in local.js (on the production server)
-  stripe: 'sk_test_qem5hyzEh4meUdglIp2yHUeW'
-
-
   // In production, uncomment the following lines to set up a shared redis session store
   // that can be shared across multiple Sails.js servers
   // adapter: 'redis',
@@ -35,7 +26,6 @@ module.exports.session = {
   // db: 0,
   // pass: <redis auth password>
   // prefix: 'sess:'
-
 
   // Uncomment the following lines to use your Mongo adapter as a session store
   // adapter: 'mongo',
