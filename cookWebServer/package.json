@@ -1,31 +1,32 @@
 {
-    "name": "cookWebServer",
-    "private": true,
-    "version": "0.0.0",
-    "description": "crumble.tv API",
-    "dependencies": {
-        "sails": "0.10",
-        "grunt": "~0.4.2",
-        "sails-memory": "0.10",
-        "ejs": "0.8.4",
-        "optimist": "0.3.4",
-        "stripe" : "2.4.2",
-        "bcrypt-nodejs": "0.0.3",
-        "node-uuid": "1.4.0",
-        "async": "0.2.10",
-        "supertest": "0.9.0",
-        "mocha": "1.17.1",
-        "sinon": "1.8.2",
-        "lodash": "2.4.1",
-        "grunt-mocha-test": "0.9.4",
-        "proxyquire": "0.5.2"
-    },
-    "scripts": {
-        "start": "node app.js",
-        "debug": "node debug app.js"
-    },
-    "main": "app.js",
-    "repository": "",
-    "author": "",
-    "license": ""
+  "name": "cookWebServer",
+  "private": true,
+  "version": "0.0.0",
+  "description": "crumble.tv API",
+  "dependencies": {
+    "sails": "0.10",
+    "grunt": "~0.4.2",
+    "sails-memory": "0.10",
+    "ejs": "0.8.4",
+    "optimist": "0.3.4",
+    "stripe": "2.4.2",
+    "bcrypt-nodejs": "0.0.3",
+    "node-uuid": "1.4.0",
+    "async": "0.2.10",
+    "supertest": "0.9.0",
+    "mocha": "1.17.1",
+    "sinon": "1.8.2",
+    "lodash": "2.4.1",
+    "grunt-mocha-test": "0.9.4",
+    "proxyquire": "0.5.2",
+    "sails-postgresql": "0.10"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "debug": "node debug app.js"
+  },
+  "main": "app.js",
+  "repository": "",
+  "author": "",
+  "license": ""
 }

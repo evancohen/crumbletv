@@ -138,5 +138,4 @@ var taxonomy = {
     "Sweet",
     "Spicy"
   ]
-  // TODO: Time
 };
