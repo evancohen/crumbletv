@@ -5,6 +5,7 @@
 .waterline
 .rigging
 .tmp
+config/local.js
 
 
 ########################

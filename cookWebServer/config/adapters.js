@@ -14,15 +14,4 @@
 
 module.exports.adapters = {
 
-  // If you leave the adapter config unspecified 
-  // in a model definition, 'default' will be used.
-  // 
-  // In order to reinforce uniquness, we need memory over file for dev.
-  // http://sethetter.com/user-authentication-with-sails-js/
-  //'default': 'memory',
-
-  //memory: {
-  //  module: 'sails-memory'
-  //},
-  
 };

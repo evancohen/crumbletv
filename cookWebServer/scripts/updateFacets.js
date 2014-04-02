@@ -3,25 +3,10 @@ var Sails = require('sails');
 Sails.lift({
   log: {
     level: 'error'
-  },
-  adapters: {
-
-    'default': 'postgres',
-
-    // Postgres Development
-    postgres: {
-      module: 'sails-postgresql',
-      host: 'ec2-184-73-254-144.compute-1.amazonaws.com',
-      port: 5432,
-      user: 'cdjcvabznkrjfe',
-      password: '21lJ0HoLvs8gwIV07MVtuvafDH',
-      database: 'dbre2audbcbm94',
-      ssl: true, // Forces SSL connection to database
-      schema: true //This makes sure that sails matches
-      //the database schema to your models.
-    }
-
   }
+  //adapters: {
+    // TODO: figure out if adapter information is necessary here
+  //}
 }, function (err, sails) {
   for (var facetName in taxonomy) {
     (function(facetName){

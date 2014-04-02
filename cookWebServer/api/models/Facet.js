@@ -9,7 +9,8 @@ module.exports = {
     },
 
     parentFacet: {
-      model: 'facet'
+      model: 'facet',
+      columnName: 'parent_facet'
     }
 
   }

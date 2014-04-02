@@ -12,7 +12,7 @@ module.exports = {
   },
   get: function(request, response) {
     var facetId = request.param('facetId');
-    Facet.query('SELECT id,name FROM facet WHERE `parentFacet`=' + facetId + ';', function (err, facets) {
+    Facet.query('SELECT id,name FROM facet WHERE parent_facet=' + facetId + ';', function (err, facets) {
       if (err) {
         // TODO: handle error message
         console.log(err);
