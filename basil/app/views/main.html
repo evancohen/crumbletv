@@ -27,6 +27,11 @@
 						</form>
 					</div>
 
+                    <div ng-repeat="facet in facets track by facet.id">
+                        <p>{{ facet.id }} = {{ facet.name }}</p>
+
+                    </div>
+
 
 				</div>
 			</div>
