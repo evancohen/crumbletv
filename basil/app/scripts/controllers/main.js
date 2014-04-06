@@ -7,4 +7,6 @@ angular.module("basilApp").controller("mainController", [
     $scope.facets = facets;
   });
 
+  $scope.facetService = facetService;
+
 }]);

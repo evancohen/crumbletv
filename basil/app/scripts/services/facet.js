@@ -1,5 +1,6 @@
 angular.module("basilApp").service("facetService", ["Restangular", "$q", function (Restangular, $q) {
   var baseFacets = Restangular.all('facet');
+  var parentFacets;
 
   function getList() {
     return baseFacets.getList();
@@ -18,8 +19,18 @@ angular.module("basilApp").service("facetService", ["Restangular", "$q", functio
     return deferred.promise;
   }
 
+  function getParentFacet(id) {
+    return parentFacets[id];
+  }
+
+  getListGroupedByParentFacet().then(function (facets) {
+    parentFacets = _.indexBy(facets[null], 'id');
+    console.log(parentFacets);
+  });
+
   return {
     getList: getList,
-    getListGroupedByParentFacet: getListGroupedByParentFacet
+    getListGroupedByParentFacet: getListGroupedByParentFacet,
+    getParentFacet: getParentFacet
   };
 }]);

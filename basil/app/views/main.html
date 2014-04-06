@@ -28,7 +28,7 @@
 					</div>
 
                     <div ng-repeat="(parentFacet, groupedFacets) in facets">
-                        <h1>{{ parentFacet }}</h1>
+                        <h1>{{ facetService.getParentFacet(parentFacet).name }}</h1>
                         <div ng-repeat="groupedFacet in groupedFacets">
                             <p>{{ groupedFacet.id }} = {{ groupedFacet.name }}</p>
                         </div>
