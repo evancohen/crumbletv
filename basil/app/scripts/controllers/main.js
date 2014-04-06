@@ -1,7 +1,10 @@
-angular.module("basilApp").controller("mainController", ["$scope", "Restangular", function ($scope, Restangular) {
-  var baseFacets = Restangular.all('facet');
+angular.module("basilApp").controller("mainController", [
+  "$scope",
+  "facetService",
+  function ($scope, facetService) {
 
-  baseFacets.getList().then(function (facets) {
+  facetService.getListGroupedByParentFacet().then(function (facets) {
     $scope.facets = facets;
   });
+
 }]);

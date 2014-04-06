@@ -2,20 +2,9 @@ var responseService = require("../services/Response.js");
 
 module.exports = {
   index: function (request, response) {
-    Facet.query('SELECT id,name FROM facet;', function (err, facets) {
+    Facet.query('SELECT id,name,parent_facet FROM facet;', function (err, facets) {
       if (err) {
         // TODO: handle error message
-        return responseService.failed(response);
-      }
-      return responseService.success(response, facets.rows);
-    });
-  },
-  get: function(request, response) {
-    var facetId = request.param('facetId');
-    Facet.query('SELECT id,name FROM facet WHERE parent_facet=' + facetId + ';', function (err, facets) {
-      if (err) {
-        // TODO: handle error message
-        console.log(err);
         return responseService.failed(response);
       }
       return responseService.success(response, facets.rows);

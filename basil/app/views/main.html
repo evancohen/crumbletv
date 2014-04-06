@@ -27,8 +27,11 @@
 						</form>
 					</div>
 
-                    <div ng-repeat="facet in facets track by facet.id">
-                        <p>{{ facet.id }} = {{ facet.name }}</p>
+                    <div ng-repeat="(parentFacet, groupedFacets) in facets">
+                        <h1>{{ parentFacet }}</h1>
+                        <div ng-repeat="groupedFacet in groupedFacets">
+                            <p>{{ groupedFacet.id }} = {{ groupedFacet.name }}</p>
+                        </div>
 
                     </div>
 
