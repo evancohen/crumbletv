@@ -9,22 +9,46 @@ Sails.lift({
   //}
 }, function (err, sails) {
   for (var facetName in taxonomy) {
-    (function(facetName){
+    var show;
+
+    (function(facetName) {
       Facet.create({
         name: facetName
       }, function (error, facet) {
+        if (error) {
+          return console.log(error);
+        }
+        console.log(facet);
+
         var facetOptions = taxonomy[facetName];
         for (var i = 0; i < facetOptions.length; i++) {
           Facet.create({
             name: facetOptions[i],
             parentFacet: facet.id
           }, function (error, facet) {
+            if (error) {
+              return console.log(error);
+            }
+            console.log(facet);
 
+            if (!show) {
+              show = true;
+              Show.create({
+                title: facet.name + " SHOW!"
+              }, function (error, show) {
+                if (error) { return console.log(error); }
+                show.facets.add(facet.id);
+                show.save(function (err) {
+                  if (err) console.log(err);
+                });
+              });
+            }
           });
         }
-
       });
     })(facetName);
+
+
   }
 });
 

@@ -9,10 +9,18 @@ module.exports = {
     },
 
     parentFacet: {
-      model: 'facet',
-      columnName: 'parent_facet'
+      model: 'facet'
+    },
+
+    shows: {
+      collection: 'show',
+      via: 'facets'
     }
 
+  },
+
+  getModel: function () {
+    return Facet;
   }
 
 };

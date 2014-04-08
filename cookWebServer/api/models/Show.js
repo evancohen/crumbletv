@@ -18,27 +18,24 @@ module.exports = {
 
   	startTime: {
   		type: 'datetime',
-  		unique: false,
-  		required: true
+  		unique: false
   	},
 
   	endTime: {
   		type: 'datetime',
-  		unique: false,
-  		required: true
+  		unique: false
   	},
 
   	recipeID: {
   		type: 'integer',
-  		unique: false,
-  		required: true
+  		unique: false
   	},
 
-  	creationTime: {
-  		type: 'datetime',
-  		unique: false,
-  		required: true
-  	}
+    facets: {
+      collection: 'facet',
+      via: 'shows',
+      dominant: true
+    }
     
   }
 
