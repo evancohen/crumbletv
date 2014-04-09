@@ -1,13 +1,7 @@
-var userService = require('./User.js');
 var responseService = require('./Response.js');
 
 module.exports = {
-  getLiveShow: function (userId, callback) {
-    return sails.models.Show.getModel().findOne({
-      live: true,
-      owner: userId
-    })
-  },
+  getLiveShow: getLiveShow,
 
   publishShow: function (response, broadcastKey, name, showId) {
     User.findOne({ broadcastKey: broadcastKey, name: name }, function (error, user) {
@@ -18,7 +12,7 @@ module.exports = {
         return responseService.invalidParameters(response, ['broadcastKey', 'name']);
       }
 
-      userService.getLiveShow(user.id).done(function (error, show) {
+      getLiveShow(user.id).done(function (error, show) {
         if (error || !show) {
           return responseService.error(response, "Already streaming!");
         }
@@ -45,12 +39,19 @@ module.exports = {
   },
 
   currentUser: function currentUser(request) {
-    return sails.models.User.findOne(request.session.user);
+    return User.findOne(request.session.user);
   }
 };
 
+function getLiveShow(userId, callback) {
+  return Show.findOne({
+    live: true,
+    owner: userId
+  })
+}
 
-function publishUserFindOneHandler(error, show) {
+
+function publishUserFindOneHandler(response, error, show) {
   if (error) {
     return responseService.error(response);
   }
