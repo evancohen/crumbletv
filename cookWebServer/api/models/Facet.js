@@ -17,10 +17,6 @@ module.exports = {
       via: 'facets'
     }
 
-  },
-
-  getModel: function () {
-    return Facet;
   }
 
 };

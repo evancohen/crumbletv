@@ -12,6 +12,6 @@
  * http://sailsjs.org/#documentation
  */
 
-module.exports.adapters = {
+module.exports.connections = {
 
 };

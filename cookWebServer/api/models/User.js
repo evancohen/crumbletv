@@ -1,9 +1,7 @@
-var sails = require("sails");
 var bcrypt = require('bcrypt-nodejs');
 var uuid = require('node-uuid');
 var async = require('async');
 
-var Show = require('../models/Show.js');
 var paymentService = require('../services/Payment.js');
 
 module.exports = {
@@ -33,23 +31,18 @@ module.exports = {
     shows: {
       collection: 'Show',
       via: 'owner'
+    },
+
+    paidSubscriptions: {
+      collection: 'Subscription',
+      via: 'subscriber'
+    },
+
+    collectedSubscriptions: {
+      collection: 'Subscription',
+      via: 'subscriberPayee'
     }
 
-    /*
-     Cody's quick sketch of the relationship for subscriptions
-
-     // User.js
-     {
-     paidSubscriptions: {
-     collection: 'Subscription',
-     via: 'subscriber'
-     },
-     collectedSubscriptions: {
-     collection: 'Subscription',
-     via: 'subscriberPayee'
-     }
-     }
-     */
   },
 
   beforeCreate: function beforeCreate(attributes, callback) {
@@ -95,7 +88,7 @@ module.exports = {
 function generateBroadcastKey(callback) {
   var key = uuid.v4();
 
-  sails.models.User.findOne({ broadcastKey: key }, function (error, user) {
+  User.findOne({ broadcastKey: key }, function (error, user) {
     if (error) {
       generateBroadcastKey(callback);
     }

@@ -34,9 +34,12 @@ module.exports = {
   },
 
   create: function (request, response) {
+    // TODO: Move this to route policy, see documentation
     if (!isAuthenticated()) {
       return responseService.forbidden(response);
     }
+
+
     var id = request.session.user;
     //do we have to request User?
     User.currentUser(response).done(function (err, user) {
@@ -55,9 +58,11 @@ module.exports = {
   },
 
   get: function (request, response) {
+    // TODO: Move this to route policy, see documentation
     if (!isAuthenticated()) {
       return responseService.forbidden(response);
     }
+
     var data = {id: request.session.user};
     paymentService.getCustomer(data, function (err, customer) {
       // asynchronously called
@@ -74,9 +79,11 @@ module.exports = {
   //post to this. that would be dumb. 
   //We may want to force the user to enter their password when doing this.
   tip: function (request, response) {
+    // TODO: Move this to route policy, see documentation
     if (!isAuthenticated()) {
       return responseService.forbidden(response);
     }
+
     //target must be a valid user name
     var target = request.param('target');
     var ammount = request.param('ammount');

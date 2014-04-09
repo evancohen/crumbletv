@@ -12,34 +12,15 @@
 module.exports = {
 
   attributes: {
-  	
-    /*
-    Cody's quick sketch of the relationship
-    // Subscription.js
-    {
-      subscriber: {
-        model: 'user'
-      },
-      subscriberPayee: {
-        model: 'user'
-      }
+
+    subscriber: {
+      model: 'user'
+    },
+
+    subscriberPayee: {
+      model: 'user'
     }
 
-
-    ------
-    The subscription/subscriber relation is a little wacky.
-        In a one-to-many association one side must have a collection attribute and 
-        the other side must contain a model attribute.
-      So: A user has many subscribers (our collection is then 'subscribers')
-      A subscriber can have meny subscriptions which we group together accordingly
-    */
-    /*subscriber: {
-		model: 'user'
-	},
-	subscriberPayee: {
-		model: 'user'
-	}*/
-    
   }
 
 };

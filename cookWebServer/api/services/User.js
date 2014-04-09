@@ -4,7 +4,7 @@ module.exports = {
   getLiveShow: getLiveShow,
 
   publishShow: function (response, broadcastKey, name, showId) {
-    User.findOne({ broadcastKey: broadcastKey, name: name }, function (error, user) {
+    User.findOne({ broadcastKey: broadcastKey, name: name }).done(function (error, user) {
       if (error) {
         return responseService.error(response, error);
       }
@@ -13,7 +13,7 @@ module.exports = {
       }
 
       getLiveShow(user.id).done(function (error, show) {
-        if (error || !show) {
+        if (error || show) {
           return responseService.error(response, "Already streaming!");
         }
 
@@ -26,11 +26,13 @@ module.exports = {
           Show.create({
             title: "Untitled Stream",
             startTime: new Date().toISOString(),
-            live: true
+            live: true,
+            owner: user.id
           }, function (error) {
             if (error) {
-              return responseService.error(response);
+              return responseService.error(response, error);
             }
+
             return responseService.success(response);
           })
         }
@@ -43,7 +45,7 @@ module.exports = {
   }
 };
 
-function getLiveShow(userId, callback) {
+function getLiveShow(userId) {
   return Show.findOne({
     live: true,
     owner: userId
@@ -53,15 +55,15 @@ function getLiveShow(userId, callback) {
 
 function publishUserFindOneHandler(response, error, show) {
   if (error) {
-    return responseService.error(response);
+    return responseService.error(response, error);
   }
 
   show.live = true;
   show.save(function (error) {
     if (error) {
-      return responseService.error(response);
+      return responseService.error(response, error);
     }
 
-    return responseService.success(response);
+    return responseService.success(response, error);
   });
 }

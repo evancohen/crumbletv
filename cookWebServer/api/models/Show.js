@@ -26,25 +26,26 @@ module.exports = {
   		unique: false
   	},
 
-  	recipeID: {
-  		type: 'integer',
-  		unique: false
-  	},
-
-    owner: {
-      type: 'user'
-    },
-
     live: {
       type: 'boolean'
+    },
+
+    owner: {
+      model: 'user'
     },
 
     facets: {
       collection: 'facet',
       via: 'shows',
       dominant: true
+    },
+
+    recipes: {
+      collection: 'Recipe',
+      via: 'shows',
+      dominant: true
     }
-    
+
   }
 
 };

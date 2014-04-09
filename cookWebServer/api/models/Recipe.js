@@ -14,7 +14,12 @@ module.exports = {
   		type: 'text',
   		unique: false,
   		required: false
-  	}
+  	},
+
+    shows: {
+      collection: 'Show',
+      via: 'recipes'
+    }
  
   }
 
