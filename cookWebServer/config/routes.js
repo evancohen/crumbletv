@@ -28,11 +28,6 @@
 
 module.exports.routes = {
 
-  '/facet/:facetId': {
-    controller: 'facet',
-    action: 'get'
-  }
-  
 };
 
 

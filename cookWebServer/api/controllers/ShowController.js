@@ -26,6 +26,7 @@ module.exports = {
    */
   _config: {},
   //On create be sure to also create a User->Show and Tag->Show
+  /*
 	index: function (request, response){
 		var id = request.param('id');
 		if (!id) {
@@ -38,6 +39,11 @@ module.exports = {
 			return responseService.success(response, show, "Show found!");
 		});
 	},
+	*/
+
+  current: function(request, response){
+
+  },
 
 	//find a list of shows by a specific recepie
 	recipie: function (request, response){

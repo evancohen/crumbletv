@@ -1,7 +1,14 @@
+var _ = require('lodash');
+
 // TODO convert to sails singleton style. see other js
 var ResponseService = (function () {
     function ResponseService() {
     }
+
+    ResponseService.prototype.checkNotNull = function (value) {
+      return value !== null;
+    };
+
     ResponseService.prototype.invalidParameters = function (response, parameters) {
         return this.json(response, 'Invalid Parameters: ' + parameters.join(", "), 401);
     };
@@ -28,6 +35,24 @@ var ResponseService = (function () {
     ResponseService.prototype.error = function (response, error) {
         if (typeof error === "undefined") { error = "Internal Server Error."; }
         return this.json(response, error, 500);
+    };
+
+    // [ { value: ..., check: function (value) { .. true means ok }]
+    ResponseService.prototype.checkParameters = function (response, parameters) {
+      var parameterValues = {};
+
+      _.forEach(parameters, function (parameter, parameterName) {
+        var check = parameter.check  || this.checkNotNull;
+        if (!check(parameter.value)) {
+          this.invalidParameters(response, [parameterName]);
+          parameterValues = null;
+          return false;
+        }
+
+        parameterValues[parameterName] = parameter.value;
+      });
+
+      return parameterValues;
     };
 
     ResponseService.prototype.json = function (response, message, status, data) {

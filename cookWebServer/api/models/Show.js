@@ -31,12 +31,36 @@ module.exports = {
   		unique: false
   	},
 
+    live: {
+      type: 'boolean'
+    },
+
     facets: {
       collection: 'facet',
       via: 'shows',
       dominant: true
     }
     
+  },
+
+  getModel: function getModel() {
+    return Show;
+  },
+
+  getLive: function (callback) {
+    return getModel().find()
+      .where({
+        startTime: {
+          '!=': null
+        },
+        endTime: {
+          '!=': null
+        },
+        live: {
+          '=': true
+        }
+      })
+      .sort('startTime');
   }
 
 };
