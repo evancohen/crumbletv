@@ -5,10 +5,6 @@ var ResponseService = (function () {
     function ResponseService() {
     }
 
-    ResponseService.prototype.checkNotNull = function (value) {
-      return value !== null;
-    };
-
     ResponseService.prototype.invalidParameters = function (response, parameters) {
         return this.json(response, 'Invalid Parameters: ' + parameters.join(", "), 401);
     };
@@ -38,11 +34,21 @@ var ResponseService = (function () {
     };
 
     // [ { value: ..., check: function (value) { .. true means ok }]
+    // default checks not null
+
+    /**
+     * Checks each parameter value in parameters with the given check function.
+     * @param response Express response object
+     * @param parameters Array of objects with a value and a function to check value. Parameters
+     *  must be objects of { value: any, check: function (value) }.
+     */
     ResponseService.prototype.checkParameters = function (response, parameters) {
       var parameterValues = {};
 
       _.forEach(parameters, function (parameter, parameterName) {
-        var check = parameter.check  || this.checkNotNull;
+        var check = parameter.check || function (value) {
+          return value !== null;
+        };
         if (!check(parameter.value)) {
           this.invalidParameters(response, [parameterName]);
           parameterValues = null;

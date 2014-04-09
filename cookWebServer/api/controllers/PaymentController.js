@@ -17,51 +17,51 @@
 
 var responseService = require('../services/Response.js');
 var paymentService = require('../services/Payment.js');
-var User = require('../models/User.js');
+var sails = require("sails");
 
 module.exports = {
   //Ensure that we are using HTTPS before letting any requestuests through
   //TODO: add a beforeCreate type thing
-  isSecure: function (request, response){
+  isSecure: function (request, response) {
     return ('https' == request.protocol);
   },
-  
+
   index: function (request, response) {
     // Send a JSON response
     return response.json({
-      whatIs : "A list of all of the users current subscriptions"
+      whatIs: "A list of all of the users current subscriptions"
     });
   },
 
-  create: function (request, response){
-    if(!isAuthenticated()){
+  create: function (request, response) {
+    if (!isAuthenticated()) {
       return responseService.forbidden(response);
     }
     var id = request.session.user;
     //do we have to request User?
-    User.currentUser(response).done(function(err, user){
-      if(err){
+    User.currentUser(response).done(function (err, user) {
+      if (err) {
         return responseService.failed(response, "Could not find user");
       }
-      var data = {id : id, email : user.email};
+      var data = {id: id, email: user.email};
       //create the Stripe customer
-      paymentService.createCustomer(data, function(err, customer){
-          if(err){
-            return responseService.failed(response, err.type);
-          }
+      paymentService.createCustomer(data, function (err, customer) {
+        if (err) {
+          return responseService.failed(response, err.type);
+        }
         return responseService.success(response, "Customer account created");
       });
     });
   },
 
-  get: function(request, response){
-    if(!isAuthenticated()){
+  get: function (request, response) {
+    if (!isAuthenticated()) {
       return responseService.forbidden(response);
     }
-    var data = {id : request.session.user};
-    paymentService.getCustomer(data, function(err, customer) {
+    var data = {id: request.session.user};
+    paymentService.getCustomer(data, function (err, customer) {
       // asynchronously called
-      if(err){
+      if (err) {
         return responseService.notFound(response, "Customer account not found");
       }
       return responseService.success(response, "Customer account exists");
@@ -73,8 +73,8 @@ module.exports = {
   //Also, lets make sure that someone cant use a zero byte image to
   //post to this. that would be dumb. 
   //We may want to force the user to enter their password when doing this.
-  tip: function(request, response){
-    if(!isAuthenticated()){
+  tip: function (request, response) {
+    if (!isAuthenticated()) {
       return responseService.forbidden(response);
     }
     //target must be a valid user name
@@ -85,24 +85,24 @@ module.exports = {
     //TODO insure that paramters are valid otherwise error out
 
     var details = {
-      ammount : ammount,
-      currency : "usd",
-      description : "Tip",
-      metadata : {'Destination' : target}
-    }
+      ammount: ammount,
+      currency: "usd",
+      description: "Tip",
+      metadata: {'Destination': target}
+    };
 
     var card = request.param('card');
-    if(!card){
+    if (!card) {
       //If we are not given a card, we will use the customers default value of payment
       details.id = request.session.user;
-    }else{
+    } else {
       details.card = card;
     }
-    paymentService.tip(details, function(err, charge){
-      if(err){
+    paymentService.tip(details, function (err, charge) {
+      if (err) {
         return responseService.failed(response, "Could not complete transaction");
       }
-      return responseService.success(response, {id : charge.id}, "Transaction Complete");
+      return responseService.success(response, {id: charge.id}, "Transaction Complete");
       //TODO send notification to chat server saying X has tipped
     });
   },
@@ -117,23 +117,20 @@ module.exports = {
     //get the user object, get their subsciption id, if it doesnt exist, create a subscription
 
     var data = {
-      plan : "subscription",
-      id : request.session.user,
-      quantity : 1 //TODO this must be computed baised on the number
+      plan: "subscription",
+      id: request.session.user,
+      quantity: 1 //TODO this must be computed baised on the number
     }
 
-    if(!target){
+    if (!target) {
       return responseService.invalidParameters(response, ['target']);
     }
     // Send a JSON response
     return responseService.success(response, {
-      whatIs : "Accepts a username and then addes them to subscriptions",
-      target : target
+      whatIs: "Accepts a username and then addes them to subscriptions",
+      target: target
     });
   },
-
-  
-
 
 
   /**
@@ -142,5 +139,5 @@ module.exports = {
    */
   _config: {}
 
-  
+
 };

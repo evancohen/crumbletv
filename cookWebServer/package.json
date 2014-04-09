@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "description": "crumble.tv API",
   "dependencies": {
-    "sails": "0.10",
+    "sails": "~0.10.0-rc5",
     "grunt": "~0.4.2",
     "sails-memory": "0.10",
     "ejs": "0.8.4",

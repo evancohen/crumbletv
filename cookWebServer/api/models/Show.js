@@ -31,6 +31,10 @@ module.exports = {
   		unique: false
   	},
 
+    owner: {
+      type: 'user'
+    },
+
     live: {
       type: 'boolean'
     },
@@ -41,26 +45,8 @@ module.exports = {
       dominant: true
     }
     
-  },
-
-  getModel: function getModel() {
-    return Show;
-  },
-
-  getLive: function (callback) {
-    return getModel().find()
-      .where({
-        startTime: {
-          '!=': null
-        },
-        endTime: {
-          '!=': null
-        },
-        live: {
-          '=': true
-        }
-      })
-      .sort('startTime');
   }
 
 };
+
+

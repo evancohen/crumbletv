@@ -2,8 +2,9 @@ var sails = require("sails");
 var bcrypt = require('bcrypt-nodejs');
 var uuid = require('node-uuid');
 var async = require('async');
+
+var Show = require('../models/Show.js');
 var paymentService = require('../services/Payment.js');
-var responseService = require('../services/ResponseService.js');
 
 module.exports = {
   attributes: {
@@ -44,45 +45,6 @@ module.exports = {
      }
      }
      */
-  },
-
-  getModel: function getModel() {
-    return User;
-  },
-
-  publishShow: function (response, broadcastKey, name, showId) {
-    getModel().findOne({ broadcastKey: broadcastKey, name: name }, function (error, user) {
-      if (error) {
-        return responseService.error(response, error);
-      }
-      if (!user) {
-        return responseService.invalidParameters(response, ['broadcastKey', 'name']);
-      }
-
-      if (showId) {
-        // lookup show
-        Show.getModel().findOne(showId).done(function (error, show) {
-          publishUserFindOneHandler(response, error, show)
-        });
-      } else {
-        Show.getModel().create({
-          startTime: new Date().toISOString(),
-          live: true
-        }, function (error) {
-          if (error) {
-            return responseService.error(response, error);
-          }
-          return responseService.success(response);
-        })
-      }
-
-
-    });
-
-  },
-
-  currentUser: function currentUser(request) {
-    return getModel().findOne(request.session.user);
   },
 
   beforeCreate: function beforeCreate(attributes, callback) {
@@ -128,7 +90,7 @@ module.exports = {
 function generateBroadcastKey(callback) {
   var key = uuid.v4();
 
-  getModel().findOne({ broadcastKey: key }, function (error, user) {
+  sails.models.User.findOne({ broadcastKey: key }, function (error, user) {
     if (error) {
       generateBroadcastKey(callback);
     }
@@ -137,17 +99,3 @@ function generateBroadcastKey(callback) {
 }
 
 
-function publishUserFindOneHandler(error, show) {
-  if (error) {
-    return responseService.error(response, error);
-  }
-
-  show.live = true;
-  show.save(function (error) {
-    if (error) {
-      return responseService.error(response, error);
-    }
-
-    return responseService.success(response);
-  });
-}
