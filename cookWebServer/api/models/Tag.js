@@ -6,6 +6,9 @@
  * @docs		:: http://sailsjs.org/#!documentation/models
  */
 
+/*
+TODO Consider removing. only going with fixed for launch
+
 module.exports = {
 
   attributes: {
@@ -19,3 +22,5 @@ module.exports = {
   }
 
 };
+
+ */

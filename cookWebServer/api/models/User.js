@@ -28,6 +28,11 @@ module.exports = {
 
     broadcastKey: {
       type: 'string'
+    },
+
+    shows: {
+      collection: 'Show',
+      via: 'owner'
     }
 
     /*

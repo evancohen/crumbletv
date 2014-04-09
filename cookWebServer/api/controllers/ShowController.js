@@ -72,3 +72,21 @@ module.exports = {
 	}
 
 };
+
+/*
+
+ //get list of show id's by user
+ index: function (request, response) {
+ var id = request.param('user');
+ if (!id) {
+ return responseService.failed(response, "Incorrect paramaters");
+ }
+ UserShow.find().where({UserID : id}).done(function (error, shows){
+ if(error){
+ return responseService.error(response, error);
+ }
+ return responseService.success(response, shows, "Videos found");
+ });
+ },
+
+ */
