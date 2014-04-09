@@ -2,6 +2,8 @@ var sails = require("sails");
 var url = require('url');
 var responseService = require('../services/Response.js');
 var userService = require('../services/User.js');
+var suspend = require('suspend');
+var resume = suspend.resume;
 
 module.exports = {
 
@@ -15,32 +17,29 @@ module.exports = {
   },
 
   done: function (request, response) {
-    var parameters = handleBroadcastRequest(request, response);
-    if (!parameters) {
-      return;
-    }
-
-    User.findOne({ broadcastKey: parameters.key, name: parameters.name }).done(function (error, user) {
-      if (error || !user) {
-        return responseService.error(response, error);
+    suspend(function*() {
+      var parameters = handleBroadcastRequest(request, response);
+      if (!parameters) {
+        return;
       }
 
-      userService.getLiveShow(user.id).done(function (error, show) {
-        if (error || !show) {
-          return responseService.error(response, error);
+      try {
+        var user = yield User.findOne({ broadcastKey: parameters.key, name: parameters.name }).done(resume());
+        if (!user) {
+          return responseService.error(response);
         }
-
+        var show = yield userService.getLiveShow(user.id).done(resume());
+        if (!show) {
+          return responseService.error(response);
+        }
         show.live = false;
         show.endTime = new Date().toISOString();
-        show.save(function (error) {
-          if (error) {
-            return responseService.error(response, error);
-          }
-
-          return responseService.success(response);
-        })
-      });
-    })
+        show = yield show.save(resume());
+        return responseService.success(response);
+      } catch (error) {
+        return responseService.error(response, error);
+      }
+    })();
   }
 
 };

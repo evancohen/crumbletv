@@ -19,7 +19,8 @@
     "lodash": "2.4.1",
     "grunt-mocha-test": "0.9.4",
     "proxyquire": "0.5.2",
-    "sails-postgresql": "0.10"
+    "sails-postgresql": "0.10",
+    "suspend": "^0.5.0"
   },
   "scripts": {
     "start": "node app.js",
