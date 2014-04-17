@@ -19,6 +19,11 @@ var app = angular.module("basilApp", [
       url: "/stream",
       templateUrl: "views/stream.html",
       controller: "streamController"
+    })
+    .state("sign-up", {
+      url: "/sign-up",
+      templateUrl: "views/sign-up.html",
+      controller: "signUpController"
     });
 
 });
