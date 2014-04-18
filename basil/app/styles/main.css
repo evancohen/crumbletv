@@ -1,0 +1,205 @@
+/*# sourceMappingURL=bootstrap-theme.css.map */
+body{
+  background: #CEC8C7;
+  color: #ffffff;
+  /*font-family: Helvetica;*/
+}
+
+.oleo{
+	font-family: 'Oleo Script', cursive;
+}
+
+.jumbotron{
+  background: none;
+  padding: 0px;
+  padding-top:30px;
+}
+
+h1.title{
+  font-size: 115px;
+  margin-bottom: 10px;
+  text-shadow: -3px -2px #CEC8C7;
+}
+
+@media (max-width: 440px) {
+  h1.title {
+    font-size: 70px;
+  }
+}
+
+.container-inner{
+  background: #E35D08;
+  padding:15px;
+  border-radius: 6px;
+}
+
+.pitch{
+  margin-bottom: 12px;
+  font-size: 28px;
+}
+
+.pitch>:first-child{
+  margin-bottom: 0px;
+}
+
+.form-desc{
+  font-size: 42px;
+  margin-top: 12px;
+}
+
+form .sign-up{
+  max-width: 300px;
+  margin: auto;
+  margin-bottom:10px;
+}
+
+.footer{
+  color: #777;
+  padding-top: 15px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.footer a{
+  color: #777;
+  font-weight: bolder;
+}
+
+p.survey a{
+  color: blueviolet;
+  font-weight: bold;
+}
+p.survey{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+.btn-subscribe{
+  width: 180px;
+}
+
+.btn-subscribe { 
+  color: #ffffff; 
+  background-color: #059296; 
+  border-color: #059296; 
+} 
+ 
+.btn-subscribe:hover, 
+.btn-subscribe:focus, 
+.btn-subscribe:active, 
+.btn-subscribe.active, 
+.open .dropdown-toggle.btn-subscribe { 
+  color: #ffffff; 
+  background-color: #01767A; 
+  border-color: #059296; 
+} 
+ 
+.btn-subscribe:active, 
+.btn-subscribe.active, 
+.open .dropdown-toggle.btn-subscribe { 
+  background-image: none; 
+} 
+ 
+.btn-subscribe.disabled, 
+.btn-subscribe[disabled], 
+fieldset[disabled] .btn-subscribe, 
+.btn-subscribe.disabled:hover, 
+.btn-subscribe[disabled]:hover, 
+fieldset[disabled] .btn-subscribe:hover, 
+.btn-subscribe.disabled:focus, 
+.btn-subscribe[disabled]:focus, 
+fieldset[disabled] .btn-subscribe:focus, 
+.btn-subscribe.disabled:active, 
+.btn-subscribe[disabled]:active, 
+fieldset[disabled] .btn-subscribe:active, 
+.btn-subscribe.disabled.active, 
+.btn-subscribe[disabled].active, 
+fieldset[disabled] .btn-subscribe.active { 
+  background-color: #059296; 
+  border-color: #059296; 
+} 
+ 
+.btn-subscribe .badge { 
+  color: #059296; 
+  background-color: #ffffff; 
+}
+
+img {
+	max-width: 100%;
+}
+
+.orange{
+	color: #E35C08;
+}
+
+.navbar-default {
+	background-image: linear-gradient(to bottom, #F18543 0%, #E35C08 100%);
+	background-color: #E35C08;
+	border-color: #E35C08;
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a {
+	color: #fff;
+}
+
+.navbar-brand {
+	font-size: 40px;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+	background-image: none;
+	color: #E35C08;
+	background-color: #F1A271;
+}
+
+.container-main{
+	margin-top: -20px;
+	padding-bottom: 20px;
+	background: #fff;
+	color: #333;
+	padding: 0px 10px 0px 10px;
+}
+
+.row-banner {
+	background-image: url('/images/banner.jpg');
+	background-position: center;
+	background-size: cover;
+	height: 420px;
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+@media (max-width: 991px){
+	.row-banner {
+		height: 300px;
+	}
+}
+
+@media (max-width: 769px){
+	.row-banner {
+		height: 200px;
+	}
+}
+
+.row-banner h1 {
+	color: #fff;
+	text-shadow: -3px -3px #E35C08;
+	font-size: 75px;
+	margin-top: 12%;
+	margin-left: 6%;
+}
+
+@media (min-width: 770px){
+	.row-banner h1 {
+		font-size: 135px;
+		text-shadow: -5px -5px #E35C08;
+	}
+}
+
+.row-orange {
+	background-color: #E35C08;
+	margin-left: -10px;
+	margin-right: -10px;
+	color: #fff;
+}

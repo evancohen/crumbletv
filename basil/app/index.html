@@ -44,14 +44,31 @@
     <!-- End Libraries -->
 
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/bootstrap-theme.css">
+    <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
   <body ng-app="basilApp">
-    
+    <nav ng-controller="menuController" class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand oleo" href="#">Crumble</a>
+        </div>
+        <div class="navbar-header pull-right">
+          <button type="button" class="btn btn-default navbar-btn">Button 1</button>
+          <button type="button" class="btn btn-default navbar-btn">Button 2</button>
+           <button type="button" class="btn btn-subscribe navbar-btn">{{name}}</button>
+        </div>
+
+      </div><!-- /.container-fluid -->
+    </nav>
+
     <div ui-view></div>
 
+    <div class="col-md-8 col-md-offset-2 text-center footer">
+        <p>Crumble is a student run project out the the University of Washington's <a href="http://ischool.uw.edu/" target="_blank" rel="nofollow">Informatics</a> program.</p>
+    </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -92,6 +109,7 @@
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
    
+    <script src="scripts/controllers/menu.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/stream.js"></script>
     <script src="scripts/controllers/signUp.js"></script>
