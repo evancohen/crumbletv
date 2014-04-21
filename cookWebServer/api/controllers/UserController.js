@@ -31,7 +31,7 @@ module.exports = {
 
     User.findOneByEmail(request.body.email).done(function (error, user) {
       if (error) {
-        return responseService.error(response, error)
+        return responseService.error(response, error);
       }
 
       if (user) {
@@ -44,7 +44,7 @@ module.exports = {
             // password match
             request.session.user = user.id;
 
-            return responseService.success(response, user);
+            return responseService.success(response, user, null);
           } else {
             // invalid password
             if (request.session.user) {
@@ -58,6 +58,7 @@ module.exports = {
         return responseService.invalidParameters(response, ['email'])
       }
     });
-  }
+  },
+
 
 };

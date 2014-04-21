@@ -25,8 +25,6 @@ module.exports = {
   		type: 'datetime',
   		required: true
   	},
-  	start: 'string',
-  	end: 'string',
   	owner: {
   		model: 'user'
   	},
