@@ -33,6 +33,11 @@ var app = angular.module("basilApp", [
       url:"/login",
       templateUrl: "views/login.html",
       controller: "loginController"
+    })
+    .state("event", {
+      url:"/event",
+      templateUrl: "views/event.html",
+      controller: "eventController"
     });
 });
 

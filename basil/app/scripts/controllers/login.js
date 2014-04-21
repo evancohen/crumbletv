@@ -12,8 +12,9 @@ angular.module("basilApp").controller("loginController", [
         email    : $scope.email,
         password : $scope.password
       }
-        Restangular.all("User/login").post(data).then(function(){
+        Restangular.all("User/login").post(data).then(function(data){
           $scope.success = "TRUE";
+          console.log(data);
         });
     };
 }]);
