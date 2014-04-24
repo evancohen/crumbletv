@@ -25,8 +25,16 @@ var app = angular.module("basilApp", [
       url: "/sign-up",
       templateUrl: "views/sign-up.html",
       controller: "signUpController"
+    }).state("subscribe", {
+      url:"/subscribe",
+      templateUrl: "views/subscribe.html",
+      controller: "subscribeController"
+    })
+    .state("login", {
+      url:"/login",
+      templateUrl: "views/login.html",
+      controller: "loginController"
     });
-
 });
 
 app.config(function(RestangularProvider) {
