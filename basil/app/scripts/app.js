@@ -8,7 +8,15 @@ var app = angular.module("basilApp", [
 ]).config(function ($stateProvider, $urlRouterProvider) {
   // Unmatched state goes to root
 
-  $urlRouterProvider.otherwise("/");
+  //$urlRouterProvider.otherwise("/");
+  //or is it
+  $urlRouterProvider.otherwise(
+  function($injector, $location) {
+    $location.path('/');
+  });
+
+  //will manually forcing it to check work?
+  $urlRouterProvider.when('stream', '/stream');
 
   $stateProvider
     .state("home", {
@@ -38,8 +46,8 @@ var app = angular.module("basilApp", [
 });
 
 app.config(function(RestangularProvider) {
-  //RestangularProvider.setBaseUrl('http://localhost:1337');
-  RestangularProvider.setBaseUrl('http://alpha.crumble.tv/api');
+  RestangularProvider.setBaseUrl('http://localhost:1337');
+  //RestangularProvider.setBaseUrl('http://alpha.crumble.tv/api');
 
   RestangularProvider.setResponseExtractor(function(response, operation) {
     // extracts data
