@@ -42,6 +42,7 @@ module.exports = {
 
           if (match) {
             // password match
+            console.log(user);
             request.session.user = user.id;
 
             return responseService.success(response, user);
@@ -57,6 +58,15 @@ module.exports = {
       } else {
         return responseService.invalidParameters(response, ['email'])
       }
+    });
+  },
+
+  me: function (request, response){
+    User.currentUser(request).done(function (error, user){
+      if(error){
+        return responseService.failed(response, error);
+      }
+      return responseService.success(response, user);
     });
   }
 
