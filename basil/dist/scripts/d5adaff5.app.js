@@ -43,7 +43,7 @@ var app = angular.module("basilApp", [
 });
 
 app.config(function(RestangularProvider) {
-  //RestangularProvider.setBaseUrl('http://localhost.com:1337');
+  //RestangularProvider.setBaseUrl('http://localhost:1337');
   RestangularProvider.setBaseUrl('http://alpha.crumble.tv/api');
 
   RestangularProvider.setResponseExtractor(function(response, operation) {

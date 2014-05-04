@@ -42,7 +42,6 @@ module.exports = {
 
           if (match) {
             // password match
-            console.log(user);
             request.session.user = user.id;
 
             return responseService.success(response, user);
