@@ -116,7 +116,6 @@ angular.module('basilApp');
           }
         };
         /* event sources array*/
-        $scope.eventSource = [$scope.calEventsExt, $scope.eventsF, $scope.events];
         $scope.eventSources = [$scope.calEventsExt, $scope.eventsF, $scope.events];
         $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
     }
