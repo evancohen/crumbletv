@@ -29,7 +29,7 @@ module.exports = {
   login: function (request, response) {
     var bcrypt = require('bcrypt-nodejs');
 
-    User.findOneByEmail(request.body.email).done(function (error, user) {
+    User.findOneByEmail(request.body.email).exec(function (error, user) {
       if (error) {
         return responseService.error(response, error)
       }
@@ -62,7 +62,7 @@ module.exports = {
   },
 
   me: function (request, response){
-    User.currentUser(request).done(function (error, user){
+    User.currentUser(request).exec(function (error, user){
       if(error){
         return responseService.failed(response, error);
       }
