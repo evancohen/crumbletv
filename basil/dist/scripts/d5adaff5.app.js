@@ -7,6 +7,7 @@ var app = angular.module("basilApp", [
   "restangular"
 ]).config(function ($stateProvider, $urlRouterProvider) {
   // Unmatched state goes to root
+
   $urlRouterProvider.otherwise("/");
 
   $stateProvider
@@ -24,12 +25,26 @@ var app = angular.module("basilApp", [
       url: "/sign-up",
       templateUrl: "views/sign-up.html",
       controller: "signUpController"
+    }).state("subscribe", {
+      url:"/subscribe",
+      templateUrl: "views/subscribe.html",
+      controller: "subscribeController"
+    })
+    .state("login", {
+      url:"/login",
+      templateUrl: "views/login.html",
+      controller: "loginController"
+    })
+    .state("session", {
+      url:"/session",
+      templateUrl: "views/session.html",
+      controller: "sessionController"
     });
-
 });
 
 app.config(function(RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://localhost:1337');
+  //RestangularProvider.setBaseUrl('http://localhost:1337');
+  RestangularProvider.setBaseUrl('http://alpha.crumble.tv/api');
 
   RestangularProvider.setResponseExtractor(function(response, operation) {
     // extracts data
