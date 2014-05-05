@@ -16,7 +16,7 @@
  */
 
 var responseService = require('../services/Response.js');
-var User = require('../services/User.js');
+var UserModel = require('../services/User.js');
 
 module.exports = {
     
@@ -61,7 +61,7 @@ module.exports = {
   },
 
   me: function (request, response){
-    User.currentUser(request).exec(function (error, user){
+    UserModel.currentUser(request).exec(function (error, user){
       if(error){
         return responseService.failed(response, error);
       }
