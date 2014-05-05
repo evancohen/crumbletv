@@ -40,6 +40,16 @@ var app = angular.module("basilApp", [
       templateUrl: "views/event.html",
       controller: "eventController"
     })
+    .state("show", {
+      url:"/show",
+      templateUrl: "views/show.html",
+      controller: "showController"
+    })
+    .state("recipe", {
+      url:"/recipe",
+      templateUrl: "views/recipe.html",
+      controller: "recipeController"
+    })
     .state("calendar", {
       url:"/calendar",
       templateUrl: "views/calendar.html"
