@@ -65,6 +65,7 @@ module.exports = {
       if(error){
         return responseService.failed(response, error);
       }
+      console.log(user);
       return responseService.success(response, user);
     });
   }
