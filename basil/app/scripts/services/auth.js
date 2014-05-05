@@ -11,12 +11,23 @@ function (Restangular, $q) {
 			password : password
 		}
 
-        Restangular.all("User/login").post(data).then(function(res){
+        Restangular.all("user/login").post(data).then(function(res){
           //$cookieStore.put("user.name", res.name);
           deferred.resolve(res);
         });
         return deferred.promise;
     };
+
+    User.getName = function() {
+    	var deferred = $q.defer();
+
+        Restangular.one("user", "me").get().then(function(res){
+          //$cookieStore.put("user.name", res.name);
+
+          deferred.resolve(res.name);
+        });
+        return deferred.promise;
+    }
 
 	return User;
 }]);

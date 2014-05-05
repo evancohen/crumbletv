@@ -1,3 +1,3 @@
-angular.module("basilApp").controller("menuController", ["$scope", function ($scope) {
-    $scope.name = "Evan";
+angular.module("basilApp").controller("menuController", ["$scope", "authService", function ($scope, authService) {
+    $scope.name = authService.getName();
 }]);
