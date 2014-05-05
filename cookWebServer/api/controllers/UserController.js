@@ -61,7 +61,7 @@ module.exports = {
   },
 
   me: function (request, response){
-    User.currentUser(request.session.user).exec(function (error, user){
+    User.currentUser(request).exec(function (error, user){
       if(error){
         return responseService.failed(response, error);
       }
