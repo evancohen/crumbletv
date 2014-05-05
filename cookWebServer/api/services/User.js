@@ -41,7 +41,7 @@ module.exports = {
   },
 
   currentUser: function currentUser(request) {
-    return User.findOne(request.session.user);
+    return User.findOne({id :request.session.user});
   }
 };
 
