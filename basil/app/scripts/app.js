@@ -8,6 +8,7 @@ var app = angular.module("basilApp", [
   "ui.calendar"
 ]).config(function ($stateProvider, $urlRouterProvider) {
   // Unmatched state goes to root
+
   $urlRouterProvider.otherwise("/");
 
   $stateProvider
@@ -53,11 +54,17 @@ var app = angular.module("basilApp", [
     .state("calendar", {
       url:"/calendar",
       templateUrl: "views/calendar.html"
+    })
+    .state("session", {
+      url:"/session",
+      templateUrl: "views/session.html",
+      controller: "sessionController"
     });
 });
 
 app.config(function(RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://localhost:1337');
+  //RestangularProvider.setBaseUrl('http://localhost:1337');
+  RestangularProvider.setBaseUrl('http://alpha.crumble.tv/api');
 
   RestangularProvider.setResponseExtractor(function(response, operation) {
     // extracts data
