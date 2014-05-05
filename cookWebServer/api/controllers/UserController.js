@@ -16,6 +16,7 @@
  */
 
 var responseService = require('../services/Response.js');
+var User = require('../services/User.js');
 
 module.exports = {
     
@@ -50,7 +51,6 @@ module.exports = {
             if (request.session.user) {
               request.session.user = null;
             }
-
             return responseService.invalidParameters(response, ['password'])
           }
         });
@@ -61,7 +61,7 @@ module.exports = {
   },
 
   me: function (request, response){
-    User.currentUser(request).exec(function (error, user){
+    User.currentUser(request.session.user).exec(function (error, user){
       if(error){
         return responseService.failed(response, error);
       }

@@ -14,6 +14,7 @@ angular.module("basilApp").controller("loginController", [
 
     $scope.login = function() {
       authService.authenticate($scope.email, $scope.password).then(function(res){
+        $scope.success = "SUCCESS";
         console.log(res);
         gravatarService.getGravatar(res.name).then(function(img){
           console.log(img);
