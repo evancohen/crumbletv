@@ -165,7 +165,12 @@ img {
 	padding-bottom: 20px;
 	background: #fff;
 	color: #333;
-	padding: 0px 10px 0px 10px;
+	padding: 45px 10px 0 10px;
+}
+
+.container-front{
+  margin-top: 50px;
+  padding-top: 0;
 }
 
 .row {

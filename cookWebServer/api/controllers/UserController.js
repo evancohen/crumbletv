@@ -62,7 +62,7 @@ module.exports = {
 
   me: function (request, response){
     UserModel.currentUser(request).exec(function (error, user){
-      if(error){
+      if(error || typeof user === "undefined"){
         return responseService.failed(response, error);
       }
       return responseService.success(response, user);

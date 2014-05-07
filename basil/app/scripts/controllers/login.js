@@ -15,11 +15,13 @@ angular.module("basilApp").controller("loginController", [
     $scope.login = function() {
       authService.authenticate($scope.email, $scope.password).then(function(res){
         $scope.success = "SUCCESS";
-        console.log(res);
+        //Get the gravatar for the user
         gravatarService.getGravatar(res.name).then(function(img){
-          console.log(img);
           $scope.avatar = img;
         });
+      }, function(err){
+        //could not authenticate
+        console.log('Could not authenticate');
       });
     };
 }]);

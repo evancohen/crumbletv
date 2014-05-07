@@ -1,4 +1,4 @@
-<div class="container container-main">
+<div class="container container-main container-front">
 	<div class="row row-banner">
 		<h1 class="oleo">Crumble</h1>
 	</div>
@@ -32,34 +32,14 @@
 		</div>
 		<div class="col-md-3">
 			<span class="lead">Other videos</span>
-			<div class="media">
+			<div class="media" ng-repeat="ovid in otherVideos">
 			  <div class="pull-left">
-			    <img class="media-object" src="http://placehold.it/100x100" alt="image">
+			    <img class="media-object" ng-src="{{ovid.thumb}}" alt="image">
 			  </div>
 			  <div class="media-body">
-			    <h4 class="media-heading">Other video</h4>
-			    <p>By <strong>someone</strong></p>
-			    <p>####### subscirbers</p>
-			  </div>
-			</div>
-			<div class="media">
-			  <div class="pull-left">
-			    <img class="media-object" src="http://placehold.it/100x100" alt="image">
-			  </div>
-			  <div class="media-body">
-			    <h4 class="media-heading">Other video</h4>
-			    <p>By <strong>someone</strong></p>
-			    <p>####### subscirbers</p>
-			  </div>
-			</div>
-			<div class="media">
-			  <div class="pull-left">
-			    <img class="media-object" src="http://placehold.it/100x100" alt="image">
-			  </div>
-			  <div class="media-body">
-			    <h4 class="media-heading">Other video</h4>
-			    <p>By <strong>someone</strong></p>
-			    <p>####### subscirbers</p>
+			    <h4 class="media-heading">{{ovid.title}}</h4>
+			    <p>By <strong>{{ovid.user}}</strong></p>
+			    <p>{{ovid.subs}} subscirbers</p>
 			  </div>
 			</div>
 		</div>
@@ -69,12 +49,14 @@
 		<div class="col-md-12">
 			<h2>Subscriptions</h2>
 		</div>
-		<div class="col-md-2" ng-repeat="subscription in subscriptions | limitTo:6">
-			<img src="http://placehold.it/195x195" class="img-circle" alt="{{subscription}}" />
-			<span class="description pull-right">
-				<span class="lead">{{subscription}}</span>
-				<p>something else here</p>
-			</span>
+		<div class="col-md-offset-1 col-md-10">
+			<div class="col-md-2" ng-repeat="subscription in subscriptions | limitTo:6">
+				<img src="http://placehold.it/195x195" class="img-circle" alt="{{subscription}}" />
+				<span class="description pull-right">
+					<span class="lead">{{subscription}}</span>
+					<p>something else here</p>
+				</span>
+			</div>
 		</div>
 	</div>
 	<div class="row">
@@ -92,7 +74,7 @@
 			</div>
 		</div>
 		<div class="col-md-5">
-			<h2>Extra Space FTW</h2>
+			<!-- <h2>Extra Space FTW</h2> -->
 		</div>
 		<div class="col-md-3">
 			<a class="twitter-timeline" href="https://twitter.com/CrumbleTV" data-widget-id="458382323105288192">Tweets by @CrumbleTV</a>

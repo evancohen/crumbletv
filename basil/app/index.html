@@ -61,7 +61,8 @@
         <div class="navbar-header pull-right">
           <button type="button" class="btn btn-default navbar-btn">1</button>
           <button type="button" class="btn btn-default navbar-btn">2</button>
-           <button type="button" class="btn btn-subscribe navbar-btn">{{name}}</button>
+           <button ng-show="name" type="button" class="btn btn-subscribe navbar-btn">{{name}}</button>
+           <a ng-hide="name" class="btn btn-primary navbar-btn" ui-sref="login">Login</a>
         </div>
 
       </div><!-- /.container-fluid -->
