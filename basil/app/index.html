@@ -59,10 +59,11 @@
           <a class="navbar-brand oleo" href="#">Crumble</a>
         </div>
         <div class="navbar-header pull-right">
-          <button type="button" class="btn btn-default navbar-btn">1</button>
-          <button type="button" class="btn btn-default navbar-btn">2</button>
-           <button ng-show="name" type="button" class="btn btn-subscribe navbar-btn">{{name}}</button>
-           <a ng-hide="name" class="btn btn-primary navbar-btn" ui-sref="login">Login</a>
+            <button type="button" class="btn btn-default navbar-btn">Host A Show</button>
+            <button type="button" class="btn btn-default navbar-btn">Calendar</button>
+            <button ng-show="name" type="button" class="btn btn-success navbar-btn">{{name}}</button>
+            <a ng-hide="name" class="btn btn-primary navbar-btn" ui-sref="login">Login</a>
+            <a><img class="img-circle avatar" ng-show="avatar" ng-src="{{avatar}}"></a>
         </div>
 
       </div><!-- /.container-fluid -->

@@ -1,6 +1,8 @@
 angular.module("basilApp").service("authService", ["Restangular", "$q",
 function (Restangular, $q) {
-	var User = {name : null};
+	var User = {
+    name : null
+  };
 
 	//with a default size of 80
 	User.authenticate = function(email, password) {
@@ -15,6 +17,9 @@ function (Restangular, $q) {
         deferred.resolve(res);
       }
       deferred.reject(res);
+    }, function(err){
+      console.log(err);
+      deferred.reject(err);
     });
     return deferred.promise;
   };
@@ -32,6 +37,15 @@ function (Restangular, $q) {
         deferred.reject('User is not logged in');
       });
       return deferred.promise;
+  };
+
+  User.logout = function() {
+    var deferred = $q.defer();
+    Restangular.one("user", "logout").get().then(function(res){
+      //this can not fail
+      deferred.resolve(res);
+    });
+    return deferred.promise;
   };
 
 	return User;

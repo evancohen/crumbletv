@@ -16,9 +16,9 @@ var app = angular.module("basilApp", [
       templateUrl: "views/main.html",
       controller: "mainController"
     })
-    .state("stream", {
-      url: "/stream",
-      templateUrl: "views/stream.html",
+    .state("watch", {
+      url: "/watch",
+      templateUrl: "views/watch.html",
       controller: "streamController"
     })
     .state("sign-up", {
@@ -43,8 +43,8 @@ var app = angular.module("basilApp", [
 });
 
 app.config(function(RestangularProvider) {
-  //RestangularProvider.setBaseUrl('http://localhost:1337');
-  RestangularProvider.setBaseUrl('http://alpha.crumble.tv/api');
+  RestangularProvider.setBaseUrl('http://localhost:1337');
+  //RestangularProvider.setBaseUrl('http://alpha.crumble.tv/api');
 
   RestangularProvider.setResponseExtractor(function(response, operation) {
     // extracts data

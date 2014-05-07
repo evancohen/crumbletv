@@ -60,10 +60,18 @@ module.exports = {
     });
   },
 
+  logout: function (request, response) {
+    request.session.user = null;
+    return responseService.success(response, "Successfully logged out");
+  },
+
   me: function (request, response){
     UserModel.currentUser(request).exec(function (error, user){
       if(error || typeof user === "undefined"){
-        return responseService.failed(response, error);
+        if(error == null){
+          error = {message: "User is not authenticated", cake : false};
+        }
+        return responseService.forbidden(response, error);
       }
       return responseService.success(response, user);
     });
