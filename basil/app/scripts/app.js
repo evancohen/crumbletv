@@ -56,6 +56,11 @@ var app = angular.module("basilApp", [
       templateUrl: "views/calendar.html",
       controller: "calendarController"
     })
+    .state("stream", {
+      url:"/stream",
+      templateUrl: "views/stream.html",
+      controller: "streamController"
+    })
     .state("session", {
       url:"/session",
       templateUrl: "views/session.html",
