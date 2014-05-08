@@ -5,8 +5,21 @@ body{
   /*font-family: Helvetica;*/
 }
 
+/*even if links don't have an href they should appear as links*/
+a {
+  cursor: pointer;
+}
+
 .oleo{
 	font-family: 'Oleo Script', cursive;
+}
+
+.img-partial-circle.avatar {
+  border-radius: 0 4px 4px 0;
+  height: 34px;
+  margin-top: 8px;
+  position: relative;
+  left: -4px;
 }
 
 .jumbotron{
@@ -159,8 +172,12 @@ img {
   float: left; 
 }
 
-.navbar img.avatar {
-  height: 40px;
+.btn-group .dropdown-menu {
+  margin: -8px 0 0;
+}
+
+.dropdown-toggle:hover ul.dropdown-menu{
+  display: block;
 }
 
 

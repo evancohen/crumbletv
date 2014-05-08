@@ -40,9 +40,11 @@ function (Restangular, $q) {
   };
 
   User.logout = function() {
+    var _self = this;
     var deferred = $q.defer();
     Restangular.one("user", "logout").get().then(function(res){
       //this can not fail
+      _self.name = null;
       deferred.resolve(res);
     });
     return deferred.promise;

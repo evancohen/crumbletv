@@ -24,6 +24,7 @@ angular.module("basilApp").controller("loginController", [
       }, function(err){
         //could not authenticate
         console.log('Could not authenticate');
+        alert("Incorrect username or Password!");
       });
     };
 }]);
