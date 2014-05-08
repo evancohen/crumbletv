@@ -14,17 +14,23 @@ angular.module('basilApp').controller("calendarController", ["$scope", "Restangu
         // };
         /* event source that contains custom events on the scope */
         $scope.events = [];
+        var data = {
+          owner: 3
+        }
+        Restangular.one("Show/findme").get(data).then(function(data){
+          for(var i = 0; i < data.length; i++) {
+            $scope.events.push({
+              color: "#FF00FF",
+              title: data[i].title,
+              start: data[i].startTime,
+              end: data[i].endTime,
+              editable: true,
+              allDay: false
+            });
+          }
+        });
         //$scope.events.push({});
-          Restangular.one("Show/find").get().then(function(data){
-            for(var i = 0; i < data.length; i++) {
-              $scope.events.push({
-                title: data[i].title,
-                start: data[i].startTime,
-                end: data[i].endTime,
-                editable: false
-              });
-            }
-          });
+
         //;
         /* event source that calls a function on every view switch */
         $scope.eventsF = function (start, end, callback) {
@@ -35,15 +41,19 @@ angular.module('basilApp').controller("calendarController", ["$scope", "Restangu
           callback(events);
         };
 
-        $scope.calEventsExt = {
-           color: '#f00',
-           textColor: 'yellow',
-           events: [ 
-              {type:'party',title: 'Lunch',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
-              {type:'party',title: 'Lunch 2',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
-              {type:'party',title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
-            ]
-        };
+        $scope.calEventsExt = [];
+        /*Restangular.one("Show/find").get().then(function(data){
+          for(var i = 0; i < data.length; i++) {
+            $scope.calEventsExt.push({
+              color: "#ff0000",
+              title: data[i].title,
+              start: data[i].startTime,
+              end: data[i].endTime,
+              editable: false,
+              allDay: false
+            })
+          }
+        });*/
         /* alert on eventClick */
         $scope.alertOnEventClick = function( event, allDay, jsEvent, view ){
             $scope.alertMessage = (event.title + ' was clicked ');
@@ -75,7 +85,8 @@ angular.module('basilApp').controller("calendarController", ["$scope", "Restangu
             title: 'Open Sesame',
             start: new Date(y, m, 28),
             end: new Date(y, m, 29),
-            className: ['openSesame']
+            className: ['openSesame'],
+            editable: true
           });
         };
         /* remove event */

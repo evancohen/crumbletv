@@ -77,6 +77,18 @@ module.exports = {
 			}
 			return responseService.success(response, shows, "Video(s) found");
 		});
+	},
+	findme: function (request, response){
+		//This needs to get the user id from the cookie
+		//if (!id) {
+			//return responseService.failed(response, "Incorrect paramaters");
+		//}
+		Show.find({owner: request.param('owner')}).exec(function(error, shows){
+			if(error){
+				return responseService.error(response, error);
+			}
+			return responseService.success(response, shows, "Video(s) found");
+		});
 	}
 };
 
