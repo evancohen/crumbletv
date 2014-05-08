@@ -59,15 +59,12 @@ module.exports = {
       }
     });
   },
-<<<<<<< HEAD
-=======
 
   logout: function (request, response) {
     request.session.user = null;
     return responseService.success(response, "Successfully logged out");
   },
 
->>>>>>> a382db1dbed1d7a5562f90ef481af6597f6b9a3f
   me: function (request, response){
     UserModel.currentUser(request).exec(function (error, user){
       if(error || typeof user === "undefined"){
