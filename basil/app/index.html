@@ -60,7 +60,10 @@
           <a class="navbar-brand oleo" href="#">Crumble</a>
         </div>
         <div class="navbar-header pull-right">
-            <a ng-hide="name" class="btn btn-primary navbar-btn" ui-sref="login">Login</a>
+            <div ng-hide="name">
+                <a class="btn btn-primary navbar-btn" ui-sref="login">Login</a>
+                <a class="btn btn btn-info navbar-btn" ui-sref="sign-up">Register</a>
+            </div>
             <div ng-show="name" class="btn-group dropdown-toggle">
                 <button type="button" class="btn btn-success navbar-btn" data-toggle="dropdown">{{name}} <span class="caret"></span></button>
                 <ul class="dropdown-menu dropdown-menu-right" role="menu">
