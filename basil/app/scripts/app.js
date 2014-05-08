@@ -53,7 +53,8 @@ var app = angular.module("basilApp", [
     })
     .state("calendar", {
       url:"/calendar",
-      templateUrl: "views/calendar.html"
+      templateUrl: "views/calendar.html",
+      controller: "calendarController"
     })
     .state("session", {
       url:"/session",
@@ -63,12 +64,12 @@ var app = angular.module("basilApp", [
 });
 
 app.config(function(RestangularProvider) {
-  //RestangularProvider.setBaseUrl('http://localhost:1337');
-  RestangularProvider.setBaseUrl('http://alpha.crumble.tv/api');
+  RestangularProvider.setBaseUrl('http://localhost:1337');
+  //RestangularProvider.setBaseUrl('http://alpha.crumble.tv/api');
 
   RestangularProvider.setResponseExtractor(function(response, operation) {
     // extracts data
-    return response.data;
+    return response;
   });
 
   RestangularProvider.setDefaultHttpFields({cache: true});
