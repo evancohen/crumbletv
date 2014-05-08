@@ -1,0 +1,212 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node.exe',
+1 verbose cli   'C:\\Users\\Evan\\nodist\\bin\\node_modules\\npm\\cli.js',
+1 verbose cli   'install' ]
+2 info using npm@1.4.6
+3 info using node@v0.10.26
+4 warn package.json basil@0.0.0 No description
+5 warn package.json basil@0.0.0 No repository field.
+6 warn package.json basil@0.0.0 No README data
+7 verbose readDependencies using package.json deps
+8 verbose install where, deps [ 'C:\\Users\\Evan\\Documents\\GitHub\\crumbletv\\basil',
+8 verbose install   [ 'grunt',
+8 verbose install     'grunt-autoprefixer',
+8 verbose install     'grunt-bower-install',
+8 verbose install     'grunt-concurrent',
+8 verbose install     'grunt-contrib-clean',
+8 verbose install     'grunt-contrib-compass',
+8 verbose install     'grunt-contrib-concat',
+8 verbose install     'grunt-contrib-connect',
+8 verbose install     'grunt-contrib-copy',
+8 verbose install     'grunt-contrib-cssmin',
+8 verbose install     'grunt-contrib-htmlmin',
+8 verbose install     'grunt-contrib-imagemin',
+8 verbose install     'grunt-contrib-jshint',
+8 verbose install     'grunt-contrib-uglify',
+8 verbose install     'grunt-contrib-watch',
+8 verbose install     'grunt-google-cdn',
+8 verbose install     'grunt-newer',
+8 verbose install     'grunt-ngmin',
+8 verbose install     'grunt-rev',
+8 verbose install     'grunt-svgmin',
+8 verbose install     'grunt-usemin',
+8 verbose install     'jshint-stylish',
+8 verbose install     'load-grunt-tasks',
+8 verbose install     'time-grunt',
+8 verbose install     'grunt-typescript',
+8 verbose install     'karma-ng-scenario',
+8 verbose install     'grunt-karma',
+8 verbose install     'karma-chrome-launcher',
+8 verbose install     'karma-firefox-launcher',
+8 verbose install     'karma-script-launcher',
+8 verbose install     'karma-html2js-preprocessor',
+8 verbose install     'karma-jasmine',
+8 verbose install     'karma-phantomjs-launcher',
+8 verbose install     'karma',
+8 verbose install     'karma-ng-html2js-preprocessor' ] ]
+9 info preinstall basil@0.0.0
+10 verbose readDependencies using package.json deps
+11 verbose already installed skipping grunt@~0.4.1 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+12 verbose already installed skipping grunt-autoprefixer@~0.4.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+13 verbose already installed skipping grunt-bower-install@~0.7.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+14 verbose already installed skipping grunt-concurrent@~0.4.1 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+15 verbose already installed skipping grunt-contrib-clean@~0.5.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+16 verbose already installed skipping grunt-ngmin@~0.0.2 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+17 verbose already installed skipping grunt-contrib-compass@~0.6.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+18 verbose already installed skipping grunt-rev@~0.1.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+19 verbose already installed skipping grunt-contrib-concat@~0.3.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+20 verbose already installed skipping grunt-contrib-connect@~0.5.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+21 verbose already installed skipping grunt-contrib-copy@~0.4.1 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+22 verbose already installed skipping grunt-contrib-cssmin@~0.7.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+23 verbose already installed skipping grunt-contrib-htmlmin@~0.1.3 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+24 verbose already installed skipping grunt-contrib-imagemin@~0.3.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+25 verbose already installed skipping grunt-contrib-jshint@~0.7.1 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+26 verbose already installed skipping grunt-contrib-uglify@~0.2.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+27 verbose already installed skipping grunt-contrib-watch@~0.5.2 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+28 verbose already installed skipping grunt-google-cdn@~0.2.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+29 verbose already installed skipping grunt-newer@~0.5.4 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+30 verbose already installed skipping karma@~0.10.9 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+31 verbose already installed skipping grunt-svgmin@~0.2.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+32 verbose already installed skipping grunt-usemin@~2.0.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+33 verbose already installed skipping jshint-stylish@~0.1.3 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+34 verbose already installed skipping load-grunt-tasks@~0.2.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+35 verbose already installed skipping time-grunt@0.3.1 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+36 verbose already installed skipping grunt-typescript@~0.2.7 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+37 verbose already installed skipping karma-ng-scenario@~0.1.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+38 verbose already installed skipping grunt-karma@~0.6.2 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+39 verbose already installed skipping karma-chrome-launcher@~0.1.2 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+40 verbose already installed skipping karma-firefox-launcher@~0.1.3 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+41 verbose already installed skipping karma-script-launcher@~0.1.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+42 verbose already installed skipping karma-html2js-preprocessor@~0.1.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+43 verbose already installed skipping karma-jasmine@~0.1.5 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+44 verbose already installed skipping karma-phantomjs-launcher@~0.1.2 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+45 verbose already installed skipping karma-ng-html2js-preprocessor@~0.1.0 C:\Users\Evan\Documents\GitHub\crumbletv\basil
+46 silly resolved []
+47 info build C:\Users\Evan\Documents\GitHub\crumbletv\basil
+48 verbose linkStuff [ false,
+48 verbose linkStuff   false,
+48 verbose linkStuff   false,
+48 verbose linkStuff   'C:\\Users\\Evan\\Documents\\GitHub\\crumbletv' ]
+49 info linkStuff basil@0.0.0
+50 verbose linkBins basil@0.0.0
+51 verbose linkMans basil@0.0.0
+52 verbose rebuildBundles basil@0.0.0
+53 verbose rebuildBundles [ '.bin',
+53 verbose rebuildBundles   'grunt',
+53 verbose rebuildBundles   'grunt-autoprefixer',
+53 verbose rebuildBundles   'grunt-bower-install',
+53 verbose rebuildBundles   'grunt-concurrent',
+53 verbose rebuildBundles   'grunt-contrib-clean',
+53 verbose rebuildBundles   'grunt-contrib-compass',
+53 verbose rebuildBundles   'grunt-contrib-concat',
+53 verbose rebuildBundles   'grunt-contrib-connect',
+53 verbose rebuildBundles   'grunt-contrib-copy',
+53 verbose rebuildBundles   'grunt-contrib-cssmin',
+53 verbose rebuildBundles   'grunt-contrib-htmlmin',
+53 verbose rebuildBundles   'grunt-contrib-imagemin',
+53 verbose rebuildBundles   'grunt-contrib-jshint',
+53 verbose rebuildBundles   'grunt-contrib-uglify',
+53 verbose rebuildBundles   'grunt-contrib-watch',
+53 verbose rebuildBundles   'grunt-google-cdn',
+53 verbose rebuildBundles   'grunt-karma',
+53 verbose rebuildBundles   'grunt-newer',
+53 verbose rebuildBundles   'grunt-ngmin',
+53 verbose rebuildBundles   'grunt-rev',
+53 verbose rebuildBundles   'grunt-svgmin',
+53 verbose rebuildBundles   'grunt-typescript',
+53 verbose rebuildBundles   'grunt-usemin',
+53 verbose rebuildBundles   'jshint-stylish',
+53 verbose rebuildBundles   'karma',
+53 verbose rebuildBundles   'karma-chrome-launcher',
+53 verbose rebuildBundles   'karma-coffee-preprocessor',
+53 verbose rebuildBundles   'karma-firefox-launcher',
+53 verbose rebuildBundles   'karma-html2js-preprocessor',
+53 verbose rebuildBundles   'karma-jasmine',
+53 verbose rebuildBundles   'karma-ng-html2js-preprocessor',
+53 verbose rebuildBundles   'karma-ng-scenario',
+53 verbose rebuildBundles   'karma-phantomjs-launcher',
+53 verbose rebuildBundles   'karma-requirejs',
+53 verbose rebuildBundles   'karma-script-launcher',
+53 verbose rebuildBundles   'load-grunt-tasks',
+53 verbose rebuildBundles   'requirejs',
+53 verbose rebuildBundles   'time-grunt',
+53 verbose rebuildBundles   'yo' ]
+54 verbose rebuild bundle C:\Users\Evan\Documents\GitHub\crumbletv\basil\node_modules\karma-coffee-preprocessor
+55 info build C:\Users\Evan\Documents\GitHub\crumbletv\basil\node_modules\karma-coffee-preprocessor
+56 info preinstall karma-coffee-preprocessor@0.1.3
+57 verbose linkStuff [ false,
+57 verbose linkStuff   false,
+57 verbose linkStuff   false,
+57 verbose linkStuff   'C:\\Users\\Evan\\Documents\\GitHub\\crumbletv\\basil\\node_modules' ]
+58 info linkStuff karma-coffee-preprocessor@0.1.3
+59 verbose linkBins karma-coffee-preprocessor@0.1.3
+60 verbose linkMans karma-coffee-preprocessor@0.1.3
+61 verbose rebuildBundles karma-coffee-preprocessor@0.1.3
+62 verbose rebuildBundles [ '.bin', 'coffee-script' ]
+63 info install karma-coffee-preprocessor@0.1.3
+64 info postinstall karma-coffee-preprocessor@0.1.3
+65 verbose rebuild bundle C:\Users\Evan\Documents\GitHub\crumbletv\basil\node_modules\karma-requirejs
+66 info build C:\Users\Evan\Documents\GitHub\crumbletv\basil\node_modules\karma-requirejs
+67 info preinstall karma-requirejs@0.2.1
+68 verbose linkStuff [ false,
+68 verbose linkStuff   false,
+68 verbose linkStuff   false,
+68 verbose linkStuff   'C:\\Users\\Evan\\Documents\\GitHub\\crumbletv\\basil\\node_modules' ]
+69 info linkStuff karma-requirejs@0.2.1
+70 verbose linkBins karma-requirejs@0.2.1
+71 verbose linkMans karma-requirejs@0.2.1
+72 verbose rebuildBundles karma-requirejs@0.2.1
+73 info install karma-requirejs@0.2.1
+74 info postinstall karma-requirejs@0.2.1
+75 verbose rebuild bundle C:\Users\Evan\Documents\GitHub\crumbletv\basil\node_modules\requirejs
+76 info build C:\Users\Evan\Documents\GitHub\crumbletv\basil\node_modules\requirejs
+77 info preinstall requirejs@2.1.11
+78 verbose linkStuff [ false,
+78 verbose linkStuff   false,
+78 verbose linkStuff   false,
+78 verbose linkStuff   'C:\\Users\\Evan\\Documents\\GitHub\\crumbletv\\basil\\node_modules' ]
+79 info linkStuff requirejs@2.1.11
+80 verbose linkBins requirejs@2.1.11
+81 verbose link bins [ { 'r.js': './bin/r.js' },
+81 verbose link bins   'C:\\Users\\Evan\\Documents\\GitHub\\crumbletv\\basil\\node_modules\\.bin',
+81 verbose link bins   false ]
+82 verbose linkMans requirejs@2.1.11
+83 verbose rebuildBundles requirejs@2.1.11
+84 info install requirejs@2.1.11
+85 info postinstall requirejs@2.1.11
+86 verbose rebuild bundle C:\Users\Evan\Documents\GitHub\crumbletv\basil\node_modules\yo
+87 info build C:\Users\Evan\Documents\GitHub\crumbletv\basil\node_modules\yo
+88 info preinstall yo@1.1.2
+89 verbose linkStuff [ false,
+89 verbose linkStuff   false,
+89 verbose linkStuff   false,
+89 verbose linkStuff   'C:\\Users\\Evan\\Documents\\GitHub\\crumbletv\\basil\\node_modules' ]
+90 info linkStuff yo@1.1.2
+91 warn prefer global yo@1.1.2 should be installed with -g
+92 verbose linkBins yo@1.1.2
+93 verbose link bins [ { yo: 'cli.js' },
+93 verbose link bins   'C:\\Users\\Evan\\Documents\\GitHub\\crumbletv\\basil\\node_modules\\.bin',
+93 verbose link bins   false ]
+94 verbose linkMans yo@1.1.2
+95 verbose rebuildBundles yo@1.1.2
+96 info install yo@1.1.2
+97 info postinstall yo@1.1.2
+98 verbose unsafe-perm in lifecycle true
+99 info yo@1.1.2 Failed to exec postinstall script
+100 error yo@1.1.2 postinstall: `node ./scripts/doctor`
+100 error Exit status 8
+101 error Failed at the yo@1.1.2 postinstall script.
+101 error This is most likely a problem with the yo package,
+101 error not with npm itself.
+101 error Tell the author that this fails on your system:
+101 error     node ./scripts/doctor
+101 error You can get their info via:
+101 error     npm owner ls yo
+101 error There is likely additional logging output above.
+102 error System Windows_NT 6.2.9200
+103 error command "node.exe" "C:\\Users\\Evan\\nodist\\bin\\node_modules\\npm\\cli.js" "install"
+104 error cwd C:\Users\Evan\Documents\GitHub\crumbletv\basil
+105 error node -v v0.10.26
+106 error npm -v 1.4.6
+107 error code ELIFECYCLE
+108 verbose exit [ 1, true ]

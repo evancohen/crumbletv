@@ -20,18 +20,19 @@ angular.module("basilApp").controller("loginController", [
         Restangular.all("User/login").post(data).then(function(data){
           $scope.success = "TRUE";
           console.log(data);
-      authService.authenticate($scope.email, $scope.password).then(function(res){
+          authService.authenticate($scope.email, $scope.password).then(function(res){
 
-        //Get the gravatar for the user
-        gravatarService.getGravatar(res.name).then(function(img){
-          $scope.avatar = img;
+            //Get the gravatar for the user
+            gravatarService.getGravatar(res.name).then(function(img){
+              $scope.avatar = img;
+            });
+
+            $scope.success = "SUCCESS";
+          }, function(err){
+            //could not authenticate
+            console.log('Could not authenticate');
+            alert("Incorrect username or Password!");
+          });
         });
-
-        $scope.success = "SUCCESS";
-      }, function(err){
-        //could not authenticate
-        console.log('Could not authenticate');
-        alert("Incorrect username or Password!");
-      });
-    };
+      }
 }]);
