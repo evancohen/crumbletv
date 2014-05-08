@@ -5,8 +5,21 @@ body{
   /*font-family: Helvetica;*/
 }
 
+/*even if links don't have an href they should appear as links*/
+a {
+  cursor: pointer;
+}
+
 .oleo{
 	font-family: 'Oleo Script', cursive;
+}
+
+.img-partial-circle.avatar {
+  border-radius: 0 4px 4px 0;
+  height: 34px;
+  margin-top: 8px;
+  position: relative;
+  left: -4px;
 }
 
 .jumbotron{
@@ -159,13 +172,25 @@ img {
   float: left; 
 }
 
+.btn-group .dropdown-menu {
+  margin: -8px 0 0;
+}
+
+.dropdown-toggle:hover ul.dropdown-menu{
+  display: block;
+}
+
 
 .container-main{
 	margin-top: 50px;
-	padding-bottom: 20px;
 	background: #fff;
 	color: #333;
-	padding: 0px 10px 0px 10px;
+	padding: 45px 10px 15px 10px;
+}
+
+.container-front{
+  margin-top: 50px;
+  padding-top: 0;
 }
 
 .row {

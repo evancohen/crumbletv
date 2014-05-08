@@ -2,7 +2,7 @@ angular.module("basilApp").directive("videoPlayer", [function () {
     var flowPlayerURL = "/static/flash/flowplayer";
     var flowPlayerConfig = {
         clip: {
-            url: "cody",
+            url: "myurl",
             live: true,
             // configure clip to use influxis as our provider, it uses our rtmp plugin
             provider: "influxis"

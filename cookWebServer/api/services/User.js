@@ -4,7 +4,7 @@ module.exports = {
   getLiveShow: getLiveShow,
 
   publishShow: function (response, broadcastKey, name, showId) {
-    User.findOne({ broadcastKey: broadcastKey, name: name }).done(function (error, user) {
+    User.findOne({ broadcastKey: broadcastKey, name: name }).exec(function (error, user) {
       if (error) {
         return responseService.error(response, error);
       }
@@ -12,14 +12,14 @@ module.exports = {
         return responseService.invalidParameters(response, ['broadcastKey', 'name']);
       }
 
-      getLiveShow(user.id).done(function (error, show) {
+      getLiveShow(user.id).exec(function (error, show) {
         if (error || show) {
           return responseService.error(response, "Already streaming!");
         }
 
         if (showId) {
           // lookup show
-          Show.findOne(showId).done(function (error, show) {
+          Show.findOne(showId).exec(function (error, show) {
             publishUserFindOneHandler(response, error, show)
           });
         } else {
@@ -41,7 +41,7 @@ module.exports = {
   },
 
   currentUser: function currentUser(request) {
-    return User.findOne(request.session.user);
+    return User.findOne({id :request.session.user});
   }
 };
 

@@ -13,14 +13,6 @@ angular.module("basilApp").controller("loginController", [
     //console.log(authService);
 
     $scope.login = function() {
-      var data = {
-        email    : $scope.email,
-        password : $scope.password
-      }
-        Restangular.all("User/login").post(data).then(function(data){
-          $scope.success = "TRUE";
-          data.
-          console.log(data);
       authService.authenticate($scope.email, $scope.password).then(function(res){
 
         //Get the gravatar for the user

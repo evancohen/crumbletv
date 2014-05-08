@@ -1,6 +1,6 @@
 angular.module("basilApp").controller("sessionController", [
 	"$scope", 
-	"Restangular", 
+	"Restangular",
 	function ($scope, Restangular) {
     $scope.success = "FALSE";
     console.log("Controller loaded")

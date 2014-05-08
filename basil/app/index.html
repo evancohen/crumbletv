@@ -18,7 +18,7 @@
     <meta property="og:url" content="http://crumble.tv/" />
 
     <!--Crawl JS -->
-    <meta name="fragment" content="!" />
+    <!-- <meta name="fragment" content="!" /> -->
 
     <!-- Icons -->
     <link rel="icon" href="/static/images/pot.ico"/>
@@ -60,9 +60,18 @@
           <a class="navbar-brand oleo" href="#">Crumble</a>
         </div>
         <div class="navbar-header pull-right">
-          <button type="button" class="btn btn-default navbar-btn">1</button>
-          <button type="button" class="btn btn-default navbar-btn">2</button>
-           <button type="button" class="btn btn-subscribe navbar-btn">{{name}}</button>
+            <a ng-hide="name" class="btn btn-primary navbar-btn" ui-sref="login">Login</a>
+            <div ng-show="name" class="btn-group dropdown-toggle">
+                <button type="button" class="btn btn-success navbar-btn" data-toggle="dropdown">{{name}} <span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    <li><a ui-sref="calender">Calender</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a ng-click="logout()">Log Out</a></li>
+                </ul>
+            <a><img class="img-partial-circle avatar" ng-show="avatar" ng-src="{{avatar}}"></a>
+            </div>
         </div>
 
       </div><!-- /.container-fluid -->
@@ -132,6 +141,8 @@
     <script src="scripts/controllers/session.js"></script>
     
     <script src="scripts/services/facet.js"></script>
+    <script src="scripts/services/gravatar.js"></script>
+    <script src="scripts/services/auth.js"></script>
 
     <script src="scripts/directives/streamPlayer.js"></script>
     <!-- endbuild -->

@@ -16,6 +16,7 @@
  */
 
 var responseService = require('../services/Response.js');
+var UserModel = require('../services/User.js');
 
 module.exports = {
     
@@ -50,7 +51,6 @@ module.exports = {
             if (request.session.user) {
               request.session.user = null;
             }
-
             return responseService.invalidParameters(response, ['password'])
           }
         });
@@ -59,10 +59,22 @@ module.exports = {
       }
     });
   },
+<<<<<<< HEAD
+=======
+
+  logout: function (request, response) {
+    request.session.user = null;
+    return responseService.success(response, "Successfully logged out");
+  },
+
+>>>>>>> a382db1dbed1d7a5562f90ef481af6597f6b9a3f
   me: function (request, response){
-    User.currentUser(request).exec(function (error, user){
-      if(error){
-        return responseService.failed(response, error);
+    UserModel.currentUser(request).exec(function (error, user){
+      if(error || typeof user === "undefined"){
+        if(error == null){
+          error = {message: "User is not authenticated", cake : false};
+        }
+        return responseService.forbidden(response, error);
       }
       return responseService.success(response, user);
     });
