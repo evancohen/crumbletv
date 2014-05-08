@@ -37,12 +37,15 @@ angular.module('basilApp').controller("calendarController", ["$scope", "Restangu
           var s = new Date(start).getTime() / 1000;
           var e = new Date(end).getTime() / 1000;
           var m = new Date(start).getMonth();
-          var events = [{title: 'Feed Me ' + m,start: s + (50000),end: s + (100000),allDay: false, className: ['customFeed']}];
+          var events = [];
           callback(events);
         };
 
         $scope.calEventsExt = [];
-        /*Restangular.one("Show/find").get().then(function(data){
+        data = {
+          owner: 4
+        }
+        Restangular.one("Show/findme").get(data).then(function(data){
           for(var i = 0; i < data.length; i++) {
             $scope.calEventsExt.push({
               color: "#ff0000",
@@ -53,7 +56,7 @@ angular.module('basilApp').controller("calendarController", ["$scope", "Restangu
               allDay: false
             })
           }
-        });*/
+        });
         /* alert on eventClick */
         $scope.alertOnEventClick = function( event, allDay, jsEvent, view ){
             $scope.alertMessage = (event.title + ' was clicked ');
