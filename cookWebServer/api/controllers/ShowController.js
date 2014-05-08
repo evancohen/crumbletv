@@ -50,7 +50,7 @@ module.exports = {
 		if (!id) {
 			return responseService.failed(response, "Incorrect paramaters");
 		}
-		Show.find().where({recipeID: id}).done(function(error, shows){
+		Show.find().where({recipeID: id}).exec(function(error, shows){
 			if(error){
 				return responseService.error(response, error); 
 			}
@@ -63,14 +63,33 @@ module.exports = {
 		Show.find()
 			//.where({ startTime: { '>=': 100 }}) //TODO figure out Sails datetime format
 			.limit(count)
-			.done(function(error, videos){
+			.exec(function(error, shows){
 				if(error){
 					return responseService.error(response, error); 
 				}
 				return responseService.success(response, shows, "Video(s) found");
 			});
+	},
+	find: function (request, response){
+		Show.find().exec(function(error, shows){
+			if(error){
+				return responseService.error(response, error); 
+			}
+			return responseService.success(response, shows, "Video(s) found");
+		});
+	},
+	findme: function (request, response){
+		//This needs to get the user id from the cookie
+		//if (!id) {
+			//return responseService.failed(response, "Incorrect paramaters");
+		//}
+		Show.find({owner: request.param('owner')}).exec(function(error, shows){
+			if(error){
+				return responseService.error(response, error);
+			}
+			return responseService.success(response, shows, "Video(s) found");
+		});
 	}
-
 };
 
 /*

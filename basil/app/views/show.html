@@ -1,0 +1,28 @@
+<div class="header">
+  <h1>Crumble.TV - Log In</h1>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<form ng-submit="createShow()">
+			<div class="input-group input-group-lg">
+			  <input type="text" class="form-control" placeholder="Title" ng-model="showTitle">
+			</div>
+			<div class="input-group input-group-lg">
+			  <input type="text" class="form-control" placeholder="ownerID" ng-model="ownerID">
+			</div>
+			<div class="input-group input-group-lg">
+			  <input type="text" class="form-control" placeholder="Start Time" ng-model="startTime">
+			</div>
+			<div class="input-group input-group-lg">
+			  <input type="text" class="form-control" placeholder="End Time" ng-model="endTime">
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+		<h4>{{success}}</h4>
+	<div>
+</div>
+
+<div class="footer">
+  <p>♥ from the Crumble.TV Team</p>
+</div>

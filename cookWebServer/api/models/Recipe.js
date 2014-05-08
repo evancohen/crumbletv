@@ -19,7 +19,13 @@ module.exports = {
     shows: {
       collection: 'Show',
       via: 'recipes'
-    }
+    },
+
+    /*ingredients: {
+      collection: 'Ingredient',
+      via: 'recipes',
+      dominant: true
+    }*/
  
   }
 

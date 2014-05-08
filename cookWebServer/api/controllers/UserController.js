@@ -32,7 +32,7 @@ module.exports = {
 
     User.findOneByEmail(request.body.email).exec(function (error, user) {
       if (error) {
-        return responseService.error(response, error)
+        return responseService.error(response, error);
       }
 
       if (user) {
@@ -45,7 +45,7 @@ module.exports = {
             // password match
             request.session.user = user.id;
 
-            return responseService.success(response, user);
+            return responseService.success(response, user, null);
           } else {
             // invalid password
             if (request.session.user) {
@@ -59,12 +59,15 @@ module.exports = {
       }
     });
   },
+<<<<<<< HEAD
+=======
 
   logout: function (request, response) {
     request.session.user = null;
     return responseService.success(response, "Successfully logged out");
   },
 
+>>>>>>> a382db1dbed1d7a5562f90ef481af6597f6b9a3f
   me: function (request, response){
     UserModel.currentUser(request).exec(function (error, user){
       if(error || typeof user === "undefined"){

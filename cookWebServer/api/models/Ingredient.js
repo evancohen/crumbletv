@@ -14,8 +14,13 @@ module.exports = {
   	  type: 'string',
   	  unique: true,
   	  required: true
-  	}
+  	},
     
+    /*recipes: {
+      collection: 'Recipe',
+      via: 'ingredients'
+    }*/
+
   }
 
 };

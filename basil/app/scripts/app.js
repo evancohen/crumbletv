@@ -4,7 +4,8 @@ var app = angular.module("basilApp", [
   "ngCookies",
   "ngSanitize",
   "ui.router",
-  "restangular"
+  "restangular",
+  "ui.calendar"
 ]).config(function ($stateProvider, $urlRouterProvider) {
   // Unmatched state goes to root
 
@@ -34,6 +35,26 @@ var app = angular.module("basilApp", [
       url:"/login",
       templateUrl: "views/login.html",
       controller: "loginController"
+    })
+    .state("event", {
+      url:"/event",
+      templateUrl: "views/event.html",
+      controller: "eventController"
+    })
+    .state("show", {
+      url:"/show",
+      templateUrl: "views/show.html",
+      controller: "showController"
+    })
+    .state("recipe", {
+      url:"/recipe",
+      templateUrl: "views/recipe.html",
+      controller: "recipeController"
+    })
+    .state("calendar", {
+      url:"/calendar",
+      templateUrl: "views/calendar.html",
+      controller: "calendarController"
     })
     .state("session", {
       url:"/session",
