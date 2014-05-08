@@ -61,11 +61,10 @@
         </div>
         <div class="navbar-header pull-right">
             <a ng-hide="name" class="btn btn-primary navbar-btn" ui-sref="login">Login</a>
-            <a ng-hide="name" class="btn btn btn-info navbar-btn" ui-sref="sign-up">Register</a>
             <div ng-show="name" class="btn-group dropdown-toggle">
                 <button type="button" class="btn btn-success navbar-btn" data-toggle="dropdown">{{name}} <span class="caret"></span></button>
                 <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                    <li><a ui-sref="calendar">Calendar</a></li>
+                    <li><a ui-sref="calender">Calender</a></li>
                     <li><a href="#">Another action</a></li>
                     <li><a href="#">Something else here</a></li>
                     <li class="divider"></li>
@@ -98,8 +97,6 @@
     <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
 
     <!-- Libraries -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
@@ -143,6 +140,8 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
     <script src="bower_components/fullcalendar/fullcalendar.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
