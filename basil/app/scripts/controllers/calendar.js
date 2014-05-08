@@ -13,10 +13,17 @@ angular.module('basilApp').controller("calendarController", ["$scope", "Restangu
         //         currentTimezone: 'America/Chicago' // an option!
         // };
         /* event source that contains custom events on the scope */
-        //$scope.events = [
-        $scope.events.push({});
+        $scope.events = [];
+        //$scope.events.push({});
           Restangular.one("Show/find").get().then(function(data){
-            console.log(data);
+            for(var i = 0; i < data.length; i++) {
+              $scope.events.push({
+                title: data[i].title,
+                start: data[i].startTime,
+                end: data[i].endTime,
+                editable: false
+              });
+            }
           });
         //;
         /* event source that calls a function on every view switch */

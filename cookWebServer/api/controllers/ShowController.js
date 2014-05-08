@@ -63,7 +63,7 @@ module.exports = {
 		Show.find()
 			//.where({ startTime: { '>=': 100 }}) //TODO figure out Sails datetime format
 			.limit(count)
-			.exec(function(error, videos){
+			.exec(function(error, shows){
 				if(error){
 					return responseService.error(response, error); 
 				}
@@ -71,7 +71,7 @@ module.exports = {
 			});
 	},
 	find: function (request, response){
-		Show.find().exec(function(error, videos){
+		Show.find().exec(function(error, shows){
 			if(error){
 				return responseService.error(response, error); 
 			}

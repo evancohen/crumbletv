@@ -69,7 +69,7 @@ app.config(function(RestangularProvider) {
 
   RestangularProvider.setResponseExtractor(function(response, operation) {
     // extracts data
-    return response;
+    return response.data;
   });
 
   RestangularProvider.setDefaultHttpFields({cache: true});
