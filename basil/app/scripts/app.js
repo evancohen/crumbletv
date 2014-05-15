@@ -18,9 +18,9 @@ var app = angular.module("basilApp", [
       controller: "mainController"
     })
     .state("watch", {
-      url: "/watch",
+      url: "/watch/:name",
       templateUrl: "views/watch.html",
-      controller: "streamController"
+      controller: "watchController"
     })
     .state("sign-up", {
       url: "/sign-up",
@@ -60,6 +60,11 @@ var app = angular.module("basilApp", [
       url:"/stream",
       templateUrl: "views/stream.html",
       controller: "streamController"
+    })
+    .state("omelet", {
+      url:"/omelet",
+      templateUrl: "views/omelet.html",
+      controller: "omeletController"
     })
     .state("session", {
       url:"/session",
