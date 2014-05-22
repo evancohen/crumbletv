@@ -16,7 +16,7 @@
  */
 
 var responseService = require('../services/Response.js');
-var UserModel = require('../services/User.js');
+var userService = require('../services/User.js');
 
 module.exports = {
     
@@ -66,7 +66,7 @@ module.exports = {
   },
 
   me: function (request, response){
-    UserModel.currentUser(request).exec(function (error, user){
+    userService.currentUser(request).exec(function (error, user){
       if(error || typeof user === "undefined"){
         if(error == null){
           error = {message: "User is not authenticated", cake : false};
@@ -74,6 +74,18 @@ module.exports = {
         return responseService.forbidden(response, error);
       }
       return responseService.success(response, user);
+    });
+  },
+
+  live : function (request, responce){
+    UserService.getLiveShow(userId).exec(function (error, show){
+      if(error || typeof show === undefined){
+        if(error == null){
+          error = {message: "Show does not exist", cake : false};
+        }
+        return responseService.forbidden(response, error);
+      }
+      return responseService.success(response, show);
     });
   }
 

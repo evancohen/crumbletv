@@ -70,6 +70,7 @@ module.exports = {
 				return responseService.success(response, shows, "Video(s) found");
 			});
 	},
+
 	find: function (request, response){
 		Show.find().exec(function(error, shows){
 			if(error){
@@ -78,6 +79,7 @@ module.exports = {
 			return responseService.success(response, shows, "Video(s) found");
 		});
 	},
+
 	findme: function (request, response){
 		//This needs to get the user id from the cookie
 		//if (!id) {
