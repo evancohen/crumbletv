@@ -68,25 +68,49 @@ module.exports = {
   me: function (request, response){
     userService.currentUser(request).exec(function (error, user){
       if(error || typeof user === "undefined"){
+
         if(error == null){
           error = {message: "User is not authenticated", cake : false};
         }
-        return responseService.forbidden(response, error);
+
+        return responseService.error(response, error);
       }
       return responseService.success(response, user);
     });
   },
 
-  live : function (request, responce){
-    UserService.getLiveShow(userId).exec(function (error, show){
-      if(error || typeof show === undefined){
-        if(error == null){
-          error = {message: "Show does not exist", cake : false};
-        }
-        return responseService.forbidden(response, error);
+  //accepts a user name and checks to see if they are currently streaming
+  live : function (request, response){
+    var name = request.param('name');
+
+    User.findOneByName(name).exec(function (error, user){
+      if(error || typeof user === "undefined"){
+        return responseService.error(response, error);
       }
-      return responseService.success(response, show);
+      Show.findOne({live : true, owner: user.id}).exec(function (error, show){
+        if(error || typeof show === "undefined"){
+          var data = {owner : user.id, live : false};
+          return responseService.success(response, data);
+        }
+        return responseService.success(response, show);
+      })
     });
   }
+  /*
+{
+  "status": 200,
+  "message": "Success. Happy Cooking :)!",
+  "data": {
+    "owner": 8,
+    "title": "Untitled Stream",
+    "startTime": "2014-05-22T20:19:52.000Z",
+    "endTime": null,
+    "live": true,
+    "id": 18,
+    "createdAt": "2014-05-22T20:19:52.000Z",
+    "updatedAt": "2014-05-22T20:19:52.000Z"
+  }
+}
+  */
 
 };
