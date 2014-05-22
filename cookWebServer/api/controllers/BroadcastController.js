@@ -24,11 +24,11 @@ module.exports = {
       }
 
       try {
-        var user = yield User.findOne({ broadcastKey: parameters.key, name: parameters.name }).done(resume());
+        var user = yield User.findOne({ broadcastKey: parameters.key, name: parameters.name }).exec(resume());
         if (!user) {
           return responseService.error(response);
         }
-        var show = yield userService.getLiveShow(user.id).done(resume());
+        var show = yield userService.getLiveShow(user.id).exec(resume());
         if (!show) {
           return responseService.error(response);
         }

@@ -8,21 +8,19 @@ module.exports = {
    
     index: function (request, response) {
      
-        //var socket = request.socket;
+/*        //var socket = request.socket;
         var sails = require("sails");
         var io = sails.io;
 
-        console.log("Hello Chat");
+        req.socket.broadcast.to('roomName').emit('enter',{
+          type: 'arbitrary message',
+          description: 'mustard is not nearly as delicious in my oatmeal'
+        });*/
 
-        io.sockets.on('connection', function (socket) {
-            console.log('Connection established');
-            socket.emit('news', { hello: 'world' });
-            socket.on('my other event', function (data) {
-                console.log(data);
-            });
+        request.socket.emit('news', { hello: 'world' });
+        request.socket.on('my other event', function (data) {
+           console.log(data);
         });
-
-        request.view();
     }
   
 };
