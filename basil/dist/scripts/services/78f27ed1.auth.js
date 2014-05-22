@@ -30,7 +30,7 @@ function (Restangular, $q) {
 
       Restangular.one("user", "me").get().then(function(res){
         //$cookieStore.put("user.name", res.name);
-        if(!(typeof res === "undefined")){
+        if(!(typeof res === "undefined") && res.id){
           _self.name = res.name;
           deferred.resolve(res.name);
         }

@@ -1,4 +1,4 @@
-angular.module("basilApp").controller("menuController", ["$scope", "authService", "gravatarService", function ($scope, authService, gravatarService) {
+angular.module("basilApp").controller("menuController", ["$scope", "authService", "gravatarService", "notificationService", function ($scope, authService, gravatarService, notificationService) {
     $scope.name = false;
     $scope.avatar = false;
 
@@ -30,6 +30,21 @@ angular.module("basilApp").controller("menuController", ["$scope", "authService"
 		        });
 			}
     	}
+    });
+
+    $scope.$watch( function () { return notificationService.notification; }, function (notification) {
+        console.log("notification changed!");
+        if(!(typeof notification === "undefined") &&!(notification === null)){
+            $scope.notification = notification;
+            //if we don't yet have an avatar set we should
+            //console.log($scope.avatar, notification);
+            if($scope.avatar == false && notification != false){
+                //console.log("Getting avatar");
+                gravatarService.getGravatar(name).then(function(img){
+                    $scope.avatar = img;
+                });
+            }
+        }
     });
 
     //TODO: we want to monitor the users image too
