@@ -70,10 +70,10 @@ module.exports = {
       if(error || typeof user === "undefined"){
 
         if(error == null){
-          error = {message: "User is not authenticated", cake : false};
+          error = {message: "User is not authenticated", id : 0};
         }
 
-        return responseService.error(response, error);
+        return responseService.success(response, error);
       }
       return responseService.success(response, user);
     });
