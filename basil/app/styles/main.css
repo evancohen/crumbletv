@@ -20,6 +20,7 @@ a {
   margin-top: 8px;
   position: relative;
   left: -4px;
+  z-index: 99;
 }
 
 .jumbotron{
