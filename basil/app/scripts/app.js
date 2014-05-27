@@ -17,7 +17,10 @@ var app = angular.module("basilApp", [
       templateUrl: "views/main.html",
       controller: "mainController"
     })
-    .state("watch", {
+    /*
+    *  Found a bug in angular-ui-router where in Firefox the state can not be set to "watch" 
+    */
+    .state("watching", {
       url: "/watch/:name",
       templateUrl: "views/watch.html",
       controller: "watchController"

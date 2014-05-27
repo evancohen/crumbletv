@@ -16,6 +16,7 @@ a {
 
 .img-partial-circle.avatar {
   border-radius: 0 4px 4px 0;
+  border-top: 1px solid #3e8f3e;
   height: 34px;
   margin-top: 8px;
   position: relative;
