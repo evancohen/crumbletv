@@ -1,7 +1,8 @@
 angular.module("basilApp").service("authService", ["Restangular", "$q",
 function (Restangular, $q) {
 	var User = {
-    name : null
+    name : null,
+    self : null
   };
 
 	//with a default size of 80
@@ -33,6 +34,21 @@ function (Restangular, $q) {
         if(!(typeof res === "undefined") && res.id){
           _self.name = res.name;
           deferred.resolve(res.name);
+        }
+        deferred.reject('User is not logged in');
+      });
+      return deferred.promise;
+  };
+
+  User.getSelf = function() {
+    var _self = this;
+    var deferred = $q.defer();
+
+      Restangular.one("user", "me").get().then(function(res){
+        //$cookieStore.put("user.name", res.name);
+        if(!(typeof res === "undefined") && res.id){
+          _self.self = res;
+          deferred.resolve(res);
         }
         deferred.reject('User is not logged in');
       });
