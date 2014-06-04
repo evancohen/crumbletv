@@ -184,14 +184,12 @@ img {
 
 
 .container-main{
-	margin-top: 50px;
 	background: #fff;
 	color: #333;
 	padding: 45px 10px 15px 10px;
 }
 
 .container-front{
-  margin-top: 50px;
   padding-top: 0;
 }
 
@@ -207,6 +205,10 @@ img {
 	height: 420px;
 	background-attachment: scroll;
 	background-repeat: no-repeat;
+}
+
+.row-banner-user {
+  height: 250px;
 }
 
 @media (max-width: 991px){
@@ -316,4 +318,40 @@ ul.icon-list li {
 
 .icon.icon-vegetarian {
   background-image: url("/static/images/icon-vegetarian.png");
+}
+
+.profile h1 {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.profile .navigation {
+  height: 75px;
+}
+
+.profile-image {
+  position: relative;
+  top: -185px;
+}
+
+.profile-image img {
+  border: 4px solid;
+}
+
+@media (max-width: 991px){
+  .row-banner-user {
+    height: 200px;
+  }
+  .profile-image {
+    top: -75px;
+  }
+  .profile-image img {
+    width: 350px;
+  }
+}
+
+@media (max-width: 769px){
+  .row-banner-user {
+    height: 125px;
+  }
 }

@@ -48,7 +48,7 @@
     <!-- End Libraries -->
 
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/bootstrap-theme.css">
+    
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
@@ -65,12 +65,13 @@
                 <a class="btn btn btn-info navbar-btn" ui-sref="sign-up">Register</a>
             </div>
             <div ng-show="name" class="btn-group dropdown-toggle">
-                <button type="button" class="btn btn-success navbar-btn" data-toggle="dropdown">{{name}} <span class="caret"></span></button>
+                <button type="button" class="btn btn-success navbar-btn" data-toggle="dropdown">{{name}}<span class="caret"></span></button>
                 <ul class="dropdown-menu dropdown-menu-right" role="menu">
                     <li><a ui-sref="calender">Calender</a></li>
-                    <li><a href="#">Another action</a></li>
+                    <li><a ui-sref="calender">Another action</a></li>
                     <li><a href="#">Something else here</a></li>
                     <li class="divider"></li>
+                    <li><a ui-sref="profile">Profile</a></li>
                     <li><a ng-click="logout()">Log Out</a></li>
                 </ul>
             <a><img class="img-partial-circle avatar" ng-show="avatar" ng-src="{{avatar}}"></a>
@@ -136,6 +137,8 @@
     <script src="scripts/controllers/show.js"></script>
     <script src="scripts/controllers/recipe.js"></script>
     <script src="scripts/controllers/session.js"></script>
+    <script src="scripts/controllers/category.js"></script>
+    <script src="scripts/controllers/profile.js"></script>
     
     <script src="scripts/services/facet.js"></script>
     <script src="scripts/services/gravatar.js"></script>

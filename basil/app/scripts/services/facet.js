@@ -12,7 +12,7 @@ angular.module("basilApp").service("facetService", ["Restangular", "$q", functio
     getList().then(function (facets) {
       // facets = array
       deferred.resolve(_.groupBy(facets, function (facet) {
-        return facet.parent_facet;
+        return facet.parentFacet;
       }));
     });
 
@@ -25,7 +25,6 @@ angular.module("basilApp").service("facetService", ["Restangular", "$q", functio
 
   getListGroupedByParentFacet().then(function (facets) {
     parentFacets = _.indexBy(facets[null], 'id');
-    console.log(parentFacets);
   });
 
   return {

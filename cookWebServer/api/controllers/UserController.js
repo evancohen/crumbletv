@@ -27,6 +27,19 @@ module.exports = {
 
   _config: {},
 
+  index: function (request, response){
+    User.find().exec(function (error, users){
+      if (error || typeof users === "undefined") {
+        return responseService.error(response, error);
+      }
+      for(var i = 0; i < users.length; i++){
+        users[i].password = undefined;
+        users[i].broadcastKey = undefined;
+      }
+      return responseService.success(response, users);
+    });
+  },
+
   login: function (request, response) {
     var bcrypt = require('bcrypt-nodejs');
 
@@ -75,6 +88,7 @@ module.exports = {
 
         return responseService.success(response, error);
       }
+      user.password = undefined;
       return responseService.success(response, user);
     });
   },

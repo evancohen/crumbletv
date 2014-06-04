@@ -1,0 +1,15 @@
+<div class="container container-main">
+	<div class="row">
+		<div class="col-md-12">
+			<ul ng-repeat="facet in facetParents">
+				<li>{{facet}}</li>
+			</ul>
+			<div ng-repeat="group in facetGroupedList">
+				{{group}}
+				<ul ng-repeat="facet in group">
+					<li>{{facet}}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
