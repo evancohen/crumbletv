@@ -27,7 +27,7 @@ module.exports = {
 
   _config: {},
 
-  index: function (request, response){
+/*  index: function (request, response){
     User.find().exec(function (error, users){
       if (error || typeof users === "undefined") {
         return responseService.error(response, error);
@@ -38,7 +38,7 @@ module.exports = {
       }
       return responseService.success(response, users);
     });
-  },
+  },*/
 
   login: function (request, response) {
     var bcrypt = require('bcrypt-nodejs');
