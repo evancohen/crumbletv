@@ -16,7 +16,7 @@ angular.module("basilApp").controller("signUpController", [
     		password : $scope.password
     	}
 
-        if(name.indexOf(' ') >= 0){
+        if(data.name.indexOf(' ') >= 0){
             alert("Spaces are not aloud!");
             return false;
         }
