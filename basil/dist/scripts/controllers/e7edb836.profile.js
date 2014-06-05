@@ -3,10 +3,10 @@ angular.module("basilApp").controller("profileController", [
   "authService",
   "gravatarService",
   function ($scope, authService, gravatarService) {
-    $scope.banner = "http://127.0.0.1:9000/static/images/banner.jpg";
+    $scope.banner = "/static/images/banner.jpg";
     authService.getSelf().then(function (self){
       $scope.self = self;
-      gravatarService.getGravatar(name, 500).then(function(img){
+      gravatarService.getGravatar(self.name, 500).then(function(img){
         $scope.avatar = img;
       });
     }, function (err){
