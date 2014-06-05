@@ -50,6 +50,7 @@
     <!-- build:css({.tmp,app}) styles/main.css -->
     
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/calendar.css" />
     <!-- endbuild -->
   </head>
   <body ng-app="basilApp">
@@ -67,7 +68,7 @@
             <div ng-show="name" class="btn-group dropdown-toggle">
                 <button type="button" class="btn btn-success navbar-btn" data-toggle="dropdown">{{name}}<span class="caret"></span></button>
                 <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                    <li><a ui-sref="calendar">Calender</a></li>
+                    <li><a ui-sref="calendar">Calendar</a></li>
                     <li><a ui-sref="category">Browse</a></li>
                     <li><a ui-sref="profile">Profile</a></li>
                     <li class="divider"></li>
