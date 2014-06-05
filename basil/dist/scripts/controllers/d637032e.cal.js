@@ -248,7 +248,7 @@ angular.module('ui.calendar', [])
           scope.calendar.fullCalendar('updateEvent', event);
         };
 
-        eventSourcesWatcher.subscribe(scope);
+        //eventSourcesWatcher.subscribe(scope);
         eventsWatcher.subscribe(scope, function(newTokens, oldTokens) {
           if (sourcesChanged === true) {
             sourcesChanged = false;
