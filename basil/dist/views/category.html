@@ -1,1 +1,8 @@
-<div class="container container-main"><div class="row"><div class="col-md-12"><ul ng-repeat="facet in facetParents"><li>{{facet}}</li></ul><div ng-repeat="group in facetGroupedList">{{group}}<ul ng-repeat="facet in group"><li>{{facet}}</li></ul></div></div></div></div>
+<div class="container container-main"><div class="row margin-top"><div class="col-md-2"><h2>Occasions</h2><ul ng-repeat="facet in occasions"><li>{{facet.name}}</li></ul></div><div class="col-md-2"><h2>Diets</h2><ul ng-repeat="facet in diets"><li>{{facet.name}}</li></ul></div><div class="col-md-2"><h2>Courses</h2><ul ng-repeat="facet in courses"><li>{{facet.name}}</li></ul></div><div class="col-md-2"><h2>Tastes</h2><ul ng-repeat="facet in tastes"><li>{{facet.name}}</li></ul></div><div class="col-md-2"><h2>Techniques</h2><ul ng-repeat="facet in techniques"><li>{{facet.name}}</li></ul></div><div class="col-md-2"><h2>Allergies</h2><ul ng-repeat="facet in allergies"><li>{{facet.name}}</li></ul></div></div><div class="row"><div class="col-md-12"><h2>Cuisines</h2></div></div><div class="row"><div class="col-md-2"><ul ng-repeat="facet in cuisines | limitTo: 10"><li>{{facet.name}}</li></ul></div><div class="col-md-2"><ul ng-repeat="facet in cuisines | startFrom: 10 | limitTo: 10"><li>{{facet.name}}</li></ul></div><div class="col-md-2"><ul ng-repeat="facet in cuisines | startFrom: 20 | limitTo: 10"><li>{{facet.name}}</li></ul></div><div class="col-md-2"><ul ng-repeat="facet in cuisines | startFrom: 30 | limitTo: 10"><li>{{facet.name}}</li></ul></div><div class="col-md-2"><ul ng-repeat="facet in cuisines | startFrom: 40 | limitTo: 10"><li>{{facet.name}}</li></ul></div></div></div><!-- <ul ng-repeat="facet in facetParents">
+	<li>{{facet.name}}</li>
+</ul>
+<div ng-repeat="group in facetGroupedList">
+	<ul ng-repeat="facet in group">
+		<li>{{facet.name}}</li>
+	</ul>
+</div> -->

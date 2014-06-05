@@ -23,8 +23,22 @@ angular.module("basilApp").controller("categoryController", [
       $scope.allergies = facetGroupedList["7"];
     });
 
-    //$scope.getParentFacet = facetService.getParentFacet();
+    $scope.getParentFacet = function(id){
+      facetService.getParentFacet(id);
+    }
  }]);
+
+angular.module("basilApp").filter('startFrom', function() {
+    return function(input, idx) {
+        if(input){
+          var i=idx, len=input.length, result = [];
+          for (; i<len; i++)
+              result.push(input[i]);
+        }
+        return result;
+    };
+});
+
 /*
 1 Occasions
 2 Diets
