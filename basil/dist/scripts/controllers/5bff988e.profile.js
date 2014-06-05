@@ -6,7 +6,7 @@ angular.module("basilApp").controller("profileController", [
     $scope.banner = "/static/images/banner.jpg";
     authService.getSelf().then(function (self){
       $scope.self = self;
-      gravatarService.getGravatar(self.name, 500).then(function(img){
+      gravatarService.getGravatar(self.name, 250).then(function(img){
         $scope.avatar = img;
       });
     }, function (err){
