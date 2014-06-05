@@ -26,5 +26,12 @@ module.exports = {
    */
   _config: {}
 
-  
+  	/*mine : function(request, response){
+  		Subscription.find().where({subscriberPayee: id}).exec(function(error, subs){
+			if(error){
+				return responseService.error(response, error); 
+			}
+			return responseService.success(response, subs, "Subscription(s) found");
+		});
+	}*/
 };

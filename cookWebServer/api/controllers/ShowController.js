@@ -40,9 +40,9 @@ module.exports = {
 	},
 	*/
 
-  current: function(request, response){
+	current: function(request, response){
 
-  },
+	},
 
 	//find a list of shows by a specific recepie
 	recipie: function (request, response){

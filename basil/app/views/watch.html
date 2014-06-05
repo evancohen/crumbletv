@@ -5,17 +5,18 @@
 			<a id="videoPlayer" class="videoPlayer" data-name="streamName"></a>
 			<div class="media">
 			  <div class="pull-left">
-			    <img class="media-object" src="http://placehold.it/100x100" alt="image">
+			    <img class="media-object" ng-src="{{avatar}}" alt="image">
 			  </div>
 			  <div class="media-body">
-			    <h4 class="media-heading">Streamer Name</h4>
-			    <p>Some stuff here about how this is a video and whatnot</p>
+			    <h4 class="media-heading">{{streamName}}
+			    	<button class="btn btn-sm btn-danger pull-right">Unsubscribe</button></h4>
+			    <p>This user has not entered a bio.</p>
 			  </div>
 			</div>
 		</div>
 		<div class="col-md-4">
 			<div class="chat">
-
+				<iframe ng-src="{{chat}}"></iframe>
 			</div>
 		</div>
 	</div>
@@ -47,7 +48,7 @@
 			<div class="dec-box">
 				<div class="dec-box-title">Additional Tools</div>
 				<div class="dec-box-content">
-
+					<p>No additional tools required.</p>
 				</div>
 			</div>
 		</div>

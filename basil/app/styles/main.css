@@ -269,9 +269,8 @@ img {
 }
 
 .dec-box .dec-box-content {
-  padding-top: 10px;
+  padding: 10px;
 }
-
 .dec-box .dec-box-content ol {
   padding-bottom: 5px;
 }
@@ -329,6 +328,10 @@ ul.icon-list li {
   height: 75px;
 }
 
+.profile .navigation .col-md-12 {
+  height: 90px;
+}
+
 .profile-image {
   position: relative;
   top: -185px;
@@ -346,7 +349,7 @@ ul.icon-list li {
     top: -75px;
   }
   .profile-image img {
-    width: 350px;
+    width: 145px;
   }
 }
 
@@ -354,4 +357,14 @@ ul.icon-list li {
   .row-banner-user {
     height: 125px;
   }
+
+}
+
+.chat{
+  background: lightgray;
+}
+.chat iframe{
+  width: 100%;
+  border: none;
+  height: 600px;
 }

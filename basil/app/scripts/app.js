@@ -6,8 +6,12 @@ var app = angular.module("basilApp", [
   "ui.router",
   "restangular",
   "ui.calendar"
-]).config(function ($stateProvider, $urlRouterProvider) {
+]).config(function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
   // Unmatched state goes to root
+  $sceDelegateProvider.resourceUrlWhitelist([
+   'self',
+   "http://tlk.io/*"
+  ]);
 
   $urlRouterProvider.otherwise("/");
 
