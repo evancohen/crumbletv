@@ -83,10 +83,10 @@ var app = angular.module("basilApp", [
       templateUrl: "views/stream.html",
       controller: "streamController"
     })
-    .state("omelet", {
-      url:"/omelet",
-      templateUrl: "views/omelet.html",
-      controller: "omeletController"
+    .state("chat", {
+      url:"/chat/:name",
+      templateUrl: "views/chat.html",
+      controller: "chatController"
     })
     .state("session", {
       url:"/session",

@@ -1,6 +1,6 @@
 angular.module("basilApp").controller("signUpController", [
 	"$scope", 
-  "$state",
+    "$state",
 	"Restangular", 
 	function ($scope, $state, Restangular) {
     //Things will happen here

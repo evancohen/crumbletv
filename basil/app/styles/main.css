@@ -274,11 +274,6 @@ img {
   height: 40px;
 }
 
-.chat {
-  background: darkgrey;
-  width: 100%;
-  height: 600px;
-}
 
 .dec-box {
   box-shadow: 3px 3px 10px 0px #999; 
@@ -386,10 +381,21 @@ ul.icon-list li {
 }
 
 .chat{
-  background: lightgray;
+  width: 100%;
+  height: 600px;
 }
 .chat iframe{
   width: 100%;
   border: none;
   height: 600px;
+}
+
+.chat iframe.grey{
+  background: lightgray;
+}
+
+.chat .chat-deadicated {
+  width: 102%;
+  margin-left: -15px;
+  margin-right: -15px;
 }
