@@ -16,10 +16,10 @@ angular.module("basilApp").controller("signUpController", [
     		password : $scope.password
     	}
 
-        if(data.name.indexOf(' ') >= 0){
+        /*if(data.name.indexOf(' ') >= 0){
             alert("Spaces are not aloud!");
             return false;
-        }
+        }*/
 
     	Restangular.all("User").post(data).then(function(data){
     		console.log(data);
