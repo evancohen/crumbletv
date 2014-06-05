@@ -249,6 +249,31 @@ img {
   height: 400px;
 }
 
+.vid-thumb-wrapper {
+  position: relative;
+
+}
+
+.vid-thumb-wrapper span {
+  opacity: .9;
+  position: absolute;
+  top: 35%;
+  left: 42%;
+  width: 100px;
+  height: 100px;
+  z-index: 100;
+  background: transparent url('/static/images/play.png') no-repeat;
+  background-position: 0 0;
+  background-size: cover;
+}
+
+.vid-thumb-wrapper-sm span {
+  top: 30px;
+  left: 30px;
+  width: 40px;
+  height: 40px;
+}
+
 .chat {
   background: darkgrey;
   width: 100%;

@@ -1,8 +1,8 @@
 /*** Docs ***/
-.directives-calendar .well {
+#directives-calendar .well {
 	color: black !important;
 }
-.directives-calendar .close {
+#directives-calendar .close {
   float: right;
   font-size: 20px;
   font-weight: bold;
@@ -13,8 +13,8 @@
   filter: alpha(opacity=20);
 }
 
-.directives-calendar .close:hover,
-.directives-calendar .close:focus {
+#directives-calendar .close:hover,
+#directives-calendar .close:focus {
   color: #000000;
   text-decoration: none;
   cursor: pointer;
@@ -22,7 +22,7 @@
   filter: alpha(opacity=40);
 }
 
-.directives-calendar button.close {
+#directives-calendar button.close {
   padding: 0;
   cursor: pointer;
   background: transparent;
@@ -33,8 +33,8 @@
   background-position: -312px 0;
 }
 
-.directives-calendar [class^="icon-"],
-.directives-calendar [class*=" icon-"] {
+#directives-calendar [class^="icon-"],
+#directives-calendar [class*=" icon-"] {
   display: inline-block;
   width: 14px;
   height: 14px;
@@ -46,16 +46,16 @@
   background-repeat: no-repeat;
 }
 
-.directives-calendar #gimmemargin {
+#directives-calendar #gimmemargin {
 	margin-left: 15%;
 }
 
-.directives-calendar #datetimeform {
+#directives-calendar #datetimeform {
 	visibility: hidden;
 }
 
 /* Allows .modal-backdrop to remain on the page without blocking */
-.directives-calendar .modal-backdrop {
+#directives-calendar .modal-backdrop {
 	overflow: hidden;
 	height: 0;
 	-webkit-transition: opacity 0.15s linear, height 0 0.2s linear;
@@ -64,7 +64,7 @@
 	-o-transition: opacity 0.15s linear, height 0 0.2s linear;
 	transition: opacity 0.15s linear, height 0 0.2s linear;
 }
-.directives-calendar .modal-backdrop.in {
+#directives-calendar .modal-backdrop.in {
 	height: 100%;
 	-webkit-transition: opacity 0.15s linear;
 	-moz-transition: opacity 0.15s linear;
@@ -75,31 +75,31 @@
 
 /*** Calendar ***/
 
-.directives-calendar .calAlert{
+#directives-calendar .calAlert{
 	width: 595px; float: right; margin-bottom: 5px;
 }
 
-.directives-calendar .calXBtn{
+#directives-calendar .calXBtn{
 	float: right; margin-top: -5px; margin-right: -5px;
 }
 
-.directives-calendar .calWell{
+#directives-calendar .calWell{
 	float: left; margin-bottom: 40px;
 }
 
-.directives-calendar .fc-event.openSesame .fc-event-skin{
+#directives-calendar .fc-event.openSesame .fc-event-skin{
 	background-color: rgb(229, 229, 11);
 	color: black;
 }
 
-.directives-calendar .fc-event.customFeed .fc-event-skin{
+#directives-calendar .fc-event.customFeed .fc-event-skin{
 	background-color: rgb(132, 222, 175);
 	color: black;
 }
 
-.directives-calendar .fc-state-highlight { /* <td> today cell */ /* TODO: add .fc-today to <th> */
+#directives-calendar .fc-state-highlight { /* <td> today cell */ /* TODO: add .fc-today to <th> */
 	color: red;
 	}
-.directives-calendar .calTools{
+#directives-calendar .calTools{
 	margin-bottom: 10px;
 }
