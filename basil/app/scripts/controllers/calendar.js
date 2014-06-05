@@ -59,15 +59,15 @@ angular.module('basilApp').controller("calendarController", ["$scope", "Restangu
         });
         /* alert on eventClick */
         $scope.alertOnEventClick = function( event, allDay, jsEvent, view ){
-            $scope.alertMessage = (event.title + ' was clicked ');
+            //$scope.alertMessage = (event.title + ' was clicked ');
         };
         /* alert on Drop */
-         $scope.alertOnDrop = function(event, dayDelta, minuteDelta, allDay, revertFunc, jsEvent, ui, view){
-           $scope.alertMessage = ('Event Droped to make dayDelta ' + dayDelta);
+        $scope.alertOnDrop = function(event, dayDelta, minuteDelta, allDay, revertFunc, jsEvent, ui, view){
+           //$scope.alertMessage = ('Event Droped to make dayDelta ' + dayDelta);
         };
         /* alert on Resize */
         $scope.alertOnResize = function(event, dayDelta, minuteDelta, revertFunc, jsEvent, ui, view ){
-           $scope.alertMessage = ('Event Resized to make dayDelta ' + minuteDelta);
+           //$scope.alertMessage = ('Event Resized to make dayDelta ' + minuteDelta);
         };
         /* add and removes an event source of choice */
         $scope.addRemoveEventSource = function(sources,source) {
@@ -84,14 +84,28 @@ angular.module('basilApp').controller("calendarController", ["$scope", "Restangu
         };
         /* add custom event*/
         $scope.addEvent = function() {
-          $scope.events.push({
-            title: 'Open Sesame',
-            start: new Date(y, m, 28),
-            end: new Date(y, m, 29),
-            className: ['openSesame'],
-            editable: true
-          });
+          //add html
+          //add html on click
+          document.getElementById("datetimeform").style.visibility = "visible";
         };
+
+        $scope.reallyAddEvent = function() {
+          $title = document.getElementById('titleinput').value;
+          $start = document.getElementById('starttimeinput').value;
+          $end = document.getElementById('endtimeinput').value;
+          $scope.events.push({
+            title: $title, //$title
+            start: $start, //$startDate
+            end: $end, //$endDate
+            allDay: false
+          });
+          document.getElementById('titleinput').value = "";
+          document.getElementById('starttimeinput').value = "";
+          document.getElementById('endtimeinput').value = "";
+          
+        }
+
+
         /* remove event */
         $scope.remove = function(index) {
           $scope.events.splice(index,1);
